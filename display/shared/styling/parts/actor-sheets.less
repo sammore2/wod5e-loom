@@ -1,0 +1,1000 @@
+:root {
+  --xp-gain-icon: url("/marketplace/rulesets/wod5e/assets/icons/sheet/exp-gain.webp");
+  --xp-spend-icon: url("/marketplace/rulesets/wod5e/assets/icons/sheet/exp-spend.webp");
+  --xp-neutral-icon: url("/marketplace/rulesets/wod5e/assets/icons/sheet/exp-neutral.webp");
+}
+
+/* The actor sheet itself */
+.actor.sheet:not(.minimized):not(.group) {
+  min-width: 850px;
+  min-height: 300px;
+}
+
+.actor.sheet {
+  position: fixed;
+  overflow: hidden;
+  border-radius: 0;
+
+  .align-center {
+    justify-content: center;
+  }
+
+  .window-content {
+    padding: 0;
+    padding-bottom: 20px;
+
+    .actor-header,
+    .tab {
+      margin-left: 45px;
+    }
+
+    section.tab {
+      overflow-y: scroll;
+      align-items: flex-start;
+      height: 100%;
+    }
+  }
+
+  /* Input and resource fields */
+  prose-mirror {
+    min-width: 100%;
+    resize: vertical;
+
+    .editor-content {
+      max-width: 100%;
+    }
+  }
+
+  input,
+  .resource {
+    display: flex;
+  }
+
+  .resource {
+    padding: 5px;
+    position: relative;
+    place-content: center;
+    min-height: 30px;
+
+    .data-item {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 85%;
+    }
+
+    .search-data-item {
+      position: absolute;
+      right: 23px;
+    }
+
+    .edit-data-item,
+    .add-data-item {
+      position: absolute;
+      right: 3px;
+    }
+
+    .remove-data-item {
+      position: absolute;
+      right: 23px;
+    }
+  }
+
+
+  /* Limited Sheet */
+  section[data-application-part="limited"] {
+    overflow-y: scroll;
+
+    .limited-actor-header {
+      display: flex;
+      flex-grow: 0;
+
+      .charname {
+        font-size: 20pt;
+      }
+
+      .header-content {
+        flex-grow: 1;
+        text-align: center;
+        margin-top: auto;
+
+        .profile-img {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+
+    .description-content {
+      align-self: flex-start;
+    }
+
+    .limited-description-body {
+      padding: 10px;
+    }
+  }
+
+  /* Actor Header */
+  .actor-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    flex-grow: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0 5px 0 5px;
+
+    input,
+    .resource {
+      margin-bottom: 5px;
+      min-height: 30px;
+    }
+
+    .header-profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+
+      .name-field {
+        width: 250px;
+        position: absolute;
+        height: 100%;
+        align-items: flex-end;
+      }
+
+      .name-field:not(.clickthrough) {
+        height: 35px;
+        bottom: 0;
+      }
+
+      .clickthrough {
+        pointer-events: none;
+      }
+    }
+
+    .header-profile-img {
+      margin-bottom: 10px;
+      width: 240px;
+      height: 200px;
+
+      img {
+        height: fit-content;
+        cursor: pointer;
+        max-width: 240px;
+        max-height: 200px;
+        min-width: 50px;
+        min-height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    .charname:not(input) {
+      font-size: 35px;
+      font-family: "Modesto Condensed", serif;
+      width: 100%;
+      text-align: center;
+      backdrop-filter: blur(2px);
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: rgb(0, 0, 0);
+    }
+
+    input.charname {
+      font-size: 30px;
+      text-align: center;
+    }
+
+    .header-fields {
+      display: flex;
+      width: 100%;
+      align-self: flex-end;
+
+      .header-fields-left,
+      .header-fields-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+
+        .field-section {
+          margin-bottom: 5px;
+          width: 250px;
+
+          .shared-row {
+            max-width: 125px;
+            margin-left: 2px;
+            margin-right: 2px;
+          }
+        }
+      }
+
+      .header-fields-left {
+        padding-right: 10px;
+      }
+
+      .header-fields-right {
+        padding-left: 10px;
+      }
+    }
+
+    .field-header {
+      justify-content: center;
+      margin-bottom: 0;
+    }
+  }
+
+  /* Experience Tab */
+  .tab[data-tab="experience"] {
+    .experience-trackers {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+
+      .tracker {
+        margin-bottom: 10px;
+        text-wrap: nowrap;
+
+        .exp-tracker {
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+
+        input {
+          max-width: 50px;
+          text-align: center;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .field-header {
+          font-size: 15pt;
+        }
+      }
+    }
+
+    .xp-header {
+      font-weight: bold;
+      font-size: 14pt;
+    }
+
+    .xp-icon {
+      width: 20px;
+      max-width: 20px;
+      height: 20px;
+      max-height: 20px;
+      margin-right: 10px;
+      background-size: cover;
+      border-radius: 50%;
+      padding: 2px;
+    }
+
+    .xp-spend-icon {
+      content: var(--xp-spend-icon);
+    }
+
+    .xp-gain-icon {
+      content: var(--xp-gain-icon);
+    }
+
+    .xp-neutral-icon {
+      content: var(--xp-neutral-icon);
+    }
+
+    .xp-amount {
+      text-align: right;
+      min-width: 50px;
+    }
+
+    .xp-amount:not(.xp-header-label) {
+      flex-grow: 0;
+    }
+
+    .xp-controls {
+      text-align: right;
+    }
+
+    .spend-experience,
+    .add-experience {
+      font-size: 13pt;
+      margin-left: auto;
+      font-weight: bold;
+    }
+  }
+
+  /* Features tab */
+  .tab[data-tab="features"] {
+    .character-details {
+      max-width: 400px;
+      margin-left: 10px;
+      margin-right: 10px;
+      align-self: flex-start;
+
+      .field-header {
+        font-size: 16pt;
+      }
+
+      .detail-row {
+        width: 100%;
+        margin-bottom: 5px;
+
+        .shared-row {
+          margin-left: 2px;
+          margin-right: 2px;
+        }
+      }
+
+      .description-field {
+        width: -webkit-fill-available;
+        width: -moz-available;
+
+        .resource-label {
+          flex-wrap: nowrap;
+          display: inline-flex;
+        }
+
+        .description-content {
+          text-align: initial;
+        }
+      }
+    }
+
+    .features-list {
+      .category {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+
+  /* Equipment Tab */
+  .tab[data-tab="equipment"] {
+    .equipment-notes {
+      max-width: 400px;
+      margin-left: 10px;
+      margin-right: 10px;
+      align-self: flex-start;
+
+      .field-header {
+        font-size: 16pt;
+      }
+    }
+
+    .equipment-list {
+      .category {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+
+  /* Biography Tab */
+  .tab[data-tab="biography"] {
+    .detailed-section {
+      align-self: flex-start;
+      margin-left: auto;
+      margin-right: auto;
+
+      .details-header {
+        text-align: center;
+      }
+
+      .detail {
+        margin-left: 10px;
+        margin-right: 10px;
+        text-align: center;
+      }
+
+      input {
+        text-align: center;
+      }
+
+      input.number {
+        min-width: 100px;
+      }
+    }
+
+    .descriptive-section {
+      margin-top: 10px;
+      align-items: flex-start;
+
+      .field-header {
+        font-size: 16pt;
+      }
+
+      .description-field {
+        margin-bottom: 5px;
+        padding: 5px;
+      }
+
+      .resource-label {
+        flex-wrap: nowrap;
+        display: inline-flex;
+      }
+    }
+  }
+
+  /* Notes Tab */
+  .tab[data-tab="notepad"] {
+    .note-container {
+      padding: 3px;
+      margin: 5px;
+      width: 50%;
+      align-self: flex-start;
+
+      .field-header {
+        font-size: 16pt;
+      }
+    }
+  }
+
+  /* Limited View Toggle Button */
+  .toggle-limited {
+    font-size: 13pt;
+    margin-left: 5px;
+    margin-top: 3px;
+    cursor: pointer;
+  }
+
+  /* Power Descriptions */
+  .discipline-description,
+  .edge-description,
+  .gift-description {
+    width: 100%;
+    resize: none;
+    font-family: Vollkorn, serif;
+    line-height: 1.6em;
+    word-spacing: 0.05em;
+    font-size: 1em;
+    border: 0;
+    height: auto;
+    font-weight: 500;
+    margin-bottom: -5px;
+  }
+
+  /* Sheet Banner */
+  .sheet-banner {
+    text-align: center;
+    margin: -10px -10px 0 0;
+    font-size: 14pt;
+    padding: 3px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    .actor-type-field {
+      text-align: left;
+      padding-left: 5px;
+    }
+
+    .sheet-label {
+      text-align: right;
+      padding-right: 5px;
+    }
+  }
+
+  .resource-plus,
+  .resource-minus {
+    cursor: pointer;
+    flex-grow: 0;
+  }
+
+  .resource-plus {
+    margin-left: 5px;
+  }
+
+  .resource-minus {
+    margin-right: 5px;
+  }
+
+  .lock-btn {
+    max-width: 40px;
+    height: 40px;
+    width: 40px;
+    align-self: center;
+  }
+
+  .lock-btn i {
+    margin: auto;
+  }
+
+  /* Sheet tabs */
+  section .tab {
+    padding: 8px;
+  }
+
+  .tabs-container {
+    position: absolute;
+    height: 100%;
+    left: -2px;
+    overflow: hidden;
+  }
+
+  .sheet-tabs {
+    display: flex !important;
+    flex-direction: column !important;
+    height: calc(100% - 30px) !important;
+    align-items: flex-start !important;
+    width: 50px !important;
+    justify-content: flex-start !important;
+    overflow: hidden;
+    gap: unset;
+    border-top: 0;
+    border-bottom: 0;
+
+    /* Force-override for the LockView Module */
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    > [data-tab] {
+      display: flex;
+      height: 50px;
+      width: 50px;
+      cursor: pointer;
+      justify-content: center;
+      align-items: center;
+      font-size: 15pt;
+      padding: 5px;
+    }
+
+    > [data-tab] .navicon {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    > [data-tab] .navicon i,
+    > [data-tab] .navicon .wod5e-symbol {
+      width: 100%;
+    }
+  }
+
+  /* Basic Item List Layout */
+  .item-list {
+    align-self: flex-start;
+
+    .category {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 425px;
+      margin: 5px;
+      padding: 5px;
+
+      .item-description {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      .item {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+
+        .item-image {
+          flex: 0 0 25px;
+          max-width: 25px;
+
+          img {
+            border-radius: 50%;
+            padding: 2px;
+          }
+        }
+
+        .item-header {
+          .item-name {
+            font-size: 16pt;
+            font-weight: bold;
+          }
+
+          .item-controls {
+            text-align-last: right;
+          }
+        }
+
+        .item-name {
+          flex: 1 1 auto !important;
+          min-width: 0 !important;
+          text-align: left !important;
+          padding: 3px 0 !important;
+          margin-left: 6px !important;
+          margin-right: 8px !important;
+          text-overflow: ellipsis !important;
+          overflow: hidden !important;
+          white-space: nowrap !important;
+        }
+
+        .dot-tracker {
+          flex: 0 0 auto !important;
+          display: flex !important;
+          align-items: center !important;
+          margin-left: auto !important;
+          white-space: nowrap !important;
+        }
+
+        .item-controls {
+          flex: 0 0 auto !important;
+          display: flex !important;
+          align-items: center !important;
+          gap: 4px !important;
+          margin-left: 8px !important;
+          text-align: right !important;
+
+          .item-control {
+            margin-left: 3px;
+          }
+        }
+      }
+    }
+  }
+
+  /* Apply these to all "items," even ones not in "item-list"s */
+  .item-header {
+    .item-name {
+      font-size: 16pt;
+      font-weight: bold;
+    }
+
+    .item-controls {
+      text-align-last: right;
+    }
+  }
+
+  /* For things like conditions which don't fall under an item-header */
+  .item .item-controls {
+    flex-flow: row;
+    display: flex;
+  }
+
+  .item-name {
+    text-wrap: nowrap;
+  }
+
+  .item-image img {
+    border-radius: 50%;
+    padding: 2px;
+    min-width: 25px;
+    min-height: 25px;
+    max-width: 25px;
+    max-height: 25px;
+  }
+
+  /* General Resources */
+  .resource-header {
+    display: block;
+    font-weight: 200;
+    font-size: 20pt;
+    width: 90%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-wrap: nowrap;
+  }
+
+  /* Statistics Page */
+  .stats-container {
+    display: flex;
+    flex-flow: column;
+    margin: 5px;
+
+    .stats-list {
+      display: flex;
+      flex-flow: column;
+      flex-grow: 1;
+      flex-shrink: 0;
+      padding-left: 15px;
+      padding-right: 15px;
+
+      .attribute,
+      .skill {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .specialty {
+    position: relative;
+    top: -5px;
+    font-size: 10pt;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .stats-content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+
+    .skills-attributes,
+    .side-panel {
+      flex: 1 1 auto;
+    }
+
+    .side-panel {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 300px;
+
+      .items-list {
+        flex: 1 1 auto;
+        padding: 5px;
+      }
+
+      .item-image {
+        max-width: 30px;
+
+        img {
+          border-radius: 0;
+        }
+      }
+
+      .item-name {
+        flex-grow: 1;
+        margin-left: 5px;
+        margin-right: 5px;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .item-controls {
+        text-align-last: right;
+        max-width: 35px;
+      }
+    }
+
+    .edit-skill {
+      margin-left: -15px;
+    }
+
+    .stats-container {
+      .skill-attribute-input {
+        height: 20px;
+      }
+
+      .stats-footer {
+        text-align: center;
+      }
+    }
+  }
+}
+
+/* Suppressed view for a condition item */
+.suppressed {
+  filter: grayscale(1) opacity(0.8);
+}
+
+.field-header.big-header {
+  font-size: 16pt;
+}
+
+/* Vampire Font in headers and the sheet banner */
+.vampire-font-headers.en {
+  .sheet-banner,
+  .field-header,
+  .resource-header,
+  .specialty {
+    font-family: "vampireRevised", "sans-serif";
+  }
+
+  .item-header {
+    .item-name {
+      font-family: "vampireRevised", "sans-serif";
+    }
+  }
+}
+
+/* LoomVTT fix for absolute positioning of tabs */
+.actor.sheet .loom-window-body,
+.actor.sheet form {
+  position: relative;
+}
+
+/* LoomVTT fix: Move tabs outside the window on the left (wod6e style) */
+.actor.sheet.loom-window {
+  overflow: visible !important;
+}
+.actor.sheet .loom-window-body {
+  position: relative;
+  overflow: visible !important;
+}
+
+/* LoomVTT fix: Make sure the body has the dark background if the actor theme is dark */
+.theme-dark .actor.sheet .loom-window-body,
+.wod-vampire-theme .actor.sheet .loom-window-body {
+  background: var(--actor-background-dark) repeat;
+  color: var(--system-dark-color-4);
+}
+
+/* LoomVTT fix: Move tabs outside the window on the left */
+.actor.sheet .sheet-tabs.tabs-container {
+  position: absolute !important;
+  left: -55px !important;
+  top: 40px !important; /* Push down a bit so it aligns with the header */
+  width: 50px !important;
+  height: calc(100% - 40px) !important;
+  overflow: visible !important;
+  background: transparent !important;
+  border: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 0 !important;
+}
+
+/* LoomVTT Fix: Hide inactive tabs since jQuery .hide() was removed */
+.actor.sheet .sheet-body .tab {
+  display: none;
+}
+.actor.sheet .sheet-body .tab.active {
+  display: block;
+}
+
+/* LoomVTT fix: Override native .loom-window .tabs so icons center properly */
+.actor.sheet .loom-window-body .sheet-tabs.tabs-container.tabs {
+    align-items: center !important;
+    justify-content: flex-start !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-wrap: nowrap !important;
+    overflow: visible !important;
+    background: transparent !important;
+}
+
+/* Ensure the links (icons) inside the tabs take full width and center */
+.actor.sheet .loom-window-body .sheet-tabs.tabs-container.tabs .item {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 10px 0 !important;
+}
+
+/* LoomVTT fix: Override ALL conflicting rules for tabs */
+.actor.sheet.loom-window .loom-window-body .tabs-container.sheet-tabs.tabs {
+  position: absolute !important;
+  left: -55px !important;
+  top: 40px !important;
+  width: 50px !important;
+  height: calc(100% - 40px) !important;
+  overflow: visible !important;
+  background: transparent !important;
+  border: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  gap: 2px !important;
+}
+
+/* Bulletproof centering for the icons */
+.actor.sheet.loom-window .loom-window-body .tabs-container.sheet-tabs.tabs .item,
+.actor.sheet.loom-window .loom-window-body .tabs-container.sheet-tabs.tabs .tab-link {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 40px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center !important;
+}
+
+/* Force centering of the tabs container itself and its children */
+.actor.sheet.loom-window .loom-window-body .tabs-container.sheet-tabs.tabs {
+  align-items: center !important;
+}
+
+.actor.sheet.loom-window .loom-window-body .tabs-container.sheet-tabs.tabs .item,
+.actor.sheet.loom-window .loom-window-body .tabs-container.sheet-tabs.tabs a.item,
+.actor.sheet.loom-window .loom-window-body .tabs-container.sheet-tabs.tabs .tab-link {
+  align-items: center !important;
+  justify-content: center !important;
+  display: flex !important;
+  text-align: center !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.actor.sheet.loom-window .loom-window-body .tabs-container.sheet-tabs.tabs .item i,
+.actor.sheet.loom-window .loom-window-body .tabs-container.sheet-tabs.tabs a.item i {
+  margin: 0 auto !important;
+  display: block !important;
+  text-align: center !important;
+}
+
+/* Fix for .navicon to center the icons perfectly */
+.actor.sheet.loom-window .sheet-tabs > [data-tab] .navicon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important; /* This centers it horizontally */
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Also ensure the [data-tab] link itself is centered in the bar */
+.actor.sheet.loom-window .sheet-tabs > [data-tab] {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+/* The ultimate centering rule */
+.actor.sheet.loom-window .sheet-tabs > [data-tab] {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.actor.sheet.loom-window .sheet-tabs > [data-tab] .navicon,
+.actor.sheet.loom-window .sheet-tabs > [data-tab] .navicon i {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+}
+
+/* Fix text-align for FontAwesome icons */
+.actor.sheet.loom-window .sheet-tabs > [data-tab] .navicon i,
+.actor.sheet.loom-window .sheet-tabs > [data-tab] .navicon .wod5e-symbol {
+    display: block !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+
+/* Fix for transparent/invisible buttons in Skills and Attributes */
+.actor.sheet.loom-window .sheet-body .stat-name.rollable,
+.actor.sheet.loom-window .sheet-body .resource-label.rollable,
+.actor.sheet.loom-window .sheet-body .skill .resource-label label.rollable {
+    background: transparent !important;
+    border: none !important;
+    color: var(--color-text-primary) !important;
+    text-transform: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    display: inline !important;
+    visibility: visible !important;
+    min-width: 0 !important;
+}
+
+/* Ensure skill icons and labels flex correctly */
+.actor.sheet.loom-window .sheet-body .skill .resource-label {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+}
+
+.actor.sheet.loom-window .sheet-body .stat-name.rollable:hover,
+.actor.sheet.loom-window .sheet-body .resource-label.rollable:hover,
+.actor.sheet.loom-window .sheet-body .skill .resource-label label.rollable:hover {
+    color: var(--vampire-color-2) !important;
+}
+
+/* Ensure the layout grid for Habilidades aligns the name and dots */
+.actor.sheet.loom-window .sheet-body .skills-list .stat-row,
+.actor.sheet.loom-window .sheet-body .attributes-list .stat-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    margin-bottom: 2px !important;
+}
+/* Hotfixes for UI Bugs (Powers Tree and Tab Bar) */
+.powers-display-tree li span {
+  justify-content: flex-start !important;
+  width: max-content;
+}
+.powers-display-tree .select-label {
+  margin-left: 5px !important;
+  text-align: left !important;
+}

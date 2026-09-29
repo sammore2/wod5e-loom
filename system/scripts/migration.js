@@ -1,0 +1,97 @@
+import { MigrateLegacySheets } from './migration/migrate-legacy-sheets.js'
+import { MigrateSpecialties } from './migration/migrate-specialties.js'
+import { MigrateItemImages } from './migration/migrate-item-images.js'
+import { MigrateAnimalKen } from './migration/migrate-animal-ken.js'
+import { MigrateGroupSheets } from './migration/migrate-group-sheets.js'
+import { MigrateAbilitiesToAttributes } from './migration/migrate-abilities-to-attributes.js'
+import { MigrateRolldataToDicepools } from './migration/migrate-rolldata-to-dicepools.js'
+import { MigrateOldDetailsToNewItems } from './migration/migrate-old-details-to-new-items.js'
+import { MigrateGeneralDifficulty } from './migration/migrate-general-difficulty.js'
+import { MigrateSystemFlags } from './migration/migrate-system-flags.js'
+import { RestoreOldWorldSettings } from './migration/restore-vtm5e-world-settings.js'
+import { MigrateImageLinks } from '../../macros/migrate-image-links.js'
+
+export const migrateWorld = async () => {
+  // Only allow the Game Master to run this script
+  if (!Loom.user.isGM) return
+
+  // The saved world settings load over the network AFTER the system registers them. Reading
+  // `worldVersion` before they arrive returns the default ('1.5'), which made this run the whole
+  // migration ("New version detected") on every load even though the version was already saved.
+  await Loom.settings.whenReady?.('wod5e')
+
+  // Store current loaded version of the system
+  const currentVersion = (Loom.system?.version || Loom.ruleset?.version || Loom.systems?.get?.('wod5e')?.version || '5.3.23')
+  // Store the world version pre-migration
+  const worldVersion = Loom.settings.get('wod5e', 'worldVersion') || '1.5'
+
+  console.log('World of Darkness 5e | Current SchreckNet Layer v' + worldVersion)
+
+  await updateWorld()
+
+  async function updateWorld() {
+    if (worldVersion !== currentVersion || worldVersion === '1.5') {
+      const updates = []
+
+      Loom.ui?.notifications.info('New version detected. Updating SchreckNet, please wait.')
+      console.log('World of Darkness 5e | Obtaining SchreckNet Layer v' + currentVersion)
+
+      try {
+        // Migrate legacy sheets
+        const migrationIDs1 = await MigrateLegacySheets()
+        updates.push(...migrationIDs1)
+
+        // Migrate specialties into their respective skills
+        const migrationIDs5 = await MigrateSpecialties()
+        updates.push(...migrationIDs5)
+
+        // Migrate item images
+        const migrationIDs7 = await MigrateItemImages()
+        updates.push(...migrationIDs7)
+
+        // Migrate the Animal Ken skill
+        const migrationIDs8 = await MigrateAnimalKen()
+        updates.push(...migrationIDs8)
+
+        // Unify Cell and Coterie sheets into one "Group" type
+        const migrationIDs9 = await MigrateGroupSheets()
+        updates.push(...migrationIDs9)
+
+        // Migrate the abilities object to attributes
+        const migrationIDs10 = await MigrateAbilitiesToAttributes()
+        updates.push(...migrationIDs10)
+
+        // Migrate old roll data on items into the new Dicepool format
+        const migrationIDs11 = await MigrateRolldataToDicepools()
+        updates.push(...migrationIDs11)
+
+        // Migrate old actor data to new items
+        const migrationIDs12 = await MigrateOldDetailsToNewItems()
+        updates.push(...migrationIDs12)
+
+        // Migrate General Difficulty of SPC sheets
+        const migrationIDs13 = await MigrateGeneralDifficulty()
+        updates.push(...migrationIDs13)
+
+        if (updates.length > 0) {
+          Loom.ui?.notifications.info(`Upgrade complete (${updates.length} updates applied).`)
+        } else {
+          Loom.ui?.notifications.info('Welcome to version ' + currentVersion)
+        }
+      } catch (error) {
+        console.error('World of Darkness 5e | Error during update:', error)
+      }
+
+      // Update game version, no matter if we error or not
+      try {
+        await Loom.settings.set('wod5e', 'worldVersion', currentVersion)
+      } catch (e) {
+        console.warn('World of Darkness 5e | Could not save worldVersion setting:', e)
+      }
+    }
+
+    await MigrateSystemFlags()
+    await RestoreOldWorldSettings()
+    await MigrateImageLinks()
+  }
+}

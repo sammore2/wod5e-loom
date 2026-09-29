@@ -1,0 +1,413 @@
+@import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amarante&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+
+/* Fonts */
+@font-face {
+  font-family: "cormorantLight";
+  src: url("../assets/fonts/Cormorant-Light-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "wod5eSymbols";
+  src: url("../assets/fonts/wod5e-symbols.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "vampireRevised";
+  src: url("../assets/fonts/vampire-revised.ttf") format("truetype");
+}
+
+/* Define the class that will be used for WOD5E symbols */
+.wod5e-symbol {
+  font-family: "wod5eSymbols", "sans-serif";
+  font-size: 16pt;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dice-icon {
+  width: 14px !important;
+  height: 14px !important;
+  vertical-align: middle !important;
+  display: inline-block !important;
+}
+
+.sheet.vampire, .sheet.werewolf, .sheet.hunter, .sheet.mortal {
+  color: var(--color-text-primary);
+}
+
+/* Application window Header */
+.application:not(.minimized) .window-header {
+  padding-top: 2px;
+}
+
+.window-app .window-header,
+.application .window-header {
+  padding-top: 2px;
+}
+
+/* Pause */
+#pause,
+#hud-pause-overlay,
+.wod-game-pause {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+  z-index: 1000;
+  background: none;
+
+  &.hidden,
+  &[hidden] {
+    display: none !important;
+  }
+
+  img {
+    position: absolute;
+    top: calc(50% - 85px);
+    left: calc(50% - 65px);
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+    border: none;
+
+    &.pause-border,
+    &.fa-spin {
+      animation: wod-pause-spin 14s linear infinite;
+      transform-origin: center center;
+    }
+
+    &.pause-overlay {
+      z-index: 2;
+    }
+  }
+
+  figcaption {
+    position: absolute;
+    top: calc(50% + 55px);
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #eee;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.95), 0 2px 4px #000, 0 0 2px #000;
+    white-space: nowrap;
+  }
+}
+
+/* Only use this font with the .vampire-font-headers class enabled */
+.vampire-font-headers.en {
+  #pause,
+  #hud-pause-overlay,
+  .wod-game-pause {
+    figcaption {
+      font-family: "vampireRevised", "sans-serif";
+    }
+  }
+}
+
+@keyframes wod-pause-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ProseMirror Alterations */
+.application.sheet {
+  prose-mirror {
+    width: -webkit-fill-available;
+    height: inherit;
+
+    .editor-menu {
+      height: 35px;
+      padding: 2px;
+      border-radius: 0;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      display: flex;
+      flex-flow: nowrap;
+    }
+  }
+}
+
+.prosemirror menu .pm-dropdown {
+  background: transparent;
+}
+
+/* Input Fields */
+input:not(type="checkbox") {
+  min-height: 26px;
+  border-radius: 0;
+}
+
+
+
+input[type="number"] {
+  max-width: 35px;
+  min-width: 35px;
+  text-align: center;
+}
+
+/* Collapsible Descriptions */
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  font-family: Vollkorn, serif;
+  line-height: 1.6em;
+  word-spacing: 0.05em;
+  font-size: 1.1em;
+}
+
+.collapsible:hover,
+.collapsible:focus {
+  cursor: pointer;
+}
+
+/* Modifier Dialog Styling */
+.wod-modifier-dialog {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  padding: 6px 4px !important;
+  box-sizing: border-box !important;
+  color: #e0e0e0 !important;
+
+  .form-group {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .form-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-end !important;
+    gap: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .form-col {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    box-sizing: border-box !important;
+  }
+
+  label {
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    color: #a0a6b5 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  select {
+    height: 32px !important;
+    line-height: 32px !important;
+    min-height: 32px !important;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 4px !important;
+    color: #f0f0f0 !important;
+    padding: 0 8px !important;
+    font-size: 0.9rem !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+
+    &:focus {
+      border-color: var(--system-color-1, #7a2222) !important;
+      box-shadow: 0 0 5px var(--system-color-1, rgba(160, 40, 40, 0.5)) !important;
+      outline: none !important;
+    }
+  }
+
+  input.source-name {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    height: 36px !important;
+    line-height: 36px !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  .value-col {
+    flex: 0 0 75px !important;
+    width: 75px !important;
+
+    input {
+      text-align: center !important;
+      font-weight: bold !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+      width: 100% !important;
+    }
+  }
+
+  .unless-col {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  .checkbox-col {
+    flex: 0 0 auto !important;
+    height: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    .checkbox-label {
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      font-size: 0.85rem !important;
+      text-transform: none !important;
+      letter-spacing: normal !important;
+      color: #ccc !important;
+      cursor: pointer !important;
+      user-select: none !important;
+      white-space: nowrap !important;
+      margin: 0 !important;
+    }
+
+    input[type="checkbox"] {
+      width: 16px !important;
+      height: 16px !important;
+      min-height: 16px !important;
+      margin: 0 !important;
+      cursor: pointer !important;
+    }
+  }
+
+  .activation-row {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 12px !important;
+    width: 100% !important;
+
+    .active-when-check {
+      flex: 1.2 1 0 !important;
+      min-width: 0 !important;
+    }
+
+    .active-when-path {
+      flex: 1.5 1 0 !important;
+      min-width: 0 !important;
+    }
+
+    .active-when-value {
+      flex: 1 1 0 !important;
+      min-width: 0 !important;
+    }
+  }
+
+  .flexdatalist-multiple {
+    min-height: 32px !important;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 4px !important;
+    padding: 2px 4px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 4px !important;
+    width: 100% !important;
+
+    &:focus-within {
+      border-color: var(--system-color-1, #7a2222) !important;
+      box-shadow: 0 0 5px var(--system-color-1, rgba(160, 40, 40, 0.5)) !important;
+    }
+
+    li.value {
+      background: #252833 !important;
+      color: #e4e4e4 !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      border-radius: 3px !important;
+      font-size: 0.82rem !important;
+      padding: 2px 20px 2px 6px !important;
+      margin: 1px 2px !important;
+      line-height: 18px !important;
+      float: none !important;
+      display: inline-flex !important;
+      align-items: center !important;
+
+      span.fdl-remove {
+        color: #999 !important;
+        font-size: 15px !important;
+        line-height: 18px !important;
+        padding: 0 4px !important;
+        opacity: 0.7 !important;
+
+        &:hover {
+          color: #ff5555 !important;
+          opacity: 1 !important;
+        }
+      }
+    }
+
+    li.input-container {
+      margin: 0 !important;
+      flex: 1 1 60px !important;
+      display: inline-flex !important;
+
+      input {
+        height: 24px !important;
+        min-height: 24px !important;
+        line-height: 24px !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        color: #f0f0f0 !important;
+        padding: 0 4px !important;
+        font-size: 0.85rem !important;
+        min-width: 60px !important;
+      }
+    }
+  }
+}
+
+.flexdatalist-results {
+  background: #1c202a !important;
+  color: #e0e0e0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 4px !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6) !important;
+
+  li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #ddd !important;
+
+    &.active {
+      background: var(--system-color-1, #7a2222) !important;
+      color: #fff !important;
+    }
+
+    span.highlight {
+      color: #fff !important;
+      text-decoration: underline !important;
+    }
+  }
+}
+

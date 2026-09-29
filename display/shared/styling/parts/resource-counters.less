@@ -1,0 +1,103 @@
+.resource-value {
+  align-self: flex-end;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.resource-value .resource-value-step {
+  height: 14px;
+  width: 14px;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.resource-value-static .resource-value-static-step {
+  height: 14px;
+  width: 14px;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.resource-value .resource-value-empty {
+  height: 14px;
+  width: 14px;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.resource-counter .resource-counter-step {
+  height: 14px;
+  width: 14px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.flex-group-center:not(.flexrow) .resource-value,
+.flex-group-center:not(.flexrow) .resource-counter {
+  margin-top: 5px;
+}
+
+.cell-resource-counter .cell-resource-counter-step {
+  height: 14px;
+  width: 14px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.flex-group-center:not(.flexrow) .resource-value,
+.flex-group-center:not(.flexrow) .cell-resource-counter {
+  margin-top: 5px;
+}
+
+.tab[data-tab="disciplines"] .resource-value,
+.tab[data-tab="edges"] .resource-value {
+  margin-top: 2px;
+  text-align: center;
+}
+
+.tab[data-tab="features"] .dot-tracker,
+.actor.sheet .item-list .dot-tracker {
+  display: flex !important;
+  align-items: center !important;
+  margin-left: auto !important;
+  flex: 0 0 auto !important;
+  white-space: nowrap !important;
+}
+
+.tab[data-tab="features"] .resource-value,
+.tab[data-tab="features"] .resource-value-static,
+.actor.sheet .item-list .resource-value,
+.actor.sheet .item-list .resource-value-static {
+  display: inline-flex !important;
+  align-items: center !important;
+  align-self: center !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+  vertical-align: middle !important;
+}
+
+.actor.sheet .resource-value-empty {
+  margin-left: -16px;
+}
+
+.tab[data-tab="features"] .resource-value-empty,
+.actor.sheet .item-list .resource-value-empty,
+.actor.sheet .item-list .dot-tracker .resource-value-empty,
+.dot-tracker .resource-value-empty {
+  margin-left: 0 !important;
+  margin-right: 4px !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+.tab[data-tab="features"] .resource-value-step,
+.actor.sheet .item-list .resource-value-step,
+.actor.sheet .item-list .dot-tracker .resource-value-step,
+.dot-tracker .resource-value-step {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin: 0 1px !important;
+}
+

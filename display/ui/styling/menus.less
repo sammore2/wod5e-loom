@@ -1,0 +1,201 @@
+.wod5e-config-form .config-category .subcategory {
+  margin-bottom: 15px;
+}
+
+.wod5e-config-form.storyteller-menu .mod-header {
+  font-weight: bold;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.wod5e-config-form.storyteller-menu .modification-row, .wod5e-config-form.storyteller-menu .custom-row {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.wod5e-config-form.storyteller-menu .mod-label {
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wod5e-config-form.storyteller-menu .mod-label input {
+  margin-left: 5px;
+}
+
+.wod5e-config-form.storyteller-menu .modification-row .mod-hidden {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wod5e-config-form.storyteller-menu .mod-footer {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.wod5e-config-form.storyteller-menu .addition-button {
+  border-radius: 0;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.wod5e-config-form.storyteller-menu .addition-button:hover {
+  cursor: pointer;
+  outline: none;
+  transition-duration: 0.3s;
+}
+
+.wod5e-config-form.storyteller-menu .remove-mod-button {
+  cursor: pointer;
+}
+
+.wod5e-config-form.storyteller-menu .remove-custom-button {
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.roll-menu.application.minimized,
+.roll-menu.application.minimizing {
+  .roll-menu-hint {
+    display: none;
+  }
+}
+
+.roll-menu.application {
+  .window-content {
+    padding: 0;
+    flex-direction: row;
+  }
+
+  .roll-menu-hint {
+    cursor: pointer;
+  }
+
+  .clickable-button {
+    cursor: pointer;
+  }
+
+  .clickable-button:hover {
+    font-weight: bold;
+  }
+
+  .roll-menu-sidebar {
+    padding-right: 1rem;
+    border-right: 1px solid;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      font-size: 16pt;
+      text-align: center;
+    }
+
+    .roll-builder {
+      font-size: 14pt;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    hr {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+
+    .active {
+      font-weight: bold;
+    }
+
+    .saved-rolls-list {
+      padding: 5px;
+      display: flex;
+      flex-grow: 1;
+      overflow-y: scroll;
+
+      .saved-roll {
+        .remove-saved-roll {
+          flex-grow: 0;
+          padding: 3px;
+        }
+      }
+
+      .saved-roll:not(.active) {
+        cursor: pointer;
+      }
+    }
+
+    .saved-rolls-footer {
+      margin-top: auto;
+      padding: 0.5rem;
+      text-align: center;
+    }
+  }
+
+  .main {
+    flex-grow: 1;
+    position: relative;
+
+    .roll-menu-body {
+      padding: 1rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .splat-die-options {
+        justify-content: space-between;
+
+        .die-img {
+          justify-items: center;
+
+          img {
+            cursor: pointer;
+          }
+        }
+
+        .die-img:not(.active) {
+          filter: saturate(250%);
+        }
+
+        .die-img.active {
+          filter: saturate(50%);
+        }
+      }
+
+      .roll-constructor {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        position: relative;
+
+        .constructed-roll {
+          flex-grow: 1;
+        }
+
+        .roll-options {
+          .option-toggle {
+            text-align: center;
+          }
+        }
+      }
+
+      .roll-menu-footer {
+        margin-top: auto;
+        padding: 0.5rem;
+
+        .roll-menu-footer-buttons {
+          display: flex;
+          justify-content: space-between;
+          padding: 5px;
+
+          .prompt-button,
+          .roll-button {
+            align-content: center;
+          }
+        }
+      }
+    }
+  }
+}

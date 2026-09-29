@@ -1,0 +1,16 @@
+# IDE
+.idea/
+.vs/
+.agents/
+
+# Node Modules
+node_modules/
+npm-debug.log
+
+
+# Old Graphics
+assets/images/old/
+*.zip
+
+# Lock file
+*.lock

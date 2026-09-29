@@ -1,0 +1,35 @@
+export const MigrateGroupSheets = async function () {
+  const invalidActorsList = Loom.actors.invalidDocumentIds
+  const totalIterations = invalidActorsList.size
+  const migrationIDs = []
+
+  // If there's nothing to go through, then just resolve and move on.
+  if (totalIterations === 0) {
+    return []
+  }
+
+  // Migrate Cell and Coterie sheets to new "Group" sheet type (v4.2.0)
+  for (const id of invalidActorsList) {
+    const actor = Loom.actors.get(id)
+
+    // Coterie sheets
+    if (actor.type === 'coterie') {
+      Loom.ui?.notifications.info(
+        `Fixing actor ${actor.name}: Converting from Coterie sheet to Group sheet`
+      )
+      migrationIDs.push(actor.uuid)
+
+      // Update the actor's data with the new information
+      actor.update({ type: 'group', 'system.groupType': 'coterie' })
+    } else if (actor.type === 'cell') {
+      // Cell sheets
+      Loom.ui?.notifications.info(`Fixing actor ${actor.name}: Converting from Cell sheet to Group sheet`)
+      migrationIDs.push(actor.uuid)
+
+      // Update the actor's data with the new information
+      actor.update({ type: 'group', 'system.groupType': 'cell' })
+    }
+  }
+
+  return migrationIDs
+}

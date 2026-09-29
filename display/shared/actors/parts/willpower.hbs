@@ -1,0 +1,23 @@
+<div class="flexcol field-section">
+    <div class="flexcol">
+        <span class="field-header flexrow resource-label">
+            <i class="fas fa-minus resource-control resource-minus" data-action="resourceChange" data-resource="willpower" data-resource-action="minus"></i>
+            <span class="system-rollable willpower-roll" data-action="willpowerRoll" title="{{localize 'WOD5E.Chat.RollWillpower'}}">
+                {{localize "WOD5E.Willpower"}}
+                <i class="rpg-d10"></i>
+            </span>
+            <i class="fas fa-plus resource-control resource-plus" data-action="resourceChange" data-resource="willpower" data-resource-action="plus"></i>
+        </span>
+    </div>
+    <div class="resource flex-group-center willpower">
+        <div class="resource-content flexrow flex-center flex-between">
+            <div class="resource-counter editable" data-states="/:superficial,x:aggravated" data-max="{{willpower.max}}"
+                data-superficial="{{willpower.superficial}}" data-aggravated="{{willpower.aggravated}}"
+                data-path="willpower">
+                {{#numLoop willpower.max}}
+                    <span class="resource-counter-step" data-action="squareCounterChange" data-index="{{this}}" data-state=""></span>
+                {{/numLoop}}
+            </div>
+        </div>
+    </div>
+</div>

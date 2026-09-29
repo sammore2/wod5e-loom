@@ -1,0 +1,315 @@
+.item.sheet {
+	.window-content {
+		padding: 0;
+	}
+
+	.item-header {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+
+		.profile-img {
+			max-height: 100px;
+			max-width: 100px;
+			height: fit-content;
+			width: fit-content;
+			padding: 5px;
+			margin-right: 0;
+		}
+
+		.header-fields {
+			flex: 1;
+			margin-top: auto;
+
+			h1 {
+				font-size: 35px !important;
+				font-family: var(--font-h1) !important;
+				line-height: 1.1 !important;
+				margin: 0 !important;
+				padding: 0 4px !important;
+				border: none !important;
+			}
+
+			.itemname {
+				font-size: 35px !important;
+				font-family: var(--font-h1) !important;
+				background: transparent !important;
+				background-color: transparent !important;
+				border: none !important;
+				border-bottom: 1px solid transparent !important;
+				border-radius: 0 !important;
+				box-shadow: none !important;
+				outline: none !important;
+				padding: 0 4px !important;
+				margin: 0 !important;
+				height: auto !important;
+				min-height: unset !important;
+				line-height: 1.1 !important;
+				color: inherit !important;
+				width: 100% !important;
+				box-sizing: border-box !important;
+
+				&:hover,
+				&:focus {
+					background: rgba(0, 0, 0, 0.04) !important;
+					background-color: rgba(0, 0, 0, 0.04) !important;
+					border: none !important;
+					border-bottom: 1px dashed var(--system-color-1, #690a0a) !important;
+					box-shadow: none !important;
+					outline: none !important;
+				}
+			}
+
+			.header-details {
+				padding: 5px;
+			}
+		}
+
+		.item-resource {
+			text-wrap: nowrap;
+			margin-left: 5px;
+			margin-right: 5px;
+		}
+	}
+
+	.tabs {
+		a.active {
+			font-weight: bold;
+		}
+	}
+
+	a[data-tab="dicepool"] {
+		.remove-dice {
+			flex-grow: 0;
+			padding: 4px;
+		}
+	}
+
+	section.tab {
+		padding: 10px 10px 0px 10px;
+		overflow-y: scroll;
+		height: 100%;
+	}
+
+	.source-page-input {
+		min-width: 75px;
+	}
+
+	.effects-list {
+		.effect {
+			border-top: 1px solid black;
+			padding: 5px;
+		}
+
+		.effect-keys {
+			display: flex;
+			flex-direction: row;
+
+			.label {
+				padding: 5px;
+			}
+
+			.flexdatalist-multiple {
+				flex-grow: 1;
+				margin: 0;
+				padding: 0;
+			}
+		}
+	}
+}
+
+.item.sheet .tabs-container,
+.dialog-app.sheet .tabs-container {
+  background-color: transparent !important;
+}
+
+/* Fix for Item Sheet Tabs (Text Color) */
+.item.sheet .tabs-container nav.tabs,
+.dialog-app.sheet .tabs-container nav.tabs {
+  background-color: white !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  padding: 5px 0 !important;
+}
+.item.sheet .tabs-container nav.tabs div,
+.dialog-app.sheet .tabs-container nav.tabs div {
+  padding: 0 10px !important;
+  cursor: pointer !important;
+}
+.item.sheet .tabs-container nav.tabs label,
+.dialog-app.sheet .tabs-container nav.tabs label {
+  color: black !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+}
+.item.sheet.vampire .tabs-container nav.tabs .active label {
+  color: darkred !important;
+}
+.item.sheet.werewolf .tabs-container nav.tabs .active label {
+  color: darkgreen !important; /* or whatever werewolf color is */
+}
+.item.sheet.hunter .tabs-container nav.tabs .active label {
+  color: darkorange !important;
+}
+.item.sheet .tabs-container nav.tabs label,
+.dialog-app.sheet .tabs-container nav.tabs label {
+  font-size: 13px !important;
+  white-space: nowrap !important;
+}
+.item.sheet .tabs-container nav.tabs div,
+.dialog-app.sheet .tabs-container nav.tabs div {
+  padding: 0 5px !important;
+}
+
+/* LoomVTT Fix: Reset .tab override from Core for item sheets */
+.item.sheet .tab,
+.item.sheet section.tab,
+.loom-window.item.sheet .tab,
+.loom-window.item.sheet section.tab,
+.loom-window .item.sheet .tab,
+.loom-window .item.sheet section.tab {
+  background: transparent !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 10px 12px !important;
+  overflow-y: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* Item Sheet Window Scope - Light Parchment Theme Variables */
+.loom-window.item,
+.loom-window.item.sheet,
+.loom-window .item.sheet,
+.item.sheet {
+  --color-bg-deep: rgba(255, 255, 255, 0.45);
+  --color-bg-surface: rgba(255, 255, 255, 0.6);
+  --color-bg-surface-hover: rgba(255, 255, 255, 0.85);
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #333333;
+  --color-text-muted: #666666;
+  --color-border: rgba(0, 0, 0, 0.15);
+  --color-accent: #690a0a;
+
+  &.vampire {
+    --color-accent: #690a0a;
+  }
+  &.werewolf {
+    --color-accent: #1a4d2e;
+  }
+  &.hunter {
+    --color-accent: #d97706;
+  }
+}
+
+/* Item Sheet ProseMirror & Description Styling */
+.item.sheet prose-mirror,
+.loom-window.item.sheet prose-mirror,
+.loom-window .item.sheet prose-mirror {
+  width: 100% !important;
+  min-height: 160px !important;
+  background: rgba(255, 255, 255, 0.45) !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+  padding: 8px 12px !important;
+  color: #1a1a1a !important;
+  box-sizing: border-box !important;
+
+  .editor-content {
+    color: #1a1a1a !important;
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+    max-width: 100% !important;
+    padding-right: 28px !important;
+
+    p {
+      margin-top: 0 !important;
+      margin-bottom: 0.65em !important;
+      color: #1a1a1a !important;
+    }
+
+    hr {
+      border: none !important;
+      border-top: 1px solid rgba(0, 0, 0, 0.18) !important;
+      margin: 8px 0 !important;
+    }
+  }
+
+  /* Edit button for Item Sheet (clean, visible on light parchment background) */
+  > button.editor-edit,
+  > button.toggle,
+  > button.icon.toggle,
+  > button.icon,
+  &:not([editing]) > button,
+  button.editor-edit,
+  button.toggle {
+    background: rgba(0, 0, 0, 0.07) !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    color: #333333 !important;
+    transition: all 0.15s ease !important;
+
+    &:hover {
+      background: var(--vampire-color-1, #690a0a) !important;
+      border-color: var(--vampire-color-1, #690a0a) !important;
+      color: #ffffff !important;
+    }
+  }
+
+  /* Editor toolbar when editing */
+  .editor-menu {
+    background: #f0ede8 !important;
+    border-bottom: 1px solid #d4cece !important;
+
+    button {
+      color: #2b2b2b !important;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.08) !important;
+      }
+    }
+  }
+}
+
+/* Splat-themed scrollbars and borders */
+.item.sheet.vampire section.tab,
+.item.sheet.vampire prose-mirror,
+.item.sheet.vampire prose-mirror .editor-content,
+.loom-window.item.sheet.vampire section.tab,
+.loom-window.item.sheet.vampire prose-mirror {
+  scrollbar-color: #690a0a rgba(0, 0, 0, 0.06) !important;
+}
+.item.sheet.vampire prose-mirror,
+.loom-window.item.sheet.vampire prose-mirror {
+  border-color: rgba(105, 10, 10, 0.25) !important;
+}
+
+.item.sheet.werewolf section.tab,
+.item.sheet.werewolf prose-mirror,
+.item.sheet.werewolf prose-mirror .editor-content,
+.loom-window.item.sheet.werewolf section.tab,
+.loom-window.item.sheet.werewolf prose-mirror {
+  scrollbar-color: #1a4d2e rgba(0, 0, 0, 0.06) !important;
+}
+.item.sheet.werewolf prose-mirror,
+.loom-window.item.sheet.werewolf prose-mirror {
+  border-color: rgba(26, 77, 46, 0.25) !important;
+}
+
+.item.sheet.hunter section.tab,
+.item.sheet.hunter prose-mirror,
+.item.sheet.hunter prose-mirror .editor-content,
+.loom-window.item.sheet.hunter section.tab,
+.loom-window.item.sheet.hunter prose-mirror {
+  scrollbar-color: #d97706 rgba(0, 0, 0, 0.06) !important;
+}
+.item.sheet.hunter prose-mirror,
+.loom-window.item.sheet.hunter prose-mirror {
+  border-color: rgba(217, 119, 6, 0.25) !important;
+}
+
+

@@ -1,0 +1,81 @@
+import { _updateCSSVariable, cssVariablesRecord } from '../../scripts/update-css-variables.js'
+
+export class SplatColorsMenu extends Loom.BaseWindow {
+  static get defaultOptions() {
+    return Loom.utils.mergeObject(super.defaultOptions, {
+      title: Loom.i18n.localize('WOD5E.Settings.SplatColorsMenu'),
+      id: 'wod5e-splat-colors',
+      classes: ['wod5e'],
+      template: 'marketplace/rulesets/wod5e/display/ui/splat-colors-menu.hbs',
+      width: 500,
+      height: 450,
+      resizable: true,
+      closeOnSubmit: true
+    })
+  }
+
+  /* -------------------------------------------- */
+
+  /** @override */
+  async getData() {
+    const data = await super.getData()
+
+    const cssVariables = cssVariablesRecord()
+
+    data.cssVariablesRecord = cssVariables
+
+    // Go through the available themes
+    Object.keys(cssVariables).forEach((theme) => {
+      const settings = cssVariables[theme].settings
+
+      // Iterate over each setting in the theme
+      Object.keys(settings).forEach((settingKey) => {
+        const { settingId } = settings[settingKey]
+
+        // Get the setting and assign it, making it available within the menu
+        data[settingId] = Loom.settings.get('wod5e', settingId)
+      })
+    })
+
+    return data
+  }
+
+  /* -------------------------------------------- */
+
+  /** @override */
+  activateListeners(html) {
+    // Initialize the JSColor library
+    JSColor.install()
+
+    // On input change, update colours
+    html[0].querySelectorAll('.color-input').forEach((input) => {
+      input.addEventListener('change', function (event) {
+        event.preventDefault()
+
+        const setting = event.target.dataset.settingId
+        const cssVariable = event.target.dataset.cssVariable
+        const value = event.target.value
+
+        _updateCSSVariable(setting, cssVariable, value)
+      })
+    })
+
+    html[0].querySelectorAll('.reset-color').forEach((resetBtn) => {
+      resetBtn.addEventListener('click', async (event) => {
+        event.preventDefault()
+
+        const inputId = event.currentTarget.dataset.inputId
+        const settingId = event.currentTarget.dataset.settingId
+        const cssVariable = event.currentTarget.dataset.cssVariable
+
+        if (inputId && settingId) {
+          const inputElement = document.querySelector(`#${inputId}`)
+          const defaultColor = Loom.settings.settings.get(`wod5e.${settingId}`).default
+
+          inputElement.jscolor.fromString(defaultColor)
+          _updateCSSVariable(settingId, cssVariable, defaultColor)
+        }
+      })
+    })
+  }
+}

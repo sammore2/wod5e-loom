@@ -1,0 +1,191 @@
+{
+  "engine": "loom",
+  "engineVersion": ">=0.1.0",
+  "type": "ruleset",
+  "name": "wod5e",
+  "title": "World of Darkness 5e",
+  "version": "0.1.0",
+  "author": "sammore2",
+  "license": "GPL-3.0-or-later",
+  "description": "Vampire, Werewolf and Hunter community system adapted for LoomVTT. Original WoD5E system by Rayji96, with upstream development led by Veilza.",
+  "licenseNotice": {
+    "title": "Licenciado sob o Dark Pack",
+    "html": "Partes dos materiais são direitos autorais e marcas registradas da Paradox Interactive AB e são usadas com permissão. Todos os direitos reservados. Para mais informações, visite <a href=\"https://worldofdarkness.com\" target=\"_blank\" rel=\"noopener\">worldofdarkness.com</a>.",
+    "icon": "/marketplace/rulesets/wod5e/assets/ui/darkpack-logo.webp"
+  },
+  "repository": "https://github.com/sammore2/wod5e-loom",
+  "bugs": "https://github.com/sammore2/wod5e-loom/issues",
+  "manifest": "https://github.com/sammore2/wod5e-loom/releases/latest/download/ruleset.json",
+  "download": "https://github.com/sammore2/wod5e-loom/releases/latest/download/wod5e.zip",
+  "backgroundUrl": "/marketplace/rulesets/wod5e/assets/images/wodcity.jpg",
+  "coverUrl": "/marketplace/rulesets/wod5e/assets/images/SystemPreview.png",
+  "active": true,
+  "client": "system/main.js",
+  "styles": [
+    "display/wod5e-styling.css",
+    "lib/flexdatalist/flexdatalist.css"
+  ],
+  "actorTypes": [
+    "mortal",
+    "spc",
+    "vampire",
+    "ghoul",
+    "hunter",
+    "werewolf",
+    "group"
+  ],
+  "itemTypes": [
+    "feature",
+    "customRoll",
+    "armor",
+    "weapon",
+    "gear",
+    "trait",
+    "condition",
+    "clan",
+    "predatorType",
+    "resonance",
+    "power",
+    "boon",
+    "creed",
+    "drive",
+    "perk",
+    "edgepool",
+    "tribe",
+    "auspice",
+    "talisman",
+    "gift",
+    "guidingspirit"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "Core (English)",
+      "path": "lang/en/core-en.json"
+    },
+    {
+      "lang": "en",
+      "name": "Vampire (English)",
+      "path": "lang/en/vampire-en.json"
+    },
+    {
+      "lang": "en",
+      "name": "Werewolf (English)",
+      "path": "lang/en/werewolf-en.json"
+    },
+    {
+      "lang": "en",
+      "name": "Hunter (English)",
+      "path": "lang/en/hunter-en.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Core (French)",
+      "path": "lang/fr/core-fr.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Vampire (French)",
+      "path": "lang/fr/vampire-fr.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Werewolf (French)",
+      "path": "lang/fr/werewolf-fr.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Hunter (French)",
+      "path": "lang/fr/hunter-fr.json"
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Core (Portugues)",
+      "path": "lang/pt-BR/core-pt-BR.json"
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Vampire (Portugues)",
+      "path": "lang/pt-BR/vampire-pt-BR.json"
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Werewolf (Portugues)",
+      "path": "lang/pt-BR/werewolf-pt-BR.json"
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Hunter (Portugues)",
+      "path": "lang/pt-BR/hunter-pt-BR.json"
+    },
+    {
+      "lang": "es",
+      "name": "Core (Spanish)",
+      "path": "lang/es/core-es.json"
+    },
+    {
+      "lang": "es",
+      "name": "Vampire (Spanish)",
+      "path": "lang/es/vampire-es.json"
+    },
+    {
+      "lang": "es",
+      "name": "Werewolf (Spanish)",
+      "path": "lang/es/werewolf-es.json"
+    },
+    {
+      "lang": "es",
+      "name": "Hunter (Spanish)",
+      "path": "lang/es/hunter-es.json"
+    },
+    {
+      "lang": "de",
+      "name": "Core (German)",
+      "path": "lang/de/core-de.json"
+    },
+    {
+      "lang": "de",
+      "name": "Vampire (German)",
+      "path": "lang/de/vampire-de.json"
+    },
+    {
+      "lang": "de",
+      "name": "Werewolf (German)",
+      "path": "lang/de/werewolf-de.json"
+    },
+    {
+      "lang": "de",
+      "name": "Hunter (German)",
+      "path": "lang/de/hunter-de.json"
+    },
+    {
+      "lang": "it",
+      "name": "Core (Italian)",
+      "path": "lang/it/core-it.json"
+    },
+    {
+      "lang": "it",
+      "name": "Vampire (Italian)",
+      "path": "lang/it/vampire-it.json"
+    },
+    {
+      "lang": "it",
+      "name": "Werewolf (Italian)",
+      "path": "lang/it/werewolf-it.json"
+    },
+    {
+      "lang": "it",
+      "name": "Hunter (Italian)",
+      "path": "lang/it/hunter-it.json"
+    }
+  ],
+  "scripts": [
+    "lib/jquery.min.js",
+    "lib/jscolor/jscolor.min.js",
+    "lib/flexdatalist/flexdatalist.js"
+  ],
+  "compendiums": [
+    "packs/Conditions.sqlite",
+    "packs/Macros.sqlite"
+  ]
+}

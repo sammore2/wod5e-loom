@@ -1,0 +1,26 @@
+{
+  "name": "Macros",
+  "type": "Macro",
+  "entries": [
+    {
+      "id": "9c640641-d497-4d26-a11c-5d906eb0fe89",
+      "name": "Adjust Rage",
+      "type": "ruleset-macro",
+      "imgUrl": "marketplace/rulesets/wod5e/assets/icons/dice/werewolf/success.png",
+      "data": {
+        "command": "adjust-rage",
+        "scope": "global"
+      }
+    },
+    {
+      "id": "5a16d5ea-921b-4725-90aa-e99db76e4b67",
+      "name": "Adjust Hunger",
+      "type": "ruleset-macro",
+      "imgUrl": "marketplace/rulesets/wod5e/assets/icons/dice/vampire/success.png",
+      "data": {
+        "command": "adjust-hunger",
+        "scope": "global"
+      }
+    }
+  ]
+}

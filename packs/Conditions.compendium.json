@@ -1,0 +1,67 @@
+{
+  "name": "Conditions",
+  "type": "Item",
+  "entries": [
+    {
+      "id": "80751ca4-3bd3-441d-b137-67bc40a05b02",
+      "name": "Willpower Impairment",
+      "type": "condition",
+      "imgUrl": "marketplace/rulesets/wod5e/assets/icons/items/item-default.svg",
+      "data": {
+        "description": "",
+        "bonuses": [
+          {
+            "source": "Willpower Impairment",
+            "value": "-2",
+            "paths": [
+              "mental",
+              "social"
+            ],
+            "displayWhenInactive": false,
+            "activeWhen": {
+              "check": "always",
+              "path": "",
+              "value": ""
+            }
+          }
+        ],
+        "source": {
+          "book": "",
+          "page": ""
+        },
+        "effects": {},
+        "suppressed": false
+      }
+    },
+    {
+      "id": "8e4d57b9-fbd3-4c10-9ee1-3d204454520d",
+      "name": "Health Impairment",
+      "type": "condition",
+      "imgUrl": "marketplace/rulesets/wod5e/assets/icons/items/item-default.svg",
+      "data": {
+        "description": "",
+        "bonuses": [
+          {
+            "source": "Health Impairment",
+            "value": "-2",
+            "paths": [
+              "physical"
+            ],
+            "displayWhenInactive": false,
+            "activeWhen": {
+              "check": "always",
+              "path": "",
+              "value": ""
+            }
+          }
+        ],
+        "source": {
+          "book": "",
+          "page": ""
+        },
+        "effects": {},
+        "suppressed": false
+      }
+    }
+  ]
+}

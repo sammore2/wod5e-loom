@@ -1,0 +1,53 @@
+{
+  "name": "wod5e",
+  "version": "0.1.0",
+  "description": "World of Darkness 5e community system adapted for LoomVTT",
+  "scripts": {
+    "gulp": "gulp",
+    "eslint": "eslint -c eslint.config.js *",
+    "generate-release": "node system/scripts/maintenance/generate-release-zip.js",
+    "check-highest-changes": "node system/scripts/maintenance/check-highest-changes.js",
+    "test": "vitest"
+  },
+  "browserslist": [
+    "last 3 versions"
+  ],
+  "author": "sammore2",
+  "license": "GPL-3.0-or-later",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/eslint-parser": "^7.25.1",
+    "eslint": "^9.9.0",
+    "eslint-plugin-hbs": "^1.0.3",
+    "eslint-plugin-import": "^2.32.0",
+    "globals": "^15.9.0",
+    "gulp": "^5.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-less": "^5.0.0",
+    "jsdom": "^28.0.0",
+    "less": "^4.2.0",
+    "vitest": "^4.0.18"
+  },
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sammore2/wod5e-loom.git"
+  },
+  "keywords": [
+    "vampire-the-masquerade",
+    "world-of-darkness",
+    "werewolf-the-apocalypse",
+    "hunter-the-reckoning"
+  ],
+  "bugs": {
+    "url": "https://github.com/sammore2/wod5e-loom/issues"
+  },
+  "homepage": "https://github.com/sammore2/wod5e-loom#readme",
+  "dependencies": {
+    "@eslint/compat": "^1.4.1",
+    "archiver": "^8.0.0",
+    "eslint-plugin-prettier": "^5.5.4"
+  }
+}

@@ -1,0 +1,144 @@
+.spc.sheet {
+  .stat-resource-background {
+    padding: 5px 15px 5px;
+  }
+
+  .spc-stats-body {
+    align-items: flex-start;
+
+    .field-header {
+      font-size: 16pt;
+    }
+  }
+
+  .standard-pools-list,
+  .exceptional-pools-list,
+  .description-field {
+    margin-bottom: 10px;
+  }
+
+  .general-difficulty {
+    width: -webkit-fill-available;
+    height: fit-content;
+    padding-bottom: 5px;
+
+    .flexcol {
+      height: fit-content;
+      
+      > * {
+        flex: 0 0 auto !important;
+      }
+    }
+  }
+
+  .field-section {
+    height: fit-content;
+  }
+
+  .field-section.flexcol > * {
+    flex: 0 0 auto !important;
+  }
+
+  .exceptional-pools-list {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    text-align: -webkit-center;
+    flex-flow: wrap;
+
+    .spc-item-header {
+      font-weight: bold;
+    }
+
+    .exceptional-pool:not(.locked) {
+      flex-grow: 0;
+      margin-left: auto;
+      margin-right: auto;
+
+      .resource-label {
+        place-content: center;
+        text-wrap: nowrap;
+      }
+    }
+  }
+
+  .item {
+    margin: 2px 0 2px 0;
+  }
+
+  .item-controls {
+    display: flex;
+    flex-grow: 0;
+    text-align: right;
+
+    .search-data-item {
+      position: unset;
+    }
+  }
+
+  .power-category {
+    padding: 3px;
+
+    .power-category-header {
+      border-bottom: 1px solid #CCC;
+      margin-bottom: 5px;
+      padding-bottom: 2px;
+
+      .resource {
+        max-width: 15px;
+      }
+
+      .power-category-label {
+        font-size: 13pt;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .list-resource {
+    display: flex;
+    flex-direction: column;
+
+    .item-name {
+      display: flex;
+      margin-left: 10px;
+      flex-grow: 1;
+    }
+  }
+
+  .wereform {
+    margin-left: auto;
+    margin-right: auto;
+
+    img.wereform-icon {
+      cursor: pointer;
+      border: 1px solid;
+    }
+
+    .swap-form {
+      margin-left: 5px;
+    }
+  }
+}
+
+.locked {
+  .exceptional-pools-list {
+    place-content: center;
+
+    a:not(:last-child)::after {
+      content: ", ";
+      white-space: pre;
+    }
+  }
+}
+
+.exceptional-edit.dialog {
+  .exceptional-pool {
+    justify-content: space-between;
+
+    input.exceptional-checkbox {
+      text-align: end;
+      border: 0;
+    }
+  }
+}

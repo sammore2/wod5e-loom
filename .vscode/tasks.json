@@ -1,0 +1,33 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "generate-release",
+			"problemMatcher": [],
+			"label": "WOD5E: Generate Release File",
+			"detail": "node system/scripts/generate-release-zip.js"
+		},
+		{
+			"type": "npm",
+			"script": "convert-packs",
+			"problemMatcher": [],
+			"label": "WOD5E: Pack all compendiums",
+			"detail": "npm run convert-conditions && npm run convert-macros"
+		},
+		{
+			"type": "npm",
+			"script": "gulp",
+			"problemMatcher": [],
+			"label": "WOD5E: Start gulp tasks",
+			"detail": "gulp"
+		},
+		{
+			"type": "npm",
+			"script": "eslint",
+			"problemMatcher": [],
+			"label": "WOD5E: Run ESLint",
+			"detail": "eslint -c .github/linters/.eslintrc.yml *"
+		}
+	]
+}

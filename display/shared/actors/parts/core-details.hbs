@@ -1,0 +1,20 @@
+<div class="flexcol detail-row">
+    <label for="actor-concept" class="resource-label field-header">{{localize "WOD5E.BiographyList.Concept"}}</label>
+    <input id="actor-concept" name="headers.concept" type="text" data-path="headers.concept" value="{{concept}}" placeholder="{{localize 'WOD5E.BiographyList.Concept'}}" autocomplete="off" aria-label="{{localize 'WOD5E.BiographyList.Concept'}}" />
+</div>
+<div class="flexcol detail-row">
+    <label for="actor-chronicle" class="resource-label field-header">{{localize "WOD5E.BiographyList.Chronicle"}}</label>
+    <input id="actor-chronicle" name="headers.chronicle" type="text" data-path="headers.chronicle" value="{{chronicle}}" placeholder="{{localize 'WOD5E.BiographyList.Chronicle'}}" autocomplete="off" aria-label="{{localize 'WOD5E.BiographyList.Chronicle'}}" />
+</div>
+{{#if showAmbitionDesire}}
+    <div class="flexrow detail-row">
+        <div class="flexcol shared-row">
+            <label for="actor-ambition" class="resource-label field-header">{{localize "WOD5E.BiographyList.Ambition"}}</label>
+            <input id="actor-ambition" name="headers.ambition" type="text" data-path="headers.ambition" value="{{ambition}}" placeholder="{{localize 'WOD5E.BiographyList.Ambition'}}" autocomplete="off" aria-label="{{localize 'WOD5E.BiographyList.Ambition'}}" />
+        </div>
+        <div class="flexcol shared-row">
+            <label for="actor-desire" class="resource-label field-header">{{localize "WOD5E.BiographyList.Desire"}}</label>
+            <input id="actor-desire" name="headers.desire" type="text" data-path="headers.desire" value="{{desire}}" placeholder="{{localize 'WOD5E.BiographyList.Desire'}}" autocomplete="off" aria-label="{{localize 'WOD5E.BiographyList.Desire'}}" />
+        </div>
+    </div>
+{{/if}}

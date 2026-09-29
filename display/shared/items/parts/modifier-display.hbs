@@ -1,0 +1,48 @@
+<div class="modifier wod-modifier-dialog">
+    <div class="form-group source-group">
+        <input class="source-name" id="modifierSource" name="modifierSource" type="text" value="{{bonus.source}}" placeholder="{{localize 'WOD5E.Modifier.NewModifier'}}"/>
+    </div>
+    <div class="form-row value-unless-row">
+        <div class="form-col value-col">
+            <label for="modifierValue"><b>{{localize "WOD5E.Value"}}</b></label>
+            <input class="input-value" id="modifierValue" name="modifierValue" type="number" value="{{bonus.value}}"/>
+        </div>
+        <div class="form-col unless-col">
+            <label for="unless"><b>{{localize "WOD5E.Modifier.Unless"}}</b></label>
+            <input id="unless" name="unless" class="modifier-selectors" type="text" value="{{splitArray bonus.unless}}" placeholder="{{localize 'WOD5E.Modifier.Unless'}}"/>
+        </div>
+        <div class="form-col checkbox-col">
+            <label class="checkbox-label" for="displayModifierWhenInactive">
+                <input id="displayModifierWhenInactive" name="displayModifierWhenInactive" type="checkbox"{{#if bonus.displayWhenInactive}} checked{{/if}}/>
+                <span>{{localize "WOD5E.Modifier.DisplayWhenInactive"}}</span>
+            </label>
+        </div>
+    </div>
+    <div class="form-row activation-row">
+        <div class="form-col active-when-check">
+            <label for="activeWhenCheck"><b>{{localize "WOD5E.Modifier.ActiveWhen"}}</b></label>
+            <select id="activeWhenCheck" name="activeWhenCheck">
+                <option value="never"{{#ifeq bonus.activeWhen.check "never"}} selected{{/ifeq}}>{{localize "WOD5E.Modifier.Never"}}</option>
+                <option value="always"{{#ifeq bonus.activeWhen.check "always"}} selected{{/ifeq}}>{{localize "WOD5E.Modifier.Always"}}</option>
+                <option value="isEqual"{{#ifeq bonus.activeWhen.check "isEqual"}} selected{{/ifeq}}>{{localize "WOD5E.Modifier.IfEquals"}}</option>
+                <option value="isPath"{{#ifeq bonus.activeWhen.check "isPath"}} selected{{/ifeq}}>{{localize "WOD5E.Modifier.IfPathIs"}}</option>
+            </select>
+        </div>
+        <div class="form-col active-when-path">
+            <label for="activeWhenPath"><b>{{localize "WOD5E.Modifier.PathToCheck"}}</b></label>
+            <input id="activeWhenPath" name="activeWhenPath" class="modifier-paths" type="text" value="{{bonus.activeWhen.path}}" placeholder="{{localize 'WOD5E.Modifier.PathToCheck'}}"/>
+        </div>
+        <div class="form-col active-when-value">
+            <label for="activeWhenValue"><b>{{localize "WOD5E.Modifier.ValueToCheck"}}</b></label>
+            <input id="activeWhenValue" name="activeWhenValue" type="text" value="{{bonus.activeWhen.value}}" placeholder="{{localize 'WOD5E.Modifier.ValueToCheck'}}"/>
+        </div>
+    </div>
+    <div class="form-group selectors-group">
+        <label for="modifier"><b>{{localize "WOD5E.Modifier.Selectors"}}</b></label>
+        <input id="modifier" name="modifier" list="modifier-selectors" class="modifier-selectors" type="text" value="{{splitArray bonus.paths}}" placeholder="{{localize 'WOD5E.None'}}"/>
+        <datalist id="modifier-selectors">
+          {{selectOptions modifierSelectors selected=value valueAttr="id" labelAttr="displayName" }}
+        </datalist>
+    </div>
+</div>
+
