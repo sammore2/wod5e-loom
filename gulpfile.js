@@ -90,6 +90,7 @@ function reorderStylesheet() {
       try {
         const root = postcss.parse(contents)
         const orderedNodes = []
+        const appendedNodes = []
         let nextOrder = null
 
         for (const node of root.nodes) {
@@ -100,7 +101,8 @@ function reorderStylesheet() {
           }
 
           if (nextOrder === null) {
-            throw new Error(`LESS node missing order marker: ${node.toString().slice(0, 80)}`)
+            appendedNodes.push(node.clone())
+            continue
           }
 
           orderedNodes.push({ order: nextOrder, node: node.clone() })
@@ -110,6 +112,7 @@ function reorderStylesheet() {
         orderedNodes.sort((a, b) => a.order - b.order)
         root.removeAll()
         orderedNodes.forEach(({ node }) => root.append(node))
+        appendedNodes.forEach((node) => root.append(node))
         outputFile.path = path.join(__dirname, 'display', 'wod5e-styling.css')
         outputFile.base = path.join(__dirname, 'display')
         outputFile.contents = Buffer.from(root.toResult().css.replace(/^\n/, ''))

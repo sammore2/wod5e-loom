@@ -11,6 +11,7 @@ npm-debug.log
 # Old Graphics
 assets/images/old/
 *.zip
+display/.backups/
 
 # Lock file
 *.lock
