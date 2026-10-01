@@ -1,387 +1,362 @@
-.dialog-content {
-  gap: 0.5px;
-
-  .dice-group-header {
-    border-bottom: 0;
-    font-weight: bold;
-    display: flex;
-    flex-direction: row;
-  }
-
-  .base-dice-group {
-    border-top: 0;
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 10px;
-  }
-
-  .base-dice-group .basic-dice,
-  .base-dice-group .advanced-dice,
-  .dice-group-header label {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  input {
-    border-radius: 0;
-  }
-
-  .dice-input input {
-    max-width: 50px;
-  }
-
-  .dice-input {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    img {
-      border-radius: 4px;
-
-      &.hunger-dice,
-      &.rage-dice {
-        background-color: #9b0b00;
-        border-color: #330300;
-      }
-
-      &.vampire-dice {
-        background-color: rgb(20, 20, 20);
-        border-color: rgb(200, 200, 200);
-      }
-
-      &.werewolf-dice {
-        background-color: #5d651a;
-        border-color: #131405;
-      }
-
-      &.hunter-dice {
-        background-color: #ee7e1f;
-        border-color: var(--system-color-5);
-      }
-
-      &.desperation-dice {
-        background-color: var(--system-color-5);
-        border-color: #cc6d28;
-      }
-    }
-  }
-
-  .advanced-dice .dice-input img,
-  .roll-dialog.vampire .advanced-dice .dice-input img,
-  .wod5e.vampire .advanced-dice .dice-input img {
-    background-color: #9b0b00;
-    border-color: #330300;
-  }
-
-  .roll-dialog.werewolf .basic-dice .dice-input img,
-  .wod5e.werewolf .basic-dice .dice-input img {
-    background-color: #5d651a;
-    border-color: #131405;
-  }
-
-  .roll-dialog.werewolf .advanced-dice .dice-input img,
-  .wod5e.werewolf .advanced-dice .dice-input img {
-    background-color: #9b0b00;
-    border-color: #330300;
-  }
-
-  .roll-dialog.hunter .basic-dice .dice-input img,
-  .wod5e.hunter .basic-dice .dice-input img {
-    background-color: #ee7e1f;
-    border-color: var(--system-color-5);
-  }
-
-  .roll-dialog.hunter .advanced-dice .dice-input img,
-  .wod5e.hunter .advanced-dice .dice-input img {
-    background-color: var(--system-color-5);
-    border-color: #cc6d28;
-  }
-
-  .dialog-control {
-    margin-top: 5px;
-  }
-
-  .dialog-control:hover,
-  .dialog-control:focus {
-      cursor: pointer;
-  }
-
-  .situational-modifiers {
-    border: 1px solid var(--system-dark-color-4, rgba(255, 255, 255, 0.2)) !important;
-    position: absolute !important;
-    display: flex !important;
-    flex-direction: column !important;
-    width: 380px !important;
-    top: 0 !important;
-    left: 480px !important;
-    padding: 14px 16px !important;
-    border-radius: 8px !important;
-    background: #000000 !important;
-    background-color: #000000 !important;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.8) !important;
-    box-sizing: border-box !important;
-    text-align: left !important;
-    z-index: 100 !important;
-
-    .list-title {
-      font-weight: 700 !important;
-      font-size: 15px !important;
-      line-height: 1.3 !important;
-      white-space: nowrap !important;
-      text-align: center !important;
-      margin: 0 0 10px 0 !important;
-      padding-bottom: 6px !important;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
-      color: #f0f0f0 !important;
-
-      &:not(:first-child) {
-        margin-top: 18px !important;
-      }
-    }
-
-    .mod-row {
-      display: flex !important;
-      flex-direction: row !important;
-      flex-wrap: nowrap !important;
-      align-items: center !important;
-      width: 100% !important;
-      box-sizing: border-box !important;
-    }
-
-    .mod-header {
-      font-weight: 700 !important;
-      font-size: 11px !important;
-      text-transform: uppercase !important;
-      letter-spacing: 0.5px !important;
-      padding: 4px 8px !important;
-      margin: 0 0 6px 0 !important;
-      color: #8e8e93 !important;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-    }
-
-    .modifier {
-      padding: 6px 8px !important;
-      margin: 3px 0 !important;
-      border-radius: 4px !important;
-      background: rgba(255, 255, 255, 0.04) !important;
-      border: 1px solid rgba(255, 255, 255, 0.06) !important;
-      transition: background 0.15s ease !important;
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.08) !important;
-      }
-    }
-
-    .col-source {
-      flex: 1 1 auto !important;
-      min-width: 0 !important;
-      text-align: left !important;
-      font-size: 13px !important;
-      color: #e0e0e0 !important;
-      padding-right: 8px !important;
-      white-space: nowrap !important;
-      overflow: hidden !important;
-      text-overflow: ellipsis !important;
-    }
-
-    .mod-header .col-source {
-      font-weight: 700 !important;
-      color: #8e8e93 !important;
-    }
-
-    .col-value {
-      flex: 0 0 55px !important;
-      width: 55px !important;
-      min-width: 55px !important;
-      max-width: 55px !important;
-      text-align: center !important;
-      font-size: 14px !important;
-      font-weight: 700 !important;
-      color: #ffffff !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-    }
-
-    .mod-header .col-value {
-      font-size: 11px !important;
-      font-weight: 700 !important;
-      color: #8e8e93 !important;
-    }
-
-    .col-active {
-      flex: 0 0 55px !important;
-      width: 55px !important;
-      min-width: 55px !important;
-      max-width: 55px !important;
-      text-align: center !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-
-      input.mod-checkbox {
-        margin: 0 !important;
-        cursor: pointer !important;
-        width: 16px !important;
-        height: 16px !important;
-      }
-    }
-
-    .mod-header .col-active {
-      font-size: 11px !important;
-      font-weight: 700 !important;
-      color: #8e8e93 !important;
-    }
-
-    .custom-modifiers {
-      margin: 0 !important;
-      padding: 0 !important;
-      width: 100% !important;
-    }
-
-    #custom-modifiers-list {
-      display: flex !important;
-      flex-direction: column !important;
-      gap: 4px !important;
-      width: 100% !important;
-    }
-
-    .custom-modifier {
-      padding: 4px 6px !important;
-      margin: 3px 0 !important;
-      border-radius: 4px !important;
-      background: rgba(255, 255, 255, 0.04) !important;
-      border: 1px solid rgba(255, 255, 255, 0.06) !important;
-
-      .col-source {
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        gap: 6px !important;
-        padding-right: 8px !important;
-      }
-
-      .mod-delete {
-        color: #ef4444 !important;
-        cursor: pointer !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        padding: 2px 4px !important;
-        font-size: 12px !important;
-
-        &:hover {
-          color: #f87171 !important;
-        }
-      }
-
-      .mod-name {
-        flex: 1 1 auto !important;
-        height: 26px !important;
-        padding: 2px 8px !important;
-        font-size: 13px !important;
-        background: rgba(0, 0, 0, 0.5) !important;
-        border: 1px solid rgba(255, 255, 255, 0.15) !important;
-        border-radius: 4px !important;
-        color: #f0f0f0 !important;
-      }
-
-      .col-value input.mod-value {
-        width: 100% !important;
-        max-width: 50px !important;
-        height: 26px !important;
-        text-align: center !important;
-        font-size: 13px !important;
-        font-weight: 700 !important;
-        background: rgba(0, 0, 0, 0.5) !important;
-        border: 1px solid rgba(255, 255, 255, 0.15) !important;
-        border-radius: 4px !important;
-        color: #f0f0f0 !important;
-        margin: 0 !important;
-      }
-    }
-
-    .add-custom-mod {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      white-space: nowrap !important;
-      margin-top: 12px !important;
-      padding: 8px 14px !important;
-      font-size: 13px !important;
-      font-weight: 600 !important;
-      color: #a78bfa !important;
-      background: rgba(167, 139, 250, 0.08) !important;
-      border: 1px dashed rgba(167, 139, 250, 0.35) !important;
-      border-radius: 6px !important;
-      cursor: pointer !important;
-      text-decoration: none !important;
-      transition: all 0.2s ease !important;
-
-      &:hover {
-        color: #c4b5fd !important;
-        border-color: #a78bfa !important;
-        background: rgba(167, 139, 250, 0.18) !important;
-      }
-    }
-  }
-
-  .selectors-group {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 10px;
-  }
-
-  .selectors-group .primary-selector {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-
-  .selectors-group .selector-title {
-    font-size: 13pt;
-    font-weight: bold;
-    text-decoration: underline;
-  }
-
-  .selectors-group .middle {
-    font-size: 20pt;
-  }
-
-  .selectors-group .selector-title {
-    margin: auto;
-  }
-
-  .secondary-selector {
-    text-align: center;
-    margin-bottom: 5px;
-  }
-
-  .secondary-selector .selector-title {
-    font-weight: bold;
-    text-decoration: underline;
-  }
-
-  .blood-surge {
-    text-align: center;
-  }
+/*__WOD5E_ORDER_00128__*/
+.sidebar-message .message-content,
+.chat-message .message-content,
+.wod5e-chat-card .message-content,
+.sidebar-message .collapsible-container,
+.chat-message .collapsible-container,
+.sidebar-message .dice-roll,
+.chat-message .dice-roll,
+.sidebar-message .dice-result,
+.chat-message .dice-result,
+.dice-roll .collapsible-content,
+.chat-message .collapsible-content,
+.sidebar-message .collapsible-content,
+.wod5e-chat-card .collapsible-content {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
 }
 
-.selector-content {
-  margin: auto;
+/*__WOD5E_ORDER_00141__*/
+.dice-roll .dice-tooltip {
+  display: none;
 }
 
-.dialog-buttons {
+/*__WOD5E_ORDER_00142__*/
+.dice-roll.expanded .dice-tooltip {
+  display: block;
+}
+
+/*__WOD5E_ORDER_00144__*/
+.dice-roll .dice-result > .collapsible-content {
+  max-height: none;
+  overflow: visible;
+}
+
+/*__WOD5E_ORDER_00147__*/
+.dice-tooltip .dice-rolls {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  flex-direction: row;
-  flex-grow: 0;
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
+/*__WOD5E_ORDER_00148__*/
+.dice-tooltip .dice-rolls .roll {
+  border: 1px solid;
+  border-radius: 3px;
+  min-width: 1.4em;
+  text-align: center;
+}
+
+/*__WOD5E_ORDER_00155__*/
+.chat-message .roll-total,
+.sidebar-message .roll-total,
+.wod5e-chat-card .roll-total,
+.chat-message .roll-difficulty,
+.sidebar-message .roll-difficulty,
+.wod5e-chat-card .roll-difficulty {
+  display: flex;
+  flex-grow: 1;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+/*__WOD5E_ORDER_00158__*/
+.roll-img {
+  max-width: 40px;
+  margin: 2px;
+  border-radius: 4px;
+  border: 1px solid;
+}
+
+/*__WOD5E_ORDER_00160__*/
+.roll-label {
+  font-weight: 700;
+  font-family: Vollkorn, serif;
+  font-variant-caps: titling-caps;
+  font-size: 1.4em;
+  margin: 0.1em;
+  text-align: center;
+}
+
+/*__WOD5E_ORDER_00161__*/
+.roll-label:nth-of-type(1) {
+  line-height: 1em;
+  margin-top: 0.4em;
+  margin-bottom: 0.3em;
+}
+
+/*__WOD5E_ORDER_00162__*/
+.roll-content {
+  font-size: 120%;
+  font-family: Vollkorn, serif;
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
+}
+
+/*__WOD5E_ORDER_00164__*/
+p.roll-label.uppercase {
+  letter-spacing: 0.03rem;
+  line-height: 1.4rem;
+}
+
+/*__WOD5E_ORDER_00165__*/
+.reroll .die-select,
+.willpower-reroll .die-select {
+  flex: 0;
+}
+
+/*__WOD5E_ORDER_00166__*/
+.reroll .selected img,
+.willpower-reroll .selected img {
+  border: 2px solid var(--system-color-3);
+  filter: invert(1);
+}
+
+/*__WOD5E_ORDER_00168__*/
+.roll-prompt-message .user-roll {
+  background-color: #555555;
+  padding: 5px;
+  margin: 3px;
+}
+
+/*__WOD5E_ORDER_00169__*/
+.roll-prompt-message .user-roll .actor-roll-header .remove-actor-button {
+  flex-grow: 0;
+  cursor: pointer;
+  margin-right: 3px;
+}
+
+/*__WOD5E_ORDER_00206__*/
+.roll-menu.application.minimized .roll-menu-hint,
+.roll-menu.application.minimizing .roll-menu-hint {
+  display: none;
+}
+
+/*__WOD5E_ORDER_00207__*/
+.roll-menu.application .window-content {
+  padding: 0;
+  flex-direction: row;
+}
+
+/*__WOD5E_ORDER_00208__*/
+.roll-menu.application .roll-menu-hint {
+  cursor: pointer;
+}
+
+/*__WOD5E_ORDER_00209__*/
+.roll-menu.application .clickable-button {
+  cursor: pointer;
+}
+
+/*__WOD5E_ORDER_00210__*/
+.roll-menu.application .clickable-button:hover {
+  font-weight: bold;
+}
+
+/*__WOD5E_ORDER_00211__*/
+.roll-menu.application .roll-menu-sidebar {
+  padding-right: 1rem;
+  border-right: 1px solid;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+/*__WOD5E_ORDER_00212__*/
+.roll-menu.application .roll-menu-sidebar .title {
+  font-size: 16pt;
+  text-align: center;
+}
+
+/*__WOD5E_ORDER_00213__*/
+.roll-menu.application .roll-menu-sidebar .roll-builder {
+  font-size: 14pt;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/*__WOD5E_ORDER_00214__*/
+.roll-menu.application .roll-menu-sidebar hr {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/*__WOD5E_ORDER_00215__*/
+.roll-menu.application .roll-menu-sidebar .active {
+  font-weight: bold;
+}
+
+/*__WOD5E_ORDER_00216__*/
+.roll-menu.application .roll-menu-sidebar .saved-rolls-list {
+  padding: 5px;
+  display: flex;
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+
+/*__WOD5E_ORDER_00217__*/
+.roll-menu.application .roll-menu-sidebar .saved-rolls-list .saved-roll .remove-saved-roll {
+  flex-grow: 0;
+  padding: 3px;
+}
+
+/*__WOD5E_ORDER_00218__*/
+.roll-menu.application .roll-menu-sidebar .saved-rolls-list .saved-roll:not(.active) {
+  cursor: pointer;
+}
+
+/*__WOD5E_ORDER_00219__*/
+.roll-menu.application .roll-menu-sidebar .saved-rolls-footer {
+  margin-top: auto;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+/*__WOD5E_ORDER_00220__*/
+.roll-menu.application .main {
+  flex-grow: 1;
+  position: relative;
+}
+
+/*__WOD5E_ORDER_00221__*/
+.roll-menu.application .main .roll-menu-body {
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/*__WOD5E_ORDER_00222__*/
+.roll-menu.application .main .roll-menu-body .splat-die-options {
+  justify-content: space-between;
+}
+
+/*__WOD5E_ORDER_00223__*/
+.roll-menu.application .main .roll-menu-body .splat-die-options .die-img {
+  justify-items: center;
+}
+
+/*__WOD5E_ORDER_00224__*/
+.roll-menu.application .main .roll-menu-body .splat-die-options .die-img img {
+  cursor: pointer;
+}
+
+/*__WOD5E_ORDER_00225__*/
+.roll-menu.application .main .roll-menu-body .splat-die-options .die-img:not(.active) {
+  filter: saturate(250%);
+}
+
+/*__WOD5E_ORDER_00226__*/
+.roll-menu.application .main .roll-menu-body .splat-die-options .die-img.active {
+  filter: saturate(50%);
+}
+
+/*__WOD5E_ORDER_00227__*/
+.roll-menu.application .main .roll-menu-body .roll-constructor {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  position: relative;
+}
+
+/*__WOD5E_ORDER_00228__*/
+.roll-menu.application .main .roll-menu-body .roll-constructor .constructed-roll {
+  flex-grow: 1;
+}
+
+/*__WOD5E_ORDER_00229__*/
+.roll-menu.application .main .roll-menu-body .roll-constructor .roll-options .option-toggle {
+  text-align: center;
+}
+
+/*__WOD5E_ORDER_00230__*/
+.roll-menu.application .main .roll-menu-body .roll-menu-footer {
+  margin-top: auto;
+  padding: 0.5rem;
+}
+
+/*__WOD5E_ORDER_00231__*/
+.roll-menu.application .main .roll-menu-body .roll-menu-footer .roll-menu-footer-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+/*__WOD5E_ORDER_00232__*/
+.roll-menu.application .main .roll-menu-body .roll-menu-footer .roll-menu-footer-buttons .prompt-button,
+.roll-menu.application .main .roll-menu-body .roll-menu-footer .roll-menu-footer-buttons .roll-button {
+  align-content: center;
+}
+
+/*__WOD5E_ORDER_00276__*/
 .roll-dialog {
   overflow: visible;
   width: 400px;
+}
 
-  .window-content {
-    overflow: visible;
-  }
+/*__WOD5E_ORDER_00277__*/
+.roll-dialog .window-content {
+  overflow: visible;
+}
+
+/*__WOD5E_ORDER_00609__*/
+.actor.sheet.loom-window .sheet-body .stat-name.rollable,
+.actor.sheet.loom-window .sheet-body .resource-label.rollable,
+.actor.sheet.loom-window .sheet-body .skill .resource-label label.rollable {
+  background: transparent !important;
+  border: none !important;
+  color: var(--color-text-primary) !important;
+  text-transform: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  display: inline !important;
+  visibility: visible !important;
+  min-width: 0 !important;
+}
+
+/*__WOD5E_ORDER_00612__*/
+.actor.sheet.loom-window .sheet-body .stat-name.rollable:hover,
+.actor.sheet.loom-window .sheet-body .resource-label.rollable:hover,
+.actor.sheet.loom-window .sheet-body .skill .resource-label label.rollable:hover {
+  color: var(--vampire-color-2) !important;
+}
+
+/*__WOD5E_ORDER_00911__*/
+.chat-message .roll-result-label.success,
+.chat-message .roll-result-label.critical-success,
+.sidebar-message .roll-result-label.success,
+.sidebar-message .roll-result-label.critical-success,
+.wod5e-chat-card .roll-result-label.success,
+.wod5e-chat-card .roll-result-label.critical-success {
+  background-color: #065200;
+  color: #dbd6d6;
+}
+
+/*__WOD5E_ORDER_00913__*/
+.chat-message .roll-result-label.failure,
+.chat-message .roll-result-label.critical-failure,
+.chat-message .roll-result-label.bestial-failure,
+.sidebar-message .roll-result-label.failure,
+.sidebar-message .roll-result-label.critical-failure,
+.sidebar-message .roll-result-label.bestial-failure,
+.wod5e-chat-card .roll-result-label.failure,
+.wod5e-chat-card .roll-result-label.critical-failure,
+.wod5e-chat-card .roll-result-label.bestial-failure {
+  background-color: #900;
+  color: #dbdbdb;
+}
+
+/*__WOD5E_ORDER_00914__*/
+.chat-message .roll-result-label.desperation-success,
+.chat-message .roll-result-label.desperation-failure,
+.sidebar-message .roll-result-label.desperation-success,
+.sidebar-message .roll-result-label.desperation-failure,
+.wod5e-chat-card .roll-result-label.desperation-success,
+.wod5e-chat-card .roll-result-label.desperation-failure {
+  background-color: #e97c00;
 }

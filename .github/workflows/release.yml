@@ -74,7 +74,7 @@ jobs:
         run: |
           zip -r "${NAME}.zip" . \
             -x '.git/*' '.github/*' '.agents/*' '.dev/*' '.vite/*' 'node_modules/*' \
-               '.gitignore' '.gitattributes' 'gulpfile*.js' 'eslint.config.js' 'vitest.config.js' '*.zip' 'release-notes.md' 'release-manifest.json'
+               '.gitignore' '.gitattributes' 'gulpfile*.js' 'eslint.config.js' 'vitest.config.js' '*.zip' '*.bak' 'release-notes.md' 'release-manifest.json'
 
       - name: Build release manifest (adds download URL + sha256)
         env:

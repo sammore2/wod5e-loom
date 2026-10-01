@@ -5,6 +5,14 @@ Each release tag `vX.Y.Z` publishes the section headed `## [X.Y.Z]` as its relea
 
 ## [Unreleased]
 
+## [0.1.1]
+
+### Fixed
+- Limit non-owner actor sheets to biography and public notes, with private notes stored per user.
+- Show the failure margin in Portuguese and Italian roll cards and restore success/failure colors across chat card layouts.
+- Run world data migrations once per migration step and wait for document/settings writes to finish.
+- Preserve the tested stylesheet while restoring per-system and per-component LESS sources.
+
 ## [0.1.0]
 
 Native ruleset for **LoomVTT** supporting Vampire: The Masquerade 5th Edition, Werewolf: The Apocalypse 5th Edition, and Hunter: The Reckoning 5th Edition.

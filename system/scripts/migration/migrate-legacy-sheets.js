@@ -17,7 +17,7 @@ export const MigrateLegacySheets = async function () {
       Loom.ui?.notifications.info(`Fixing actor ${actor.name}: Changing Legacy Sheet to Vampire Sheet.`)
 
       migrationIDs.push(id)
-      actor.update({ type: 'vampire' })
+      await actor.update({ type: 'vampire' })
     }
   }
 

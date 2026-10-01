@@ -31,7 +31,13 @@ export class GroupActorModel extends WoDActorModel {
     // Setting fields
     schema.settings = new fields.SchemaField({
       headerbg: new fields.StringField({ initial: '' }),
-      background: new fields.StringField({ initial: '' })
+      background: new fields.StringField({ initial: '' }),
+      limited: new fields.SchemaField({
+        biography: new fields.BooleanField({ initial: true }),
+        appearance: new fields.BooleanField({ initial: false }),
+        touchstones: new fields.BooleanField({ initial: false }),
+        tenets: new fields.BooleanField({ initial: false })
+      })
     })
 
     // Various other HTML fields

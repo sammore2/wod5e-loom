@@ -58,9 +58,9 @@ export const MigrateSystemFlags = async function () {
     Loom.ui?.notifications.info('Entity flag migration complete.')
   }
 
-  function updateFlags(entity) {
+  async function updateFlags(entity) {
     const oldFlags = entity.flags.vtm5e
-    entity.update({
+    await entity.update({
       flags: {
         wod5e: oldFlags
       }

@@ -1,187 +1,244 @@
-.item.sheet {
-	.window-content {
-		padding: 0;
-	}
-
-	.item-header {
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-start;
-		align-items: center;
-
-		.profile-img {
-			max-height: 100px;
-			max-width: 100px;
-			height: fit-content;
-			width: fit-content;
-			padding: 5px;
-			margin-right: 0;
-		}
-
-		.header-fields {
-			flex: 1;
-			margin-top: auto;
-
-			h1 {
-				font-size: 35px !important;
-				font-family: var(--font-h1) !important;
-				line-height: 1.1 !important;
-				margin: 0 !important;
-				padding: 0 4px !important;
-				border: none !important;
-			}
-
-			.itemname {
-				font-size: 35px !important;
-				font-family: var(--font-h1) !important;
-				background: transparent !important;
-				background-color: transparent !important;
-				border: none !important;
-				border-bottom: 1px solid transparent !important;
-				border-radius: 0 !important;
-				box-shadow: none !important;
-				outline: none !important;
-				padding: 0 4px !important;
-				margin: 0 !important;
-				height: auto !important;
-				min-height: unset !important;
-				line-height: 1.1 !important;
-				color: inherit !important;
-				width: 100% !important;
-				box-sizing: border-box !important;
-
-				&:hover,
-				&:focus {
-					background: rgba(0, 0, 0, 0.04) !important;
-					background-color: rgba(0, 0, 0, 0.04) !important;
-					border: none !important;
-					border-bottom: 1px dashed var(--system-color-1, #690a0a) !important;
-					box-shadow: none !important;
-					outline: none !important;
-				}
-			}
-
-			.header-details {
-				padding: 5px;
-			}
-		}
-
-		.item-resource {
-			text-wrap: nowrap;
-			margin-left: 5px;
-			margin-right: 5px;
-		}
-	}
-
-	.tabs {
-		a.active {
-			font-weight: bold;
-		}
-	}
-
-	a[data-tab="dicepool"] {
-		.remove-dice {
-			flex-grow: 0;
-			padding: 4px;
-		}
-	}
-
-	section.tab {
-		padding: 10px 10px 0px 10px;
-		overflow-y: scroll;
-		height: 100%;
-	}
-
-	.source-page-input {
-		min-width: 75px;
-	}
-
-	.effects-list {
-		.effect {
-			border-top: 1px solid black;
-			padding: 5px;
-		}
-
-		.effect-keys {
-			display: flex;
-			flex-direction: row;
-
-			.label {
-				padding: 5px;
-			}
-
-			.flexdatalist-multiple {
-				flex-grow: 1;
-				margin: 0;
-				padding: 0;
-			}
-		}
-	}
+/*__WOD5E_ORDER_00167__*/
+h3.item-name {
+  border-bottom: 0;
+  margin: 0;
+  align-items: center;
+  font-family: Amarante, serif;
+  font-size: 1.4em;
 }
 
-.item.sheet .tabs-container,
-.dialog-app.sheet .tabs-container {
-  background-color: transparent !important;
+/*__WOD5E_ORDER_00437__*/
+.actor.sheet .resource .data-item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 85%;
 }
 
-/* Fix for Item Sheet Tabs (Text Color) */
-.item.sheet .tabs-container nav.tabs,
-.dialog-app.sheet .tabs-container nav.tabs {
-  background-color: white !important;
+/*__WOD5E_ORDER_00438__*/
+.actor.sheet .resource .search-data-item {
+  position: absolute;
+  top: 50%;
+  right: 23px;
+  transform: translateY(-50%);
+  font-size: 1.15em;
+}
+
+/*__WOD5E_ORDER_00439__*/
+.actor.sheet .resource .edit-data-item,
+.actor.sheet .resource .add-data-item {
+  position: absolute;
+  top: 50%;
+  right: 3px;
+  transform: translateY(-50%);
+  font-size: 1.15em;
+}
+
+/*__WOD5E_ORDER_00440__*/
+.actor.sheet .resource .remove-data-item {
+  position: absolute;
+  top: 50%;
+  right: 23px;
+  transform: translateY(-50%);
+}
+
+/*__WOD5E_ORDER_00464__*/
+.actor.sheet .actor-header .resource .search-data-item,
+.actor.sheet .actor-header .resource .edit-data-item,
+.actor.sheet .actor-header .resource .add-data-item {
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/*__WOD5E_ORDER_00541__*/
+.actor.sheet .item-list {
+  align-self: flex-start;
+}
+
+/*__WOD5E_ORDER_00542__*/
+.actor.sheet .item-list .category {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 425px;
+  margin: 5px;
+  padding: 5px;
+}
+
+/*__WOD5E_ORDER_00543__*/
+.actor.sheet .item-list .category .item-description {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/*__WOD5E_ORDER_00544__*/
+.actor.sheet .item-list .category .item {
   display: flex !important;
   flex-direction: row !important;
-  justify-content: center !important;
-  padding: 5px 0 !important;
-}
-.item.sheet .tabs-container nav.tabs div,
-.dialog-app.sheet .tabs-container nav.tabs div {
-  padding: 0 10px !important;
-  cursor: pointer !important;
-}
-.item.sheet .tabs-container nav.tabs label,
-.dialog-app.sheet .tabs-container nav.tabs label {
-  color: black !important;
-  font-weight: bold !important;
-  cursor: pointer !important;
-}
-.item.sheet.vampire .tabs-container nav.tabs .active label {
-  color: darkred !important;
-}
-.item.sheet.werewolf .tabs-container nav.tabs .active label {
-  color: darkgreen !important; /* or whatever werewolf color is */
-}
-.item.sheet.hunter .tabs-container nav.tabs .active label {
-  color: darkorange !important;
-}
-.item.sheet .tabs-container nav.tabs label,
-.dialog-app.sheet .tabs-container nav.tabs label {
-  font-size: 13px !important;
-  white-space: nowrap !important;
-}
-.item.sheet .tabs-container nav.tabs div,
-.dialog-app.sheet .tabs-container nav.tabs div {
-  padding: 0 5px !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
 }
 
-/* LoomVTT Fix: Reset .tab override from Core for item sheets */
+/*__WOD5E_ORDER_00545__*/
+.actor.sheet .item-list .category .item .item-image {
+  flex: 0 0 25px;
+  max-width: 25px;
+}
+
+/*__WOD5E_ORDER_00546__*/
+.actor.sheet .item-list .category .item .item-image img {
+  border-radius: 50%;
+  padding: 2px;
+}
+
+/*__WOD5E_ORDER_00547__*/
+.actor.sheet .item-list .category .item .item-header .item-name {
+  font-size: 16pt;
+  font-weight: bold;
+}
+
+/*__WOD5E_ORDER_00548__*/
+.actor.sheet .item-list .category .item .item-header .item-controls {
+  text-align-last: right;
+}
+
+/*__WOD5E_ORDER_00549__*/
+.actor.sheet .item-list .category .item .item-name {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  text-align: left !important;
+  padding: 3px 0 !important;
+  margin-left: 6px !important;
+  margin-right: 8px !important;
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+
+/*__WOD5E_ORDER_00550__*/
+.actor.sheet .item-list .category .item .dot-tracker {
+  flex: 0 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  margin-left: auto !important;
+  white-space: nowrap !important;
+}
+
+/*__WOD5E_ORDER_00551__*/
+.actor.sheet .item-list .category .item .item-controls {
+  flex: 0 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  margin-left: 8px !important;
+  text-align: right !important;
+}
+
+/*__WOD5E_ORDER_00552__*/
+.actor.sheet .item-list .category .item .item-controls .item-control {
+  margin-left: 3px;
+}
+
+/*__WOD5E_ORDER_00553__*/
+.actor.sheet .item-header .item-name {
+  font-size: 16pt;
+  font-weight: bold;
+}
+
+/*__WOD5E_ORDER_00554__*/
+.actor.sheet .item-header .item-controls {
+  text-align-last: right;
+}
+
+/*__WOD5E_ORDER_00555__*/
+.actor.sheet .item .item-controls {
+  flex-flow: row;
+  display: flex;
+}
+
+/*__WOD5E_ORDER_00556__*/
+.actor.sheet .item-name {
+  text-wrap: nowrap;
+}
+
+/*__WOD5E_ORDER_00557__*/
+.actor.sheet .item-image img {
+  border-radius: 50%;
+  padding: 2px;
+  min-width: 25px;
+  min-height: 25px;
+  max-width: 25px;
+  max-height: 25px;
+}
+
+/*__WOD5E_ORDER_00566__*/
+.actor.sheet .stats-content .side-panel .items-list {
+  flex: 1 1 auto;
+  padding: 5px;
+}
+
+/*__WOD5E_ORDER_00567__*/
+.actor.sheet .stats-content .side-panel .item-image {
+  max-width: 30px;
+}
+
+/*__WOD5E_ORDER_00568__*/
+.actor.sheet .stats-content .side-panel .item-image img {
+  border-radius: 0;
+}
+
+/*__WOD5E_ORDER_00569__*/
+.actor.sheet .stats-content .side-panel .item-name {
+  flex-grow: 1;
+  margin-left: 5px;
+  margin-right: 5px;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+/*__WOD5E_ORDER_00570__*/
+.actor.sheet .stats-content .side-panel .item-controls {
+  text-align-last: right;
+  max-width: 35px;
+}
+
+/*__WOD5E_ORDER_00588__*/
+.actor.sheet .tab,
+.actor.sheet .sheet-body .tab,
+.loom-window .actor.sheet .tab,
+.loom-window.actor.sheet .tab,
 .item.sheet .tab,
 .item.sheet section.tab,
-.loom-window.item.sheet .tab,
-.loom-window.item.sheet section.tab,
 .loom-window .item.sheet .tab,
-.loom-window .item.sheet section.tab {
+.loom-window.item.sheet .tab,
+.loom-window.item .tab {
+  display: none;
   background: transparent !important;
   border-radius: 0 !important;
   border: none !important;
   box-shadow: none !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
-  padding: 10px 12px !important;
-  overflow-y: auto !important;
-  box-sizing: border-box !important;
+  padding: 8px !important;
 }
 
-/* Item Sheet Window Scope - Light Parchment Theme Variables */
+/*__WOD5E_ORDER_00589__*/
+.actor.sheet .tab.active,
+.actor.sheet .sheet-body .tab.active,
+.loom-window .actor.sheet .tab.active,
+.loom-window.actor.sheet .tab.active,
+.item.sheet .tab.active,
+.item.sheet section.tab.active,
+.loom-window .item.sheet .tab.active,
+.loom-window.item.sheet .tab.active,
+.loom-window.item .tab.active {
+  display: block !important;
+}
+
+/*__WOD5E_ORDER_00591__*/
 .loom-window.item,
 .loom-window.item.sheet,
 .loom-window .item.sheet,
@@ -194,19 +251,133 @@
   --color-text-muted: #666666;
   --color-border: rgba(0, 0, 0, 0.15);
   --color-accent: #690a0a;
-
-  &.vampire {
-    --color-accent: #690a0a;
-  }
-  &.werewolf {
-    --color-accent: #1a4d2e;
-  }
-  &.hunter {
-    --color-accent: #d97706;
-  }
 }
 
-/* Item Sheet ProseMirror & Description Styling */
+/*__WOD5E_ORDER_00669__*/
+.item.sheet .window-content {
+  padding: 0;
+}
+
+/*__WOD5E_ORDER_00670__*/
+.item.sheet .item-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/*__WOD5E_ORDER_00671__*/
+.item.sheet .item-header .profile-img {
+  max-height: 100px;
+  max-width: 100px;
+  height: fit-content;
+  width: fit-content;
+  padding: 5px;
+  margin-right: 0;
+}
+
+/*__WOD5E_ORDER_00672__*/
+.item.sheet .item-header .header-fields {
+  flex: 1;
+  margin-top: auto;
+}
+
+/*__WOD5E_ORDER_00673__*/
+.item.sheet .item-header .header-fields h1,
+.loom-window.item.sheet .item-header .header-fields h1 {
+  font-size: 35px !important;
+  font-family: var(--font-h1) !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+  padding: 0 4px !important;
+  border: none !important;
+}
+
+/*__WOD5E_ORDER_00674__*/
+.item.sheet .item-header .header-fields .itemname,
+.item.sheet .item-header input.itemname,
+.item.sheet input.itemname,
+.loom-window.item.sheet input.itemname,
+.loom-window .item.sheet input.itemname,
+.loom-window-body .item.sheet input.itemname,
+.loom-window-body input[type="text"].itemname,
+input.itemname {
+  font-size: 35px !important;
+  font-family: var(--font-h1) !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  padding: 0 4px !important;
+  margin: 0 !important;
+  height: auto !important;
+  min-height: unset !important;
+  line-height: 1.1 !important;
+  color: inherit !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/*__WOD5E_ORDER_00675__*/
+.item.sheet .item-header .header-fields .itemname:hover,
+.item.sheet .item-header .header-fields .itemname:focus,
+.item.sheet .item-header input.itemname:hover,
+.item.sheet .item-header input.itemname:focus,
+.item.sheet input.itemname:hover,
+.item.sheet input.itemname:focus,
+.loom-window.item.sheet input.itemname:hover,
+.loom-window.item.sheet input.itemname:focus,
+.loom-window .item.sheet input.itemname:hover,
+.loom-window .item.sheet input.itemname:focus,
+.loom-window-body .item.sheet input.itemname:hover,
+.loom-window-body .item.sheet input.itemname:focus,
+.loom-window-body input[type="text"].itemname:hover,
+.loom-window-body input[type="text"].itemname:focus,
+input.itemname:hover,
+input.itemname:focus {
+  background: rgba(0, 0, 0, 0.04) !important;
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  border: none !important;
+  border-bottom: 1px dashed var(--system-color-1, #690a0a) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/*__WOD5E_ORDER_00676__*/
+.item.sheet .item-header .header-fields .header-details {
+  padding: 5px;
+}
+
+/*__WOD5E_ORDER_00677__*/
+.item.sheet .item-header .item-resource {
+  text-wrap: nowrap;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/*__WOD5E_ORDER_00678__*/
+.item.sheet .tabs a.active {
+  font-weight: bold;
+}
+
+/*__WOD5E_ORDER_00679__*/
+.item.sheet a[data-tab="dicepool"] .remove-dice {
+  flex-grow: 0;
+  padding: 4px;
+}
+
+/*__WOD5E_ORDER_00680__*/
+.item.sheet section.tab {
+  padding: 10px 12px !important;
+  overflow-y: auto !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/*__WOD5E_ORDER_00681__*/
 .item.sheet prose-mirror,
 .loom-window.item.sheet prose-mirror,
 .loom-window .item.sheet prose-mirror {
@@ -219,97 +390,89 @@
   padding: 8px 12px !important;
   color: #1a1a1a !important;
   box-sizing: border-box !important;
-
-  .editor-content {
-    color: #1a1a1a !important;
-    font-size: 13px !important;
-    line-height: 1.55 !important;
-    max-width: 100% !important;
-    padding-right: 28px !important;
-
-    p {
-      margin-top: 0 !important;
-      margin-bottom: 0.65em !important;
-      color: #1a1a1a !important;
-    }
-
-    hr {
-      border: none !important;
-      border-top: 1px solid rgba(0, 0, 0, 0.18) !important;
-      margin: 8px 0 !important;
-    }
-  }
-
-  /* Edit button for Item Sheet (clean, visible on light parchment background) */
-  > button.editor-edit,
-  > button.toggle,
-  > button.icon.toggle,
-  > button.icon,
-  &:not([editing]) > button,
-  button.editor-edit,
-  button.toggle {
-    background: rgba(0, 0, 0, 0.07) !important;
-    border: 1px solid rgba(0, 0, 0, 0.2) !important;
-    color: #333333 !important;
-    transition: all 0.15s ease !important;
-
-    &:hover {
-      background: var(--vampire-color-1, #690a0a) !important;
-      border-color: var(--vampire-color-1, #690a0a) !important;
-      color: #ffffff !important;
-    }
-  }
-
-  /* Editor toolbar when editing */
-  .editor-menu {
-    background: #f0ede8 !important;
-    border-bottom: 1px solid #d4cece !important;
-
-    button {
-      color: #2b2b2b !important;
-
-      &:hover {
-        background: rgba(0, 0, 0, 0.08) !important;
-      }
-    }
-  }
 }
 
-/* Splat-themed scrollbars and borders */
-.item.sheet.vampire section.tab,
-.item.sheet.vampire prose-mirror,
-.item.sheet.vampire prose-mirror .editor-content,
-.loom-window.item.sheet.vampire section.tab,
-.loom-window.item.sheet.vampire prose-mirror {
-  scrollbar-color: #690a0a rgba(0, 0, 0, 0.06) !important;
-}
-.item.sheet.vampire prose-mirror,
-.loom-window.item.sheet.vampire prose-mirror {
-  border-color: rgba(105, 10, 10, 0.25) !important;
+/*__WOD5E_ORDER_00682__*/
+.item.sheet prose-mirror .editor-content,
+.loom-window.item.sheet prose-mirror .editor-content {
+  color: #1a1a1a !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+  max-width: 100% !important;
+  padding-right: 28px !important;
 }
 
-.item.sheet.werewolf section.tab,
-.item.sheet.werewolf prose-mirror,
-.item.sheet.werewolf prose-mirror .editor-content,
-.loom-window.item.sheet.werewolf section.tab,
-.loom-window.item.sheet.werewolf prose-mirror {
-  scrollbar-color: #1a4d2e rgba(0, 0, 0, 0.06) !important;
-}
-.item.sheet.werewolf prose-mirror,
-.loom-window.item.sheet.werewolf prose-mirror {
-  border-color: rgba(26, 77, 46, 0.25) !important;
+/*__WOD5E_ORDER_00683__*/
+.item.sheet prose-mirror .editor-content p,
+.loom-window.item.sheet prose-mirror .editor-content p {
+  margin-top: 0 !important;
+  margin-bottom: 0.65em !important;
+  color: #1a1a1a !important;
 }
 
-.item.sheet.hunter section.tab,
-.item.sheet.hunter prose-mirror,
-.item.sheet.hunter prose-mirror .editor-content,
-.loom-window.item.sheet.hunter section.tab,
-.loom-window.item.sheet.hunter prose-mirror {
-  scrollbar-color: #d97706 rgba(0, 0, 0, 0.06) !important;
-}
-.item.sheet.hunter prose-mirror,
-.loom-window.item.sheet.hunter prose-mirror {
-  border-color: rgba(217, 119, 6, 0.25) !important;
+/*__WOD5E_ORDER_00684__*/
+.item.sheet prose-mirror .editor-content hr,
+.loom-window.item.sheet prose-mirror .editor-content hr {
+  border: none !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.18) !important;
+  margin: 8px 0 !important;
 }
 
+/*__WOD5E_ORDER_00685__*/
+.item.sheet prose-mirror > button.editor-edit,
+.item.sheet prose-mirror > button.toggle,
+.item.sheet prose-mirror > button.icon.toggle,
+.item.sheet prose-mirror > button.icon,
+.item.sheet prose-mirror:not([editing]) > button,
+.item.sheet prose-mirror button.editor-edit,
+.item.sheet prose-mirror button.toggle,
+.loom-window.item.sheet prose-mirror > button.editor-edit,
+.loom-window.item.sheet prose-mirror > button.toggle {
+  background: rgba(0, 0, 0, 0.07) !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  color: #333333 !important;
+  transition: all 0.15s ease !important;
+}
 
+/*__WOD5E_ORDER_00686__*/
+.item.sheet prose-mirror > button.editor-edit:hover,
+.item.sheet prose-mirror > button.toggle:hover,
+.item.sheet prose-mirror > button.icon.toggle:hover,
+.item.sheet prose-mirror > button.icon:hover,
+.item.sheet prose-mirror:not([editing]) > button:hover,
+.item.sheet prose-mirror button.editor-edit:hover,
+.item.sheet prose-mirror button.toggle:hover,
+.loom-window.item.sheet prose-mirror > button.editor-edit:hover {
+  background: var(--vampire-color-1, #690a0a) !important;
+  border-color: var(--vampire-color-1, #690a0a) !important;
+  color: #ffffff !important;
+}
+
+/*__WOD5E_ORDER_00696__*/
+.item.sheet .source-page-input {
+  min-width: 75px;
+}
+
+/*__WOD5E_ORDER_00697__*/
+.item.sheet .effects-list .effect {
+  border-top: 1px solid black;
+  padding: 5px;
+}
+
+/*__WOD5E_ORDER_00698__*/
+.item.sheet .effects-list .effect-keys {
+  display: flex;
+  flex-direction: row;
+}
+
+/*__WOD5E_ORDER_00699__*/
+.item.sheet .effects-list .effect-keys .label {
+  padding: 5px;
+}
+
+/*__WOD5E_ORDER_00700__*/
+.item.sheet .effects-list .effect-keys .flexdatalist-multiple {
+  flex-grow: 1;
+  margin: 0;
+  padding: 0;
+}

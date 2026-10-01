@@ -47,6 +47,7 @@ import {
 } from './scripts/prepare-partials.js'
 import { _onToggleConditionSuppression } from './scripts/toggle-condition-suppression.js'
 import { getActorItems } from '../scripts/embedded-items.js'
+import { saveActorPersonalNotes } from './scripts/personal-notes.js'
 // Mixin
 const { LoomHandlebarsMixin } = Loom
 
@@ -211,7 +212,23 @@ export class WoDActorBase extends LoomHandlebarsMixin(
   tabs = {}
 
   getTabs() {
-    const tabs = this.tabs
+    if (this._limitedView) {
+      const tabs = Object.fromEntries(
+        ['biography', 'notepad']
+          .filter((id) => this.tabs[id])
+          .map((id) => [id, { ...this.tabs[id] }])
+      )
+      if (tabs.notepad) tabs.notepad.title = 'WOD5E.Tabs.PublicNotes'
+
+      for (const tab of Object.values(tabs)) {
+        tab.active = this.tabGroups[tab.group] === tab.id
+        tab.cssClass = tab.active ? 'active' : ''
+      }
+
+      return tabs
+    }
+
+    const tabs = { ...this.tabs }
 
     // Remove hidden tabs
     for (const key in tabs) {
@@ -307,7 +324,7 @@ export class WoDActorBase extends LoomHandlebarsMixin(
 
     let locked = true
     const userOwnsActor =
-      true
+      actor?.testUserPermission?.(Loom.user, CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER) ?? false
     if (userOwnsActor) {
       locked = actorData.locked
     }
@@ -329,7 +346,7 @@ export class WoDActorBase extends LoomHandlebarsMixin(
 
       hasSkillAttributeData: actorData.hasSkillAttributeData,
       gamesystem: actorData.gamesystem,
-      isOwner: true,
+      isOwner: userOwnsActor,
       locked,
       showLegacyXP,
 
@@ -478,6 +495,11 @@ export class WoDActorBase extends LoomHandlebarsMixin(
     // Submit events may be synthetic (no target) when the whole form is submitted
     const target = event?.target ?? null
 
+    if (target?.getAttribute?.('data-path') === 'personalNotes') {
+      await saveActorPersonalNotes(this.actor, target.value)
+      return
+    }
+
     // We do this because it was supported in the old system, and we still want
     // users to be able to change between character types painlessly
     if (target?.name === 'type') {
@@ -524,6 +546,12 @@ export class WoDActorBase extends LoomHandlebarsMixin(
         typeof this._prepareSubmitData === 'function'
           ? this._prepareSubmitData(event, form, formData)
           : formData.object
+      let personalNotesValue
+
+      if (Object.hasOwn(submitData, 'personalNotes')) {
+        personalNotesValue = submitData.personalNotes
+        delete submitData.personalNotes
+      }
 
       // Fallback: Manually extract prose-mirror values if they weren't caught by FormData
       if (form) {
@@ -570,18 +598,34 @@ export class WoDActorBase extends LoomHandlebarsMixin(
       if (Object.keys(expandedData).length > 0) {
         await this.actor.update(expandedData)
       }
+      if (personalNotesValue !== undefined) {
+        await saveActorPersonalNotes(this.actor, personalNotesValue)
+      }
     }
   }
 
   _configureRenderOptions(options) {
     super._configureRenderOptions(options)
 
-    // If the document is in limited view, only show the limited view;
-    // otherwise, don't include the limited part
-    if (this.document?.limited) {
-      options.parts = ['limited']
+    // Only owners receive the full sheet. Any other user who can open the
+    // actor receives the dedicated, property-filtered limited view.
+    const userOwnsActor =
+      this.actor?.testUserPermission?.(Loom.user, CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER) ?? false
+    if (!userOwnsActor) {
+      this._limitedView = true
+      this.tabGroups.primary = 'biography'
+      options.parts = ['tabs', 'limited']
     } else if (Array.isArray(options.parts)) {
+      this._limitedView = false
+      if (!this.tabs[this.tabGroups.primary]) {
+        this.tabGroups.primary = Object.keys(this.tabs)[0] || 'stats'
+      }
       options.parts = options.parts.filter((item) => item !== 'limited')
+    } else {
+      this._limitedView = false
+      if (!this.tabs[this.tabGroups.primary]) {
+        this.tabGroups.primary = Object.keys(this.tabs)[0] || 'stats'
+      }
     }
   }
 
@@ -675,6 +719,11 @@ export class WoDActorBase extends LoomHandlebarsMixin(
       if (!input.isConnected) return
 
       const path = input?.getAttribute?.('data-path')
+      if (path === 'personalNotes') {
+        await saveActorPersonalNotes(this.actor, input.value)
+        return
+      }
+
       // Campo do nome do ator (cabeçalho, `name="name"`) — propriedade própria do
       // documento, fora de `system`, vai direto sem passar pelo patch abaixo.
       if (!path) {

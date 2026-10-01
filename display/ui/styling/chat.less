@@ -1,8 +1,4 @@
-#chat-log .message {
-  margin: 10px 5px 10px 10px;
-  border: 0;
-}
-
+/*__WOD5E_ORDER_00121__*/
 .sidebar-message,
 .chat-message,
 .wod5e-chat-card {
@@ -17,24 +13,26 @@
   border-radius: 8px !important;
 }
 
-#sidebar {
-  #chat-log .message,
-  .sidebar-message,
-  .chat-message,
-  .wod5e-chat-card {
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-  }
-
-  #chat-log,
-  .chat-log,
-  .chat-messages {
-    min-width: 0 !important;
-    width: 100% !important;
-  }
+/*__WOD5E_ORDER_00122__*/
+#sidebar #chat-log .message,
+#sidebar .sidebar-message,
+#sidebar .chat-message,
+#sidebar .wod5e-chat-card {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
 }
 
+/*__WOD5E_ORDER_00124__*/
+.sidebar-collapsed-toast .sidebar-message,
+.sidebar-collapsed-toast .chat-message,
+.sidebar-collapsed-toast .wod5e-chat-card {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+/*__WOD5E_ORDER_00125__*/
 #chat-log,
 .chat-log,
 #chat-popout,
@@ -50,227 +48,139 @@
   overflow: visible !important;
 }
 
-.chat-message {
-  background-blend-mode: multiply;
-  margin: 3px;
-  padding: 0;
-  row-gap: 3px;
+/*__WOD5E_ORDER_00126__*/
+#sidebar #chat-log,
+#sidebar .chat-log,
+#sidebar .chat-messages {
+  min-width: 0 !important;
+  width: 100% !important;
 }
 
-.sidebar-message,
-.chat-message,
-.wod5e-chat-card {
-  .message-content,
-  .collapsible-container,
-  .dice-roll,
-  .dice-result,
-  .collapsible-content {
-    height: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-  }
-
-  .portrait.token > img {
-    max-width: 50px;
-    max-height: 50px;
-    border: 1px solid;
-  }
-
-  .portrait.token,
-  .message-metadata {
-    flex: 0 0 auto;
-    padding: 2px;
-  }
-
-  .message-names {
-    flex: 1 1 0;
-    min-width: 0;
-    font-family: Amarante, serif;
-    align-self: center;
-    padding: 6px;
-
-    .message-sender {
-      font-size: 1.2em;
-      font-weight: 700;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-  }
-
-  hr {
-    margin: 0.5em 0;
-    clear: both;
-    border: 0;
-  }
-
-  .message-content {
-    padding: 4px;
-  }
-
+/*__WOD5E_ORDER_00129__*/
+.chat-message .portrait.token > img,
+.sidebar-message .portrait.token > img {
+  max-width: 50px;
+  max-height: 50px;
+  border: 1px solid;
 }
 
-.dice-roll .dice-tooltip {
-  display: none;
+/*__WOD5E_ORDER_00130__*/
+.chat-message .portrait.token,
+.chat-message .message-metadata {
+  flex: 0 0 auto;
+  padding: 2px;
 }
-.dice-roll.expanded .dice-tooltip {
-  display: block;
+
+/*__WOD5E_ORDER_00131__*/
+.chat-message .message-names {
+  flex: 1 1 0;
+  min-width: 0;
+  font-family: Amarante, serif;
+  align-self: center;
+  padding: 6px;
 }
-.dice-tooltip .wrapper {
+
+/*__WOD5E_ORDER_00132__*/
+.chat-message .message-names .message-sender {
+  font-size: 1.2em;
+  font-weight: 700;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/*__WOD5E_ORDER_00133__*/
+.chat-message hr,
+.sidebar-message hr {
+  margin: 0.5em 0;
+  clear: both;
+  border: 0;
+}
+
+/*__WOD5E_ORDER_00138__*/
+.chat-message .collapsible-content,
+.sidebar-message .collapsible-content {
+  font-size: 0.8em;
+  line-height: 1.3em;
+}
+
+/*__WOD5E_ORDER_00139__*/
+.chat-message .collapsible-content p,
+.sidebar-message .collapsible-content p {
+  margin: 0.3em 0;
+}
+
+/*__WOD5E_ORDER_00140__*/
+.chat-message .message-content {
+  padding: 4px;
+}
+
+/*__WOD5E_ORDER_00149__*/
+.chat-message .dice-result,
+.sidebar-message .dice-result,
+.wod5e-chat-card .dice-result {
+  cursor: pointer;
+}
+
+/*__WOD5E_ORDER_00150__*/
+.chat-message .dice-result .dice-icons,
+.sidebar-message .dice-result .dice-icons,
+.wod5e-chat-card .dice-result .dice-icons {
   display: flex;
-  gap: 8px;
+  flex-flow: wrap;
 }
-.dice-tooltip .part-header {
-  justify-content: space-between;
-  font-weight: bold;
-}
-.dice-tooltip .dice-rolls {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+
+/*__WOD5E_ORDER_00151__*/
+.chat-message.wod5e-chat-card .dice-icons,
+.sidebar-message.wod5e-chat-card .dice-icons,
+.wod5e-chat-card.wod5e-chat-card .dice-icons {
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: wrap;
+}
+
+/*__WOD5E_ORDER_00152__*/
+.chat-message .modifiers,
+.sidebar-message .modifiers,
+.wod5e-chat-card .modifiers {
+  margin-bottom: 2px;
+  display: flex;
+  /* Two badges ("Potência de Sangue +2", "Surto de Sangue +3") don't fit side by side
+     in a ~263px-wide chat column at the original 8pt/padding — letting them wrap
+     internally (previous attempt) still broke mid-label. Fixed size instead: nowrap
+     on each badge + smaller font/padding so the full text fits on one line. */
+  flex-wrap: nowrap;
   gap: 4px;
 }
-.dice-tooltip .dice-rolls .roll {
-  border: 1px solid;
-  border-radius: 3px;
-  min-width: 1.4em;
-  text-align: center;
-}
 
-.chat-message,
-.sidebar-message,
-.wod5e-chat-card {
-  .dice-result {
-    cursor: pointer;
-
-    .dice-icons {
-      display: flex;
-      flex-flow: wrap;
-    }
-  }
-
-  &.wod5e-chat-card .dice-icons {
-    display: flex;
-    flex-flow: wrap;
-  }
-
-  .modifiers {
-    margin-bottom: 2px;
-    display: flex;
-    flex-wrap: wrap;
-
-    .mod {
-      text-transform: uppercase;
-      font-size: 8pt;
-      padding: 0 5px;
-      margin: 1px 3px;
-    }
-  }
-
-  .total-and-difficulty {
-    display: flex;
-    flex-direction: row;
-    border-bottom: 0;
-  }
-
-  .roll-total,
-  .roll-difficulty {
-    display: flex;
-    flex-grow: 1;
-    text-align: center;
-    justify-content: space-evenly;
-  }
-
-  .total-title,
-  .difficulty-title {
-    font-weight: bold;
-  }
-
-  .roll-result-label {
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-  }
-}
-
-.roll-img {
-  max-width: 40px;
-  margin: 2px;
-  border-radius: 4px;
-  border: 1px solid;
-}
-
-.roll-img.hunger-dice.rerolled,
-.roll-img.rage-dice.rerolled {
-  filter: invert(1);
-}
-
-.roll-label {
-  font-weight: 700;
-  font-family: Vollkorn, serif;
-  font-variant-caps: titling-caps;
-  font-size: 1.4em;
-  margin: 0.1em;
-  text-align: center;
-}
-
-.roll-label:nth-of-type(1) {
-  line-height: 1em;
-  margin-top: 0.4em;
-  margin-bottom: 0.3em;
-}
-
-.roll-content {
-  font-size: 120%;
-  font-family: Vollkorn, serif;
-  margin: 0;
-  font-weight: 600;
-  text-align: center;
-}
-
-.uppercase {
+/*__WOD5E_ORDER_00153__*/
+.chat-message .modifiers .mod,
+.sidebar-message .modifiers .mod,
+.wod5e-chat-card .modifiers .mod {
   text-transform: uppercase;
+  font-size: 6.5pt;
+  white-space: nowrap;
+  flex: 0 1 auto;
+  min-width: 0;
+  text-align: center;
+  padding: 0 4px;
+  margin: 1px 2px;
 }
 
-p.roll-label.uppercase {
-  letter-spacing: 0.03rem;
-  line-height: 1.4rem;
-}
-
-.reroll,
-.willpower-reroll {
-  .die-select {
-    flex: 0;
-  }
-
-  .selected img {
-    border: 2px solid var(--system-color-3);
-    filter: invert(1);
-  }
-}
-
-h3.item-name {
+/*__WOD5E_ORDER_00154__*/
+.chat-message .total-and-difficulty,
+.sidebar-message .total-and-difficulty,
+.wod5e-chat-card .total-and-difficulty {
+  display: flex;
+  flex-direction: row;
   border-bottom: 0;
-  margin: 0;
-  align-items: center;
-  font-family: Amarante, serif;
-  font-size: 1.4em;
 }
 
-.roll-prompt-message {
-  .user-roll {
-    background-color: #555555;
-    padding: 5px;
-    margin: 3px;
-
-    .actor-roll-header {
-      .remove-actor-button {
-        flex-grow: 0;
-        cursor: pointer;
-        margin-right: 3px;
-      }
-    }
-  }
+/*__WOD5E_ORDER_00156__*/
+.chat-message .total-title,
+.sidebar-message .total-title,
+.wod5e-chat-card .total-title,
+.chat-message .difficulty-title,
+.sidebar-message .difficulty-title,
+.wod5e-chat-card .difficulty-title {
+  font-weight: bold;
 }

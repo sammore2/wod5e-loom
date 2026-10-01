@@ -1,174 +1,218 @@
+/*__WOD5E_ORDER_00427__*/
+.actor.sheet:not(.minimized):not(.group) {
+  min-width: 850px;
+  min-height: 300px;
+}
+
+/*__WOD5E_ORDER_00619__*/
 .group.sheet:not(.minimized) {
   min-width: 650px;
   min-height: 300px;
 }
 
-.group.sheet {
-  .actor-header {
-    align-items: flex-end;
-    justify-content: space-between;
-    padding: 5px;
+/*__WOD5E_ORDER_00620__*/
+.group.sheet .actor-header {
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 5px;
+}
 
-    .header-profile {
-      min-width: 250px;
-    }
+/*__WOD5E_ORDER_00621__*/
+.group.sheet .actor-header .header-profile {
+  min-width: 250px;
+}
 
-    .resource {
-      min-height: 35px;
+/*__WOD5E_ORDER_00622__*/
+.group.sheet .actor-header .resource {
+  min-height: 35px;
+}
 
-      .resource-counter {
-        text-wrap: nowrap;
-      }
-    }
+/*__WOD5E_ORDER_00623__*/
+.group.sheet .actor-header .resource .resource-counter {
+  text-wrap: nowrap;
+}
 
-    .main-section {
-      flex-grow: 1;
+/*__WOD5E_ORDER_00624__*/
+.group.sheet .actor-header .main-section {
+  flex-grow: 1;
+}
 
-      .header-profile-img {
-        margin-bottom: 0;
-        align-self: center;
-      }
+/*__WOD5E_ORDER_00625__*/
+.group.sheet .actor-header .main-section .header-profile-img {
+  margin-bottom: 0;
+  align-self: center;
+}
 
-      .group-core-details {
-        place-self: flex-end;
+/*__WOD5E_ORDER_00626__*/
+.group.sheet .actor-header .main-section .group-core-details {
+  place-self: flex-end;
+}
 
-        .name-and-lock {
-          flex-wrap: nowrap;
+/*__WOD5E_ORDER_00627__*/
+.group.sheet .actor-header .main-section .group-core-details .name-and-lock {
+  flex-wrap: nowrap;
+}
 
-          .charname {
-            min-width: 300px;
-          }
-        }
-      }
-    }
+/*__WOD5E_ORDER_00628__*/
+.group.sheet .actor-header .main-section .group-core-details .name-and-lock .charname {
+  min-width: 300px;
+}
 
-    .group-type-container {
-      width: 100%;
+/*__WOD5E_ORDER_00629__*/
+.group.sheet .actor-header .group-type-container {
+  width: 100%;
+}
 
-      .group-type-label {
-        font-size: 16pt;
-        line-height: 0;
-      }
+/*__WOD5E_ORDER_00630__*/
+.group.sheet .actor-header .group-type-container .group-type-label {
+  font-size: 16pt;
+  line-height: 0;
+}
 
-      select {
-        height: 100%;
-        font-weight: bold;
-      }
-    }
+/*__WOD5E_ORDER_00631__*/
+.group.sheet .actor-header .group-type-container select {
+  height: 100%;
+  font-weight: bold;
+}
 
-    .field-header {
-      font-size: 16pt;
-    }
+/*__WOD5E_ORDER_00632__*/
+.group.sheet .actor-header .field-header {
+  font-size: 16pt;
+}
 
-    .coterie-features,
-    .cell-features,
-    .pack-features {
-      > div {
-        margin-left: 5px;
-        margin-right: 5px;
-      }
+/*__WOD5E_ORDER_00633__*/
+.group.sheet .actor-header .coterie-features > div,
+.group.sheet .actor-header .cell-features > div,
+.group.sheet .actor-header .pack-features > div {
+  margin-left: 5px;
+  margin-right: 5px;
+}
 
-      .resource {
-        padding: 8px;
-      }
+/*__WOD5E_ORDER_00634__*/
+.group.sheet .actor-header .coterie-features .resource,
+.group.sheet .actor-header .cell-features .resource,
+.group.sheet .actor-header .pack-features .resource {
+  padding: 8px;
+}
 
-      .resource,
-      .field-header {
-        max-width: 175px;
+/*__WOD5E_ORDER_00635__*/
+.group.sheet .actor-header .coterie-features .resource,
+.group.sheet .actor-header .cell-features .resource,
+.group.sheet .actor-header .pack-features .resource,
+.group.sheet .actor-header .coterie-features .field-header,
+.group.sheet .actor-header .cell-features .field-header,
+.group.sheet .actor-header .pack-features .field-header {
+  max-width: 175px;
+}
 
-        .resource-header {
-          text-wrap-mode: wrap;
-        }
-      }
-    }
-  }
+/*__WOD5E_ORDER_00636__*/
+.group.sheet .actor-header .coterie-features .resource .resource-header,
+.group.sheet .actor-header .cell-features .resource .resource-header,
+.group.sheet .actor-header .pack-features .resource .resource-header,
+.group.sheet .actor-header .coterie-features .field-header .resource-header,
+.group.sheet .actor-header .cell-features .field-header .resource-header,
+.group.sheet .actor-header .pack-features .field-header .resource-header {
+  text-wrap-mode: wrap;
+}
 
-  .tab[data-tab="members"] {
-    .group-member {
-      padding: 5px 0;
+/*__WOD5E_ORDER_00637__*/
+.group.sheet .tab[data-tab="members"] .group-member {
+  padding: 5px 0;
+}
 
-      .actor-name {
-        font-size: 20px;
-        font-weight: bold;
-      }
+/*__WOD5E_ORDER_00638__*/
+.group.sheet .tab[data-tab="members"] .group-member .actor-name {
+  font-size: 20px;
+  font-weight: bold;
+}
 
-      .actor-image {
-        max-width: 60px;
+/*__WOD5E_ORDER_00639__*/
+.group.sheet .tab[data-tab="members"] .group-member .actor-image {
+  max-width: 60px;
+}
 
-        img {
-          border: 1px solid;
-          margin: 0 3px;
-          cursor: pointer;
-        }
-      }
+/*__WOD5E_ORDER_00640__*/
+.group.sheet .tab[data-tab="members"] .group-member .actor-image img {
+  border: 1px solid;
+  margin: 0 3px;
+  cursor: pointer;
+}
 
-      .sub-item.werewolf-form {
-        float: inline-end;
-      }
+/*__WOD5E_ORDER_00641__*/
+.group.sheet .tab[data-tab="members"] .group-member .sub-item.werewolf-form {
+  float: inline-end;
+}
 
-      .sub-item {
-        display: inline-flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding-left: 5px;
-        padding-right: 5px;
+/*__WOD5E_ORDER_00642__*/
+.group.sheet .tab[data-tab="members"] .group-member .sub-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 5px;
+  padding-right: 5px;
+}
 
-        .sub-item-name {
-          font-weight: bold;
-        }
+/*__WOD5E_ORDER_00643__*/
+.group.sheet .tab[data-tab="members"] .group-member .sub-item .sub-item-name {
+  font-weight: bold;
+}
 
-        .werewolf-form-image {
-          align-self: center;
-          border: 1px solid;
-        }
-      }
+/*__WOD5E_ORDER_00644__*/
+.group.sheet .tab[data-tab="members"] .group-member .sub-item .werewolf-form-image {
+  align-self: center;
+  border: 1px solid;
+}
 
-      .sup-item {
-        flex-grow: 0;
-        display: flex;
+/*__WOD5E_ORDER_00645__*/
+.group.sheet .tab[data-tab="members"] .group-member .sup-item {
+  flex-grow: 0;
+  display: flex;
+}
 
-        a {
-          margin-left: 2.5px;
-          margin-right: 2.5px;
-        }
-      }
+/*__WOD5E_ORDER_00646__*/
+.group.sheet .tab[data-tab="members"] .group-member .sup-item a {
+  margin-left: 2.5px;
+  margin-right: 2.5px;
+}
 
-      .sup-item.type {
-        text-transform: uppercase;
-        margin-right: 10px;
-        text-wrap: nowrap;
-      }
-    }
-  }
+/*__WOD5E_ORDER_00647__*/
+.group.sheet .tab[data-tab="members"] .group-member .sup-item.type {
+  text-transform: uppercase;
+  margin-right: 10px;
+  text-wrap: nowrap;
+}
 
-  .coterie-features {
-    align-items: flex-end;
+/*__WOD5E_ORDER_00648__*/
+.group.sheet .coterie-features {
+  align-items: flex-end;
+}
 
-    .resource-value {
-      margin-left: auto;
-      margin-right: auto;
-    }
+/*__WOD5E_ORDER_00649__*/
+.group.sheet .coterie-features .resource-value {
+  margin-left: auto;
+  margin-right: auto;
+}
 
-    .hunting-difficulty {
-      .resource-value {
-        font-size: 15pt;
-        font-weight: bold;
-      }
-    }
+/*__WOD5E_ORDER_00650__*/
+.group.sheet .coterie-features .hunting-difficulty .resource-value {
+  font-size: 15pt;
+  font-weight: bold;
+}
 
-    .hunting-difficulty,
-    .lien,
-    .chasse,
-    .portilion {
-      width: 200px;
-    }
-  }
+/*__WOD5E_ORDER_00651__*/
+.group.sheet .coterie-features .hunting-difficulty,
+.group.sheet .coterie-features .lien,
+.group.sheet .coterie-features .chasse,
+.group.sheet .coterie-features .portilion {
+  width: 200px;
+}
 
-  .member-hunger.active {
-    background-color: var(--vampire-color-3) !important;
-  }
+/*__WOD5E_ORDER_00652__*/
+.group.sheet .member-hunger.active {
+  background-color: var(--vampire-color-3) !important;
+}
 
-  .member-rage.active {
-    background-color: var(--werewolf-color-2) !important;
-  }
+/*__WOD5E_ORDER_00653__*/
+.group.sheet .member-rage.active {
+  background-color: var(--werewolf-color-2) !important;
 }

@@ -1,267 +1,402 @@
-:root {
-  --vampire-color-1: #650202;
-  --vampire-color-2: #d84343;
-  --vampire-color-3: #f51f1f;
-  --coterie-group-header: rgb(121 8 19 / 80%);
+/*__WOD5E_ORDER_00035__*/
+.vampire-font-headers.en .hunter-button {
+  font-family: "vampireRevised", "sans-serif";
 }
 
-/* Define splat-specific colours for the WOD5E Symbols */
+/*__WOD5E_ORDER_00082__*/
+.sheet.vampire,
+.sheet.werewolf,
+.sheet.hunter,
+.sheet.mortal {
+  color: var(--color-text-primary);
+}
+
+/*__WOD5E_ORDER_00094__*/
+.vampire-font-headers.en #pause figcaption,
+.vampire-font-headers.en #hud-pause-overlay figcaption,
+.vampire-font-headers.en .wod-game-pause figcaption {
+  font-family: "vampireRevised", "sans-serif";
+}
+
+/*__WOD5E_ORDER_00292__*/
 .wod5e .wod5e-symbol.vampire {
   color: var(--vampire-color-3);
 }
 
-/* Vampire Actor Sheet */
-.actor.sheet.vampire {
-  .actor-header {
-    border-bottom: 2px solid var(--vampire-color-1);
-  }
-
-  .profile-img,
-  .actor-header input,
-  .actor-header .resource,
-  .tab[data-tab="blood"] .resource input {
-    border: 1px solid var(--vampire-color-1);
-  }
-
-  prose-mirror {
-    .editor-menu button:hover {
-      background-color: var(--vampire-color-2);
-    }
-
-    .editor-content {
-      scrollbar-color: var(--vampire-color-2) var(--color-scrollbar-track);
-      font-size: 10pt;
-    }
-  }
-
-  .tab[data-tab="blood"] {
-    .resource-label {
-      font-size: 15pt;
-    }
-
-    .blood-details,
-    .blood-potency {
-      align-self: flex-start;
-      margin-left: 10px;
-      margin-right: 10px;
-    }
-
-    .resource-contents:not(.prosemirror-resource),
-    input.resource {
-      font-weight: bold;
-    }
-
-    .resource {
-      .remorse-roll .field-header {
-        display: inline-flex;
-      }
-    }
-
-    .bane {
-      text-align: initial;
-    }
-  }
-
-  .sheet-banner {
-    background-color: var(--vampire-color-1);
-    color: var(--system-color-6);
-  }
-
-  .tabs-container {
-    background-color: var(--vampire-color-2);
-
-    .navicon .wod5e-symbol,
-    [data-tab="blood"] .navicon {
-      color: var(--vampire-color-2);
-    }
-
-    .active .navicon {
-      background-color: var(--vampire-color-1);
-      color: var(--system-color-6);
-
-      .wod5e-symbol {
-        color: var(--system-color-6);
-      }
-    }
-  }
-
-  .item-image {
-    flex-grow: 0;
-
-    img {
-      background-color: var(--vampire-theme-filter);
-    }
-  }
-
-  .tab[data-tab="disciplines"] {
-    .powers-display-tree {
-      li:after {
-        background-color: var(--vampire-color-1);
-      }
-
-      li:before {
-        background-color: var(--vampire-color-1);
-      }
-    }
-
-    .disciplines-list {
-      display: flex;
-      flex-direction: column;
-      max-width: 350px;
-      margin: 0px 10px 10px 10px;
-
-      .category.discipline {
-        max-width: 500px;
-      }
-
-      .item-header {
-        border-bottom: 1px solid var(--system-color-5);
-      }
-
-      .item-controls {
-        text-align: right;
-        padding: 5px;
-      }
-
-      .controls {
-        border-bottom: 1px solid var(--system-color-5);
-      }
-
-      .item-name {
-        text-wrap: nowrap;
-      }
-
-      .discipline-description {
-        margin-bottom: 5px;
-      }
-    }
-  }
+/*__WOD5E_ORDER_00294__*/
+.actor.sheet.vampire .actor-header {
+  border-bottom: 2px solid var(--vampire-color-1);
 }
 
-/* All Sheets with the Vampire styling, including itemsheets */
+/*__WOD5E_ORDER_00295__*/
+.actor.sheet.vampire .profile-img,
+.actor.sheet.vampire .actor-header input,
+.actor.sheet.vampire .actor-header .resource,
+.actor.sheet.vampire .tab[data-tab="blood"] .resource input {
+  border: 1px solid var(--vampire-color-1);
+}
+
+/*__WOD5E_ORDER_00296__*/
+.actor.sheet.vampire prose-mirror .editor-menu button:hover {
+  background-color: var(--vampire-color-2);
+}
+
+/*__WOD5E_ORDER_00297__*/
+.actor.sheet.vampire prose-mirror .editor-content {
+  scrollbar-color: var(--vampire-color-2) var(--color-scrollbar-track);
+  font-size: 10pt;
+}
+
+/*__WOD5E_ORDER_00298__*/
+.actor.sheet.vampire .tab[data-tab="blood"] .resource-label {
+  font-size: 15pt;
+}
+
+/*__WOD5E_ORDER_00300__*/
+.actor.sheet.vampire .tab[data-tab="blood"] .grid-2col .resource-label {
+  font-size: 11pt;
+}
+
+/*__WOD5E_ORDER_00302__*/
+.actor.sheet.vampire .tab[data-tab="blood"] .grid-2col .resource-contents {
+  font-size: 12px;
+}
+
+/*__WOD5E_ORDER_00303__*/
+.actor.sheet.vampire .tab[data-tab="blood"] .blood-details,
+.actor.sheet.vampire .tab[data-tab="blood"] .blood-potency {
+  align-self: flex-start;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/*__WOD5E_ORDER_00304__*/
+.actor.sheet.vampire .tab[data-tab="blood"] .resource-contents:not(.prosemirror-resource),
+.actor.sheet.vampire .tab[data-tab="blood"] input.resource {
+  font-weight: bold;
+}
+
+/*__WOD5E_ORDER_00305__*/
+.actor.sheet.vampire .tab[data-tab="blood"] .resource .remorse-roll .field-header {
+  display: inline-flex;
+}
+
+/*__WOD5E_ORDER_00306__*/
+.actor.sheet.vampire .tab[data-tab="blood"] .bane {
+  text-align: initial;
+}
+
+/*__WOD5E_ORDER_00307__*/
+.actor.sheet.vampire .sheet-banner {
+  background-color: var(--vampire-color-1);
+  color: var(--system-color-6);
+}
+
+/*__WOD5E_ORDER_00308__*/
+.actor.sheet.vampire .tabs-container {
+  background-color: var(--vampire-color-1);
+}
+
+/*__WOD5E_ORDER_00309__*/
+.actor.sheet.vampire .tabs-container .navicon .wod5e-symbol,
+.actor.sheet.vampire .tabs-container [data-tab="blood"] .navicon {
+  color: var(--vampire-color-2);
+}
+
+/*__WOD5E_ORDER_00310__*/
+.actor.sheet.vampire .tabs-container .active .navicon {
+  background-color: var(--vampire-color-1);
+  color: var(--system-color-6);
+}
+
+/*__WOD5E_ORDER_00311__*/
+.actor.sheet.vampire .tabs-container .active .navicon .wod5e-symbol {
+  color: var(--system-color-6);
+}
+
+/*__WOD5E_ORDER_00312__*/
+.actor.sheet.vampire .item-image {
+  flex-grow: 0;
+}
+
+/*__WOD5E_ORDER_00313__*/
+.actor.sheet.vampire .item-image img {
+  background-color: var(--vampire-theme-filter);
+}
+
+/*__WOD5E_ORDER_00314__*/
+.actor.sheet.vampire .tab[data-tab="disciplines"] .powers-display-tree li:after {
+  background-color: var(--vampire-color-1);
+}
+
+/*__WOD5E_ORDER_00315__*/
+.actor.sheet.vampire .tab[data-tab="disciplines"] .powers-display-tree li:before {
+  background-color: var(--vampire-color-1);
+}
+
+/*__WOD5E_ORDER_00316__*/
+.actor.sheet.vampire .tab[data-tab="disciplines"] .disciplines-list {
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  margin: 0px 10px 10px 10px;
+}
+
+/*__WOD5E_ORDER_00317__*/
+.actor.sheet.vampire .tab[data-tab="disciplines"] .disciplines-list .category.discipline {
+  max-width: 500px;
+}
+
+/*__WOD5E_ORDER_00318__*/
+.actor.sheet.vampire .tab[data-tab="disciplines"] .disciplines-list .item-header {
+  border-bottom: 1px solid var(--system-color-5);
+}
+
+/*__WOD5E_ORDER_00319__*/
+.actor.sheet.vampire .tab[data-tab="disciplines"] .disciplines-list .item-controls {
+  text-align: right;
+  padding: 5px;
+}
+
+/*__WOD5E_ORDER_00320__*/
+.actor.sheet.vampire .tab[data-tab="disciplines"] .disciplines-list .controls {
+  border-bottom: 1px solid var(--system-color-5);
+}
+
+/*__WOD5E_ORDER_00321__*/
+.actor.sheet.vampire .tab[data-tab="disciplines"] .disciplines-list .item-name {
+  text-wrap: nowrap;
+}
+
+/*__WOD5E_ORDER_00322__*/
+.actor.sheet.vampire .tab[data-tab="disciplines"] .disciplines-list .discipline-description {
+  margin-bottom: 5px;
+}
+
+/*__WOD5E_ORDER_00324__*/
 .sheet.vampire {
   box-shadow: 0 0 10px var(--vampire-color-1);
-
-  .window-header {
-    background: var(--vampire-color-1);
-  }
-
-  .window-content {
-    scrollbar-color: var(--vampire-color-2) var(--vampire-color-1);
-  }
-
-  .resource-value .resource-value-step.active,
-  .resource-value-static .resource-value-static-step.active,
-  .resource-counter .resource-counter-step[data-state="-"] {
-    background-color: var(--vampire-color-3);
-  }
-
-  button.rollable,
-  .vampire-button {
-    background-color: var(--vampire-color-1);
-    background-blend-mode: luminosity;
-    color: var(--system-color-6);
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    text-align: center !important;
-    margin: 0 auto !important;
-    width: 100% !important;
-  }
-
-  .powers-display-tree .icon.selected {
-    background-color: var(--vampire-color-1);
-    border: 1px solid var(--vampire-color-1);
-  }
-
-  .rouse-button {
-    max-width: 35px;
-    height: 35px;
-    margin-top: -5px;
-
-    .wod5e-symbol {
-      vertical-align: middle;
-    }
-  }
-
-  button.vampire-button {
-    background: var(--vampire-color-1);
-    color: var(--system-color-6);
-    font-family: cormorantLight, serif;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    border: none;
-    box-shadow: none;
-    border: 1px solid var(--system-color-5);
-    margin: 0;
-    border-radius: 0;
-    padding: 3px;
-  }
-
-  button.vampire-button:hover {
-    background: #bb3030ef;
-  }
-
-  button.vampire-button.active,
-  button.vampire-button.active:hover {
-    font-size: 20pt;
-    color: var(--system-color-6);
-    cursor: default;
-    background: #be1818;
-  }
-
-  .frenzy {
-    margin-bottom: 3px;
-
-    .frenzy-status {
-      font-weight: bold;
-    }
-
-    .frenzy-status.active {
-      color: rgb(245, 73, 73);
-      text-shadow: 0 0 10px var(--system-color-5);
-    }
-  }
 }
 
-/* Group Sheets */
+/*__WOD5E_ORDER_00325__*/
+.sheet.vampire .window-header {
+  background: var(--vampire-color-1);
+}
+
+/*__WOD5E_ORDER_00326__*/
+.sheet.vampire .window-content {
+  scrollbar-color: var(--vampire-color-2) var(--vampire-color-1);
+}
+
+/*__WOD5E_ORDER_00327__*/
+.sheet.vampire .resource-value .resource-value-step.active,
+.sheet.vampire .resource-value-static .resource-value-static-step.active,
+.sheet.vampire .resource-counter .resource-counter-step[data-state="-"] {
+  background-color: var(--vampire-color-3);
+}
+
+/*__WOD5E_ORDER_00328__*/
+.sheet.vampire button.rollable,
+.sheet.vampire .vampire-button {
+  background-color: var(--vampire-color-1);
+  background-blend-mode: luminosity;
+  color: var(--system-color-6);
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+}
+
+/*__WOD5E_ORDER_00329__*/
+.sheet.vampire .powers-display-tree .icon.selected {
+  background-color: var(--vampire-color-1);
+  border: 1px solid var(--vampire-color-1);
+}
+
+/*__WOD5E_ORDER_00330__*/
+.sheet.vampire .rouse-button {
+  max-width: 35px;
+  height: 35px;
+  margin-top: -5px;
+}
+
+/*__WOD5E_ORDER_00331__*/
+.sheet.vampire .rouse-button .wod5e-symbol {
+  vertical-align: middle;
+}
+
+/*__WOD5E_ORDER_00332__*/
+.sheet.vampire button.vampire-button {
+  background: var(--vampire-color-1);
+  color: var(--system-color-6);
+  font-family: cormorantLight, serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border: none;
+  box-shadow: none;
+  border: 1px solid var(--system-color-5);
+  margin: 0;
+  border-radius: 0;
+  padding: 3px;
+}
+
+/*__WOD5E_ORDER_00333__*/
+.sheet.vampire button.vampire-button:hover {
+  background: #bb3030ef;
+}
+
+/*__WOD5E_ORDER_00334__*/
+.sheet.vampire button.vampire-button.active,
+.sheet.vampire button.vampire-button.active:hover {
+  font-size: 20pt;
+  color: var(--system-color-6);
+  cursor: default;
+  background: #be1818;
+}
+
+/*__WOD5E_ORDER_00335__*/
+.sheet.vampire .frenzy {
+  margin-bottom: 3px;
+}
+
+/*__WOD5E_ORDER_00336__*/
+.sheet.vampire .frenzy .frenzy-status {
+  font-weight: bold;
+}
+
+/*__WOD5E_ORDER_00337__*/
+.sheet.vampire .frenzy .frenzy-status.active {
+  color: #f54949;
+  text-shadow: 0 0 10px var(--system-color-5);
+}
+
+/*__WOD5E_ORDER_00339__*/
 .group-header.coterie {
   background-color: var(--coterie-group-header) !important;
 }
 
-/* Dialogs Windows */
+/*__WOD5E_ORDER_00341__*/
 .vampire.dialog.window-app,
 .vampire.dialog.application {
   border: 4px solid var(--vampire-color-1);
-
-  .window-header {
-    background: var(--vampire-color-1);
-    border-bottom: 4px double var(--system-color-6);
-  }
-
-  .window-content section .tab .resource-label,
-  .items-list .item-header,
-  .items-list .spc-item-header,
-  .spc-pool-header,
-  .actor-header .profile-img-zone h1 {
-    color: var(--vampire-color-1);
-    border-color: var(--vampire-color-1);
-  }
-
-  .dialog-content .dice-group-header {
-    background-color: var(--vampire-color-1);
-  }
-
-  input,
-  select {
-    border: 1px solid var(--vampire-color-1);
-  }
-
-  .base-dice-group {
-    border: 1px solid var(--vampire-color-2);
-  }
 }
 
+/*__WOD5E_ORDER_00342__*/
+.vampire.dialog.window-app .window-header,
+.vampire.dialog.application .window-header {
+  background: var(--vampire-color-1);
+  border-bottom: 4px double var(--system-color-6);
+}
+
+/*__WOD5E_ORDER_00343__*/
+.vampire.dialog.window-app .window-content section .tab .resource-label,
+.vampire.dialog.application .window-content section .tab .resource-label,
+.vampire.dialog.window-app .items-list .item-header,
+.vampire.dialog.application .items-list .item-header,
+.vampire.dialog.window-app .items-list .spc-item-header,
+.vampire.dialog.application .items-list .spc-item-header,
+.vampire.dialog.window-app .spc-pool-header,
+.vampire.dialog.application .spc-pool-header,
+.vampire.dialog.window-app .actor-header .profile-img-zone h1,
+.vampire.dialog.application .actor-header .profile-img-zone h1 {
+  color: var(--vampire-color-1);
+  border-color: var(--vampire-color-1);
+}
+
+/*__WOD5E_ORDER_00344__*/
+.vampire.dialog.window-app .dialog-content .dice-group-header,
+.vampire.dialog.application .dialog-content .dice-group-header {
+  background-color: var(--vampire-color-1);
+}
+
+/*__WOD5E_ORDER_00345__*/
+.vampire.dialog.window-app input,
+.vampire.dialog.application input,
+.vampire.dialog.window-app select,
+.vampire.dialog.application select {
+  border: 1px solid var(--vampire-color-1);
+}
+
+/*__WOD5E_ORDER_00346__*/
+.vampire.dialog.window-app .base-dice-group,
+.vampire.dialog.application .base-dice-group {
+  border: 1px solid var(--vampire-color-2);
+}
+
+/*__WOD5E_ORDER_00347__*/
 .vampire-font-headers.en .vampire-button {
   font-family: "vampireRevised", "sans-serif";
+}
+
+/*__WOD5E_ORDER_00418__*/
+.vampire-font-headers .werewolf-button,
+.vampire-font-headers .garou-forms-label,
+.vampire-font-headers .forms .were-form-name {
+  font-family: "vampireRevised", "sans-serif";
+}
+
+/*__WOD5E_ORDER_00462__*/
+.actor.sheet.vampire .header-fields-right .shared-row input,
+.actor.sheet.vampire .header-fields-right .shared-row .resource,
+.loom-window .actor.sheet.vampire .header-fields-right .shared-row input,
+.loom-window .actor.sheet.vampire .header-fields-right .shared-row .resource {
+  border: 1px solid var(--vampire-color-1, #650202) !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+/*__WOD5E_ORDER_00463__*/
+.actor.sheet.vampire .header-fields-right .shared-row .resource a,
+.loom-window .actor.sheet.vampire .header-fields-right .shared-row .resource a {
+  color: var(--vampire-color-2, #ff2b2b) !important;
+}
+
+/*__WOD5E_ORDER_00578__*/
+.vampire-font-headers.en .sheet-banner,
+.vampire-font-headers.en .field-header,
+.vampire-font-headers.en .resource-header,
+.vampire-font-headers.en .specialty {
+  font-family: "vampireRevised", "sans-serif";
+}
+
+/*__WOD5E_ORDER_00579__*/
+.vampire-font-headers.en .item-header .item-name {
+  font-family: "vampireRevised", "sans-serif";
+}
+
+/*__WOD5E_ORDER_00592__*/
+.loom-window.item.vampire,
+.item.sheet.vampire {
+  --color-accent: #690a0a;
+}
+
+/*__WOD5E_ORDER_00690__*/
+.item.sheet.vampire section.tab,
+.item.sheet.vampire prose-mirror,
+.item.sheet.vampire prose-mirror .editor-content,
+.loom-window.item.sheet.vampire section.tab,
+.loom-window.item.sheet.vampire prose-mirror {
+  scrollbar-color: #690a0a rgba(0, 0, 0, 0.06) !important;
+}
+
+/*__WOD5E_ORDER_00691__*/
+.item.sheet.vampire prose-mirror,
+.loom-window.item.sheet.vampire prose-mirror {
+  border-color: rgba(105, 10, 10, 0.25) !important;
+}
+
+/*__WOD5E_ORDER_00706__*/
+.item.sheet.vampire .tabs-container nav.tabs .active span {
+  color: darkred !important;
+}
+
+/*__WOD5E_ORDER_00883__*/
+.dialog-content .dice-input img.hunger-dice,
+.dialog-content .dice-input img.rage-dice,
+.dialog-content .advanced-dice .dice-input img,
+.roll-dialog.vampire .advanced-dice .dice-input img,
+.wod5e.vampire .advanced-dice .dice-input img {
+  background-color: #9b0b00;
+  border-color: #330300;
 }

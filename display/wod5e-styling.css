@@ -132,7 +132,6 @@
 .vampire-font-headers.en .hunter-button {
   font-family: "vampireRevised", "sans-serif";
 }
-
 :root {
   --mortal-color-1: #302d5bf0;
   --mortal-color-2: #706ca5f0;
@@ -229,7 +228,6 @@
 .actor.sheet.mortal .item-image img {
   background-color: var(--mortal-color-2);
 }
-
 @font-face {
   font-family: 'Martel';
   font-style: normal;
@@ -493,7 +491,6 @@ input[type="number"] {
 .collapsible:focus {
   cursor: pointer;
 }
-
 /* Actors Sidebar */
 .actors-sidebar .group-item {
   border: none;
@@ -545,7 +542,6 @@ input[type="number"] {
 .actors-sidebar .group-item.droptarget > header h3 i {
   transform: scale(1.2);
 }
-
 #chat-log .message {
   margin: 10px 5px 10px 10px;
   border: 0;
@@ -654,7 +650,6 @@ input[type="number"] {
   clear: both;
   border: 0;
 }
-
 /* The Dark Pack attribution footer (logo + license paragraph) is baked directly into
    every power's raw description HTML from the compendium — fine at full size in the
    item sheet ("cartão geral"), but it roughly doubles the height of every chat roll
@@ -671,7 +666,6 @@ input[type="number"] {
 .sidebar-message .dark-pack-license img {
   max-width: 40px !important;
 }
-
 /* Full description text is still too tall for a chat card even with the logo shrunk —
    the base .collapsible-content rule (1.1em, 1.6 line-height, meant for the roomier
    item sheet "cartão geral") stacks up fast across 6+ paragraphs (Efeito/Custo/Parada
@@ -862,7 +856,6 @@ h3.item-name {
   cursor: pointer;
   margin-right: 3px;
 }
-
 .compendium-browser .window-content {
   display: flex;
   flex-direction: row;
@@ -959,7 +952,6 @@ h3.item-name {
 .multi-select .subtype-option {
   margin-left: 15px;
 }
-
 /* Legacy Controls UI */
 #players,
 .bar-controls {
@@ -968,11 +960,9 @@ h3.item-name {
 #controls ol.control-tools > li {
   border-radius: 0px;
 }
-
 .dialog .dialog-buttons .dialog-button {
   height: fit-content;
 }
-
 .wod5e-config-form .config-category .subcategory {
   margin-bottom: 15px;
 }
@@ -1130,7 +1120,6 @@ h3.item-name {
 .roll-menu.application .main .roll-menu-body .roll-menu-footer .roll-menu-footer-buttons .roll-button {
   align-content: center;
 }
-
 .dialog-content {
   gap: 0.5px;
 }
@@ -1414,7 +1403,6 @@ h3.item-name {
 .roll-dialog .window-content {
   overflow: visible;
 }
-
 /* General Sidebar Styling */
 #sidebar {
   border: 0;
@@ -1455,7 +1443,6 @@ h3.item-name {
 .settings-sidebar #game-details .external-system-links {
   text-align: right;
 }
-
 :root {
   --vampire-color-1: #650202;
   --vampire-color-2: #d84343;
@@ -1695,7 +1682,6 @@ h3.item-name {
 .vampire-font-headers.en .vampire-button {
   font-family: "vampireRevised", "sans-serif";
 }
-
 :root {
   --werewolf-color-1: #4e2100;
   --werewolf-color-2: #994101;
@@ -2026,9 +2012,6 @@ h3.item-name {
 .vampire-font-headers .forms .were-form-name {
   font-family: "vampireRevised", "sans-serif";
 }
-
-
-
 @font-face {
   font-family: "Roboto";
   font-style: normal;
@@ -2041,7 +2024,6 @@ body.ru {
 body.ru .actor.sheet {
   min-width: 950px;
 }
-
 @font-face {
   font-family: "Roboto";
   font-style: normal;
@@ -2054,7 +2036,6 @@ body.uk {
 body.uk .actor.sheet {
   min-width: 950px;
 }
-
 :root {
   --xp-gain-icon: url("/marketplace/rulesets/wod5e/assets/icons/sheet/exp-gain.webp");
   --xp-spend-icon: url("/marketplace/rulesets/wod5e/assets/icons/sheet/exp-spend.webp");
@@ -2170,6 +2151,16 @@ body.uk .actor.sheet {
 }
 .actor.sheet section[data-application-part="limited"] .limited-description-body {
   padding: 10px;
+  color: #202124 !important;
+  background-color: #f2f2f2 !important;
+  border: 1px solid #777 !important;
+  line-height: 1.6;
+}
+.actor.sheet section[data-application-part="limited"] .limited-description-body :is(p, li, blockquote, span, strong, em) {
+  color: #202124 !important;
+}
+.actor.sheet section[data-application-part="limited"] .limited-description-body a {
+  color: #174ea6 !important;
 }
 .actor.sheet .actor-header {
   display: flex;
@@ -2198,7 +2189,6 @@ body.uk .actor.sheet {
   padding: 4px 8px !important;
   position: relative !important;
 }
-
 /* Ensure Vitality and Willpower counters are strictly centered with spaced squares */
 .actor.sheet .header-fields-left .resource.health,
 .actor.sheet .header-fields-left .resource.willpower,
@@ -2229,7 +2219,6 @@ body.uk .actor.sheet {
 .loom-window .actor.sheet .resource-counter .resource-counter-step {
   margin: 0 1px !important;
 }
-
 .actor.sheet.hunter .header-fields-right .shared-row input,
 .actor.sheet.hunter .header-fields-right .shared-row .resource,
 .loom-window .actor.sheet.hunter .header-fields-right .shared-row input,
@@ -2241,7 +2230,6 @@ body.uk .actor.sheet {
 .loom-window .actor.sheet.hunter .header-fields-right .shared-row .resource a {
   color: var(--hunter-color-1) !important;
 }
-
 .actor.sheet.werewolf .header-fields-right .shared-row input,
 .actor.sheet.werewolf .header-fields-right .shared-row .resource,
 .loom-window .actor.sheet.werewolf .header-fields-right .shared-row input,
@@ -2253,7 +2241,6 @@ body.uk .actor.sheet {
 .loom-window .actor.sheet.werewolf .header-fields-right .shared-row .resource a {
   color: var(--werewolf-color-2, #ffb762) !important;
 }
-
 .actor.sheet.vampire .header-fields-right .shared-row input,
 .actor.sheet.vampire .header-fields-right .shared-row .resource,
 .loom-window .actor.sheet.vampire .header-fields-right .shared-row input,
@@ -2962,7 +2949,6 @@ body.uk .actor.sheet {
 .loom-window.item .tab.active {
   display: block !important;
 }
-
 /* Item Sheet Window Scope - Theme Variables & Parchment Styling */
 .loom-window.item,
 .loom-window.item.sheet,
@@ -2989,8 +2975,6 @@ body.uk .actor.sheet {
 .item.sheet.hunter {
   --color-accent: #d97706;
 }
-
-
 /* LoomVTT fix: Override native .loom-window .tabs so vertical sheet-tabs align cleanly and inherit splat theme colors */
 .actor.sheet .tabs-container .sheet-tabs,
 .loom-window .actor.sheet .tabs-container .sheet-tabs,
@@ -3012,7 +2996,6 @@ body.uk .actor.sheet {
   gap: 2px !important;
   overflow: visible !important;
 }
-
 /* Ensure each tab link inside vertical navigation centers properly */
 .actor.sheet .tabs-container .sheet-tabs > [data-tab],
 .loom-window .actor.sheet .tabs-container .sheet-tabs > [data-tab],
@@ -3109,13 +3092,11 @@ body.uk .actor.sheet {
   text-align: left !important;
   cursor: pointer;
 }
-
 .skill.application .skillname {
   font-size: 48px;
   font-family: var(--font-h1);
   text-align: center;
 }
-
 .group.sheet:not(.minimized) {
   min-width: 650px;
   min-height: 300px;
@@ -3259,7 +3240,6 @@ body.uk .actor.sheet {
 .group.sheet .member-rage.active {
   background-color: var(--werewolf-color-2) !important;
 }
-
 /* Grids */
 .wod5e .grid,
 .wod5e .grid-2col {
@@ -3322,7 +3302,6 @@ body.uk .actor.sheet {
 .wod5e .flexend {
   align-self: flex-end;
 }
-
 .item.sheet .window-content {
   padding: 0;
 }
@@ -3810,7 +3789,6 @@ input.itemname:focus {
   color: #fff !important;
   text-decoration: underline !important;
 }
-
 /* wod5e.css */
 .locked .item-edit,
 .locked .item-create,
@@ -3850,7 +3828,6 @@ input.itemname:focus {
 .locked .resource-minus {
   cursor: default;
 }
-
 .powers-display-tree {
   list-style: none;
   margin: 0;
@@ -3935,7 +3912,6 @@ input.itemname:focus {
 .power-description {
   overflow-wrap: break-word;
 }
-
 .resource-value {
   align-self: flex-end;
   margin-left: 10px;
@@ -4025,7 +4001,6 @@ input.itemname:focus {
   vertical-align: middle !important;
   margin: 0 1px !important;
 }
-
 .spc.sheet .stat-resource-background {
   padding: 5px 15px 5px;
 }
@@ -4162,7 +4137,6 @@ input.itemname:focus {
   cursor: pointer !important;
   flex-shrink: 0 !important;
 }
-
 /* Variables */
 :root {
   --system-color-1: #302d5bf0;
@@ -4334,7 +4308,6 @@ prose-mirror .editor-menu button::before {
   filter: saturate(250%) drop-shadow(2px 4px 6px black);
 }
 /* Actor Sheets */
-
 .sheet .window-content {
   background: var(--actor-background-default) repeat;
 }
@@ -4525,8 +4498,8 @@ prose-mirror .editor-menu button::before {
   border-color: #330300;
 }
 .dialog-content .dice-input img.vampire-dice {
-  background-color: rgb(20, 20, 20);
-  border-color: rgb(200, 200, 200);
+  background-color: #141414;
+  border-color: #c8c8c8;
 }
 .dialog-content .dice-input img.werewolf-dice,
 .roll-dialog.werewolf .basic-dice .dice-input img,
@@ -4623,31 +4596,51 @@ prose-mirror .editor-menu button::before {
 .chat-message .total-and-difficulty {
   border: 1px solid var(--system-color-5);
 }
-.chat-message .roll-result-label {
+.chat-message .roll-result-label,
+.sidebar-message .roll-result-label,
+.wod5e-chat-card .roll-result-label {
   border: 1px solid var(--system-color-5);
   background: #222;
   text-shadow: 0 0 5px var(--system-color-5);
 }
 .chat-message .roll-result-label.success,
-.chat-message .roll-result-label.critical-success {
+.chat-message .roll-result-label.critical-success,
+.sidebar-message .roll-result-label.success,
+.sidebar-message .roll-result-label.critical-success,
+.wod5e-chat-card .roll-result-label.success,
+.wod5e-chat-card .roll-result-label.critical-success {
   background-color: #065200;
   color: #dbd6d6;
 }
-.chat-message .roll-result-label.messy-critical {
+.chat-message .roll-result-label.messy-critical,
+.sidebar-message .roll-result-label.messy-critical,
+.wod5e-chat-card .roll-result-label.messy-critical {
   background-color: #f10808;
   color: var(--system-color-6);
 }
 .chat-message .roll-result-label.failure,
 .chat-message .roll-result-label.critical-failure,
-.chat-message .roll-result-label.bestial-failure {
+.chat-message .roll-result-label.bestial-failure,
+.sidebar-message .roll-result-label.failure,
+.sidebar-message .roll-result-label.critical-failure,
+.sidebar-message .roll-result-label.bestial-failure,
+.wod5e-chat-card .roll-result-label.failure,
+.wod5e-chat-card .roll-result-label.critical-failure,
+.wod5e-chat-card .roll-result-label.bestial-failure {
   background-color: #900;
   color: #dbdbdb;
 }
 .chat-message .roll-result-label.desperation-success,
-.chat-message .roll-result-label.desperation-failure {
+.chat-message .roll-result-label.desperation-failure,
+.sidebar-message .roll-result-label.desperation-success,
+.sidebar-message .roll-result-label.desperation-failure,
+.wod5e-chat-card .roll-result-label.desperation-success,
+.wod5e-chat-card .roll-result-label.desperation-failure {
   background-color: #e97c00;
 }
-.chat-message .roll-result-label.rage-failure {
+.chat-message .roll-result-label.rage-failure,
+.sidebar-message .roll-result-label.rage-failure,
+.wod5e-chat-card .roll-result-label.rage-failure {
   background-color: #783b01;
   color: #dbdbdb;
 }
@@ -4706,7 +4699,6 @@ prose-mirror .editor-menu button::before {
 #navigation #scene-list .scene.active {
   filter: drop-shadow(0px 0px 2px white);
 }
-
 /* Variables */
 :root {
   --system-dark-color-1: #000000f0;
@@ -4722,7 +4714,6 @@ prose-mirror .editor-menu button::before {
 #interface.theme-dark #license-information {
   background: #000000a6;
 }
-
 .theme-dark .sheet .window-content {
   background: var(--actor-background-dark) repeat;
 }
@@ -4844,7 +4835,6 @@ prose-mirror .editor-menu button::before {
   background-color: #000000 !important;
   border-color: var(--system-dark-color-4);
 }
-
 .theme-dark .actor.sheet .item-list .item,
 .theme-dark .actor.sheet .resource,
 .theme-dark .actor.sheet prose-mirror .editor-content,
@@ -4972,12 +4962,10 @@ prose-mirror .editor-menu button::before {
 .theme-dark #hotbar .macro {
   background: var(--dark-theme-filter);
 }
-
 /* Variables */
 :root {
   --hunter-theme-filter: #D18125;
 }
-
 .wod-hunter-theme .sheet .window-content {
   background: var(--actor-background-default) repeat;
 }
@@ -5008,12 +4996,10 @@ prose-mirror .editor-menu button::before {
   background: #020202;
   color: var(--system-color-6);
 }
-
 /* Variables */
 :root {
   --vampire-theme-filter: #FF2B2B80;
 }
-
 .wod-vampire-theme .sheet .window-content {
   background: var(--actor-background-dark) repeat;
 }
@@ -5124,7 +5110,6 @@ prose-mirror .editor-menu button::before {
   background-color: #000000 !important;
   border-color: var(--system-dark-color-4);
 }
-
 .wod-vampire-theme .actor.sheet .item-list .item,
 .wod-vampire-theme .actor.sheet .resource,
 .wod-vampire-theme .actor.sheet prose-mirror .editor-content,
@@ -5252,12 +5237,10 @@ prose-mirror .editor-menu button::before {
 .wod-vampire-theme #hotbar .macro {
   background: var(--vampire-theme-filter);
 }
-
 /* Variables */
 :root {
   --werewolf-theme-filter: #BE660080;
 }
-
 .wod-werewolf-theme .sheet .window-content {
   background: var(--actor-background-dark) repeat;
 }
@@ -5368,7 +5351,6 @@ prose-mirror .editor-menu button::before {
   background-color: #000000 !important;
   border-color: var(--system-dark-color-4);
 }
-
 .wod-werewolf-theme .actor.sheet .item-list .item,
 .wod-werewolf-theme .actor.sheet .resource,
 .wod-werewolf-theme .actor.sheet prose-mirror .editor-content,
@@ -5493,7 +5475,6 @@ prose-mirror .editor-menu button::before {
 .wod-werewolf-theme #controls ol.control-tools .has-notes::after {
   color: var(--system-dark-color-1);
 }
-
 /* Loom window chrome buttons and header typography:
    Ensure title text, icon, and header control buttons (copy-id/menu/minimize/close)
    are crisp, high-contrast, and clearly visible against dark themed window headers
@@ -5505,7 +5486,6 @@ prose-mirror .editor-menu button::before {
 .loom-window .window-header {
   color: #f5f5f5 !important;
 }
-
 .sheet .loom-window-header .loom-window-title,
 .dialog .loom-window-header .loom-window-title,
 .loom-window.sheet .loom-window-title,
@@ -5518,7 +5498,6 @@ prose-mirror .editor-menu button::before {
   letter-spacing: 0.05em !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7) !important;
 }
-
 .sheet .loom-window-header .loom-window-title-icon,
 .dialog .loom-window-header .loom-window-title-icon,
 .loom-window.sheet .loom-window-title-icon,
@@ -5529,7 +5508,6 @@ prose-mirror .editor-menu button::before {
   color: rgba(255, 255, 255, 0.9) !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7) !important;
 }
-
 .sheet .loom-window-header button.header-control,
 .dialog .loom-window-header button.header-control,
 .loom-window.sheet .loom-window-header button.header-control,
@@ -5541,7 +5519,6 @@ prose-mirror .editor-menu button::before {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7) !important;
   transition: color 0.15s ease, background-color 0.15s ease !important;
 }
-
 .sheet .loom-window-header button.header-control:hover,
 .dialog .loom-window-header button.header-control:hover,
 .loom-window.sheet .loom-window-header button.header-control:hover,
@@ -5551,4 +5528,3 @@ prose-mirror .editor-menu button::before {
   color: #ffffff !important;
   border-radius: 4px !important;
 }
-

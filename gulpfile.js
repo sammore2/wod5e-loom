@@ -1,10 +1,12 @@
 import path from 'path'
 import fs from 'fs'
+import { Transform } from 'stream'
 import { fileURLToPath } from 'url'
 
 import gulp from 'gulp'
 import less from 'gulp-less'
 import concat from 'gulp-concat'
+import postcss from 'postcss'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -52,8 +54,7 @@ gulp.task('localize', function (done) {
   done()
 })
 
-// Create a task to take all .less files and convert them into CSS
-// This includes a pipeline to turn it all into a single file so that hotreload works better
+// Compile the organized stylesheet modules into the distributed CSS file.
 gulp.task('less', function () {
   return gulp
     .src('./display/**/styling/**/*.less')
@@ -63,14 +64,63 @@ gulp.task('less', function () {
       })
     )
     .pipe(concat('wod5e-styling.css')) // Concatenate all CSS files into a single file
+    .pipe(reorderStylesheet())
     .pipe(gulp.dest('./display/')) // Output for the wod-styling.css file
 })
 
 // Watch tasks
 gulp.task('watch-styling', function () {
-  // Watch all less files for updates to CSS
+  // Watch all stylesheet modules for updates.
   gulp.watch('./display/**/styling/**/*.less', gulp.series('less'))
 })
+
+// LESS modules stay organized by feature; order markers retain the tested CSS cascade.
+function reorderStylesheet() {
+  let contents = ''
+  let outputFile
+
+  return new Transform({
+    objectMode: true,
+    transform(file, encoding, callback) {
+      outputFile = file
+      contents += file.contents.toString(encoding)
+      callback()
+    },
+    flush(callback) {
+      try {
+        const root = postcss.parse(contents)
+        const orderedNodes = []
+        let nextOrder = null
+
+        for (const node of root.nodes) {
+          const marker = node.type === 'comment' && node.text.match(/^__WOD5E_ORDER_(\d{5})__$/)
+          if (marker) {
+            nextOrder = Number(marker[1])
+            continue
+          }
+
+          if (nextOrder === null) {
+            throw new Error(`LESS node missing order marker: ${node.toString().slice(0, 80)}`)
+          }
+
+          orderedNodes.push({ order: nextOrder, node: node.clone() })
+          nextOrder = null
+        }
+
+        orderedNodes.sort((a, b) => a.order - b.order)
+        root.removeAll()
+        orderedNodes.forEach(({ node }) => root.append(node))
+        outputFile.path = path.join(__dirname, 'display', 'wod5e-styling.css')
+        outputFile.base = path.join(__dirname, 'display')
+        outputFile.contents = Buffer.from(root.toResult().css.replace(/^\n/, ''))
+        this.push(outputFile)
+        callback()
+      } catch (error) {
+        callback(error)
+      }
+    }
+  })
+}
 
 gulp.task('watch-localization', function () {
   // Function to start the watcher

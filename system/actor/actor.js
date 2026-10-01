@@ -312,10 +312,11 @@ export class WoDActor extends BaseActorClass {
           const member = Loom.fromUuidSync(memberUuid)
           if (!member) {
             console.warn(`World of Darkness 5e | Member with UUID ${memberUuid} not found.`)
+            continue
           }
 
           // Handle updating the group member's Desperation
-          if (data.system?.desperation && member.system.gamesystem === 'hunter') {
+          if (data.system?.desperation && member.system?.gamesystem === 'hunter') {
             member.prepareDerivedData()
           }
         }

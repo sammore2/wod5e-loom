@@ -14,6 +14,14 @@
                     <div class="flex-center field-header">
                         <span class="resource-label">
                             {{localize "WOD5E.BiographyList.ChronicleTenets"}}
+                            <div class="toggle-limited{{#if settings.limited.tenets}} visible{{/if}}" data-action="toggleLimited" data-path="settings.limited.tenets"
+                                title="{{#if settings.limited.tenets}}{{localize "WOD5E.Tabs.IsVisible"}}{{else}}{{localize "WOD5E.Tabs.IsNotVisible"}}{{/if}}">
+                                {{#if settings.limited.tenets}}
+                                    <i class="fa-solid fa-eye"></i>
+                                {{else}}
+                                    <i class="fa-solid fa-eye-slash"></i>
+                                {{/if}}
+                            </div>
                         </span>
                     </div>
                     <div class="description-content resource">
@@ -27,6 +35,14 @@
                     <div class="flex-center field-header">
                         <span class="resource-label">
                             {{localize "WOD5E.BiographyList.History"}}
+                            <div class="toggle-limited{{#if settings.limited.biography}} visible{{/if}}" data-action="toggleLimited" data-path="settings.limited.biography"
+                                title="{{#if settings.limited.biography}}{{localize "WOD5E.Tabs.IsVisible"}}{{else}}{{localize "WOD5E.Tabs.IsNotVisible"}}{{/if}}">
+                                {{#if settings.limited.biography}}
+                                    <i class="fa-solid fa-eye"></i>
+                                {{else}}
+                                    <i class="fa-solid fa-eye-slash"></i>
+                                {{/if}}
+                            </div>
                         </span>
                     </div>
                     <div class="description-content resource">

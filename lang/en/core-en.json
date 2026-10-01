@@ -318,6 +318,7 @@
     },
     "Notifications": {
       "CannotModifyResourceString": "This resource cannot be modified while the actor sheet \"{string}\" is locked.",
+      "MigrationFailed": "Migration \"{string}\" failed. The world version was not advanced.",
       "NoActorDefined": "No actor defined",
       "NoSufficientPermission": "You do not have sufficient permissions to modify actor \"{string}.\"",
       "NoTokenSelected": "Unable to process roll: No token selected.",

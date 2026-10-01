@@ -23,14 +23,14 @@ export const RestoreOldWorldSettings = async function () {
 
     // Restore world settings from inactive settings by accessing Loom.settings.storage
     // We have to do this because the 'vtm5e' scope isn't active when the world is migrated over
-    worldSettings.forEach((setting) => {
+    for (const setting of worldSettings) {
       // Snip out the 'vtm5e' part to get the right 'wod5e' key, and then set the value
       // to complete the migration
-      Loom.settings.set('wod5e', setting.key.replace('vtm5e.', ''), setting.value)
-    })
+      await Loom.settings.set('wod5e', setting.key.replace('vtm5e.', ''), setting.value)
+    }
 
     // Complete migration
     Loom.ui?.notifications.info('World settings migration complete.')
-    Loom.settings.set('wod5e', 'settingsMigrationComplete', true)
+    await Loom.settings.set('wod5e', 'settingsMigrationComplete', true)
   }
 }

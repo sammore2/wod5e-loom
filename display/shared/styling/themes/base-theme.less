@@ -1,4 +1,47 @@
-/* Variables */
+/*__WOD5E_ORDER_00120__*/
+#chat-log .message {
+  margin: 10px 5px 10px 10px;
+  border: 0;
+}
+
+/*__WOD5E_ORDER_00127__*/
+.chat-message {
+  background-blend-mode: multiply;
+  margin: 3px;
+  padding: 0;
+  row-gap: 3px;
+}
+
+/*__WOD5E_ORDER_00157__*/
+.chat-message .roll-result-label,
+.sidebar-message .roll-result-label,
+.wod5e-chat-card .roll-result-label {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/*__WOD5E_ORDER_00159__*/
+.roll-img.hunger-dice.rerolled,
+.roll-img.rage-dice.rerolled {
+  filter: invert(1);
+}
+
+/*__WOD5E_ORDER_00234__*/
+.dialog-content .dice-group-header {
+  border-bottom: 0;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+}
+
+/*__WOD5E_ORDER_00241__*/
+.dialog-content .dialog-control:hover,
+.dialog-content .dialog-control:focus {
+  cursor: pointer;
+}
+
+/*__WOD5E_ORDER_00807__*/
 :root {
   --system-color-1: #302d5bf0;
   --system-color-2: #d2dfebf0;
@@ -11,18 +54,13 @@
   --system-color-9: #e02b2b;
   --system-color-10: #4b4b4b;
   --system-color-11: #181818;
-
   --font-h1: "Modesto Condensed", serif;
   --font-size-16: 1rem;
-
-  --base-theme-filter: rgb(24 51 103 / 50%);
-
+  --base-theme-filter: rgba(24, 51, 103, 0.5);
   --ui-background-texture: url("../assets/ui/base_ui_background_texture.webp");
   --sidebar-background: url("../assets/ui/base_sidebar.webp");
-
   --actor-background-default: url("../assets/actor/actor_background.webp");
   --actor-header-default: url("../assets/ui/Actor_Header_Background.webp");
-
   /* LEGACY COMPATIBILITY FOR LOOMVTT */
   --color-text-light-highlight: #f0f0e6;
   --color-text-light-heading: #f0f0e6;
@@ -52,42 +90,40 @@
   --color-shadow-primary: rgba(0, 0, 0, 0.9);
 }
 
-.theme-dark, :root {
+/*__WOD5E_ORDER_00808__*/
+.theme-dark,
+:root {
   --actor-background-dark: url(/marketplace/rulesets/wod5e/assets/actor/actor_background_dark.webp);
   --actor-background-default: url(/marketplace/rulesets/wod5e/assets/actor/actor_background.webp);
 }
 
+/*__WOD5E_ORDER_00809__*/
 .wod5e {
   box-shadow: 0 0 5px var(--system-color-1);
-
-  .actor-header,
-  .tab {
-    color: var(--system-color-5);
-    --input-text-color: var(--system-color-5);
-  }
 }
 
-#pause {
-  figcaption {
-    color: #e4e4e4a9;
-  }
+/*__WOD5E_ORDER_00810__*/
+.wod5e .actor-header,
+.wod5e .tab {
+  color: var(--system-color-5);
+  --input-text-color: var(--system-color-5);
 }
 
-prose-mirror {
-  button.icon.toggle {
-    background-color: var(--system-color-1);
-    color: var(--system-color-2)
-  }
-
-  .editor-menu {
-    background: var(--system-color-7);
-
-    button {
-      color: var(--system-color-6);
-    }
-  }
+/*__WOD5E_ORDER_00819__*/
+prose-mirror .editor-menu {
+  background: var(--system-color-7);
 }
 
+/*__WOD5E_ORDER_00820__*/
+prose-mirror .editor-menu button {
+  position: static !important;
+  font-size: initial !important;
+  width: auto !important;
+  height: auto !important;
+  color: var(--system-color-6);
+}
+
+/*__WOD5E_ORDER_00822__*/
 .clickable,
 .rollable,
 .rollable-item,
@@ -95,6 +131,7 @@ prose-mirror {
   cursor: pointer;
 }
 
+/*__WOD5E_ORDER_00823__*/
 .clickable:hover,
 .rollable:hover,
 .rollable-item:hover,
@@ -103,293 +140,235 @@ prose-mirror {
   filter: saturate(250%) drop-shadow(2px 4px 6px black);
 }
 
-/* Actor Sheets */
-.sheet {
-  .window-content {
-    background: var(--actor-background-default) repeat;
-  }
-
-  /* Input and resource fields */
-  input:not(.sound-volume),
-  .resource {
-    background-color: var(--system-color-4);
-    border: 1px solid var(--system-color-5);
-  }
-
-  .limited-description-body {
-    background-color: var(--system-color-4);
-    border: 1px solid var(--system-color-5);
-    color: var(--system-color-7);
-  }
-
-  /* Actor Header */
-  .actor-header {
-    background: var(--actor-header-default) center;
-    border-bottom: 2px solid var(--system-color-1);
-
-    .field-header {
-      color: var(--system-color-6);
-    }
-
-    .name-field {
-      color: var(--system-color-6);
-    }
-  }
-
-  /* Collapsible Descriptions */
-  .collapsible-content {
-    color: hwb(0deg 7% 98% / 100%);
-    background: var(--system-color-4);
-  }
-
-  /* Limited View Toggle Button */
-  .toggle-limited {
-    color: var(--system-color-5);
-  }
-
-  .toggle-limited:not(.visible) {
-    color: var(--system-color-7);
-  }
-
-  /* Sheet Banner */
-  .sheet-banner {
-    background-color: var(--system-color-1);
-
-    .actor-type-field {
-      select {
-        background-color: var(--system-color-4);
-      }
-    }
-  }
-
-  .tabs-container {
-    background-color: var(--system-color-4);
-  }
-
-  .sheet-tabs {
-    .lock-btn,
-    > [data-tab] .navicon {
-      color: var(--system-color-5);
-      background-color: var(--system-color-6);
-      border: 1px solid var(--system-color-5);
-    }
-
-    .lock-btn:hover {
-      color: var(--system-color-5);
-    }
-  }
-
-  /* Basic Item List Layout */
-  .item-list .category {
-    background-color: var(--system-color-4);
-    border: 2px solid #1b1b1b;
-
-    .item {
-      .item-image {
-        img {
-          border: 1px solid var(--system-color-5);
-        }
-      }
-    }
-  }
-
-  .item-image img {
-    border: 1px solid var(--system-color-6);
-  }
-
-  /* General Resources */
-  .resource-header {
-    border-bottom: 1px solid var(--system-color-5);
-  }
-
-  /* Statistics Page */
-  .stats-container {
-    background-color: var(--system-color-4);
-    border: 2px solid #1b1b1b;
-  }
-
-  .specialty {
-    text-shadow: 0 0 5px var(--system-color-9);
-  }
-
-  .stats-content {
-    .side-panel {
-      .item-image {
-        img {
-          border: 1px inset var(--system-color-5);
-        }
-      }
-    }
-
-    .stats-container {
-      .stats-footer {
-        background-color: var(--system-color-8);
-      }
-    }
-
-    .stats-container.attributes .stats-footer {
-      border-bottom: 1px solid var(--system-color-5);
-    }
-
-    .stats-container.skills .stats-footer {
-      border-top: 1px solid var(--system-color-5);
-    }
-  }
-
-  select {
-    background-color: var(--system-color-4);
-  }
-
-  .clickable {
-    cursor: pointer
-  }
+/*__WOD5E_ORDER_00825__*/
+.sheet .window-content {
+  background: var(--actor-background-default) repeat;
 }
 
-/* Experience Tab */
-.tab[data-tab="experience"] {
-  .xp-icon {
-    background-color: #1c1c1c;
-    border: 1px solid white;
-  }
+/*__WOD5E_ORDER_00826__*/
+.sheet input:not(.sound-volume),
+.sheet .resource {
+  background-color: var(--system-color-4);
+  border: 1px solid var(--system-color-5);
 }
 
-/* Resource Counters */
+/*__WOD5E_ORDER_00827__*/
+.sheet .limited-description-body {
+  background-color: var(--system-color-4);
+  border: 1px solid var(--system-color-5);
+  color: var(--system-color-7);
+}
+
+/*__WOD5E_ORDER_00828__*/
+.sheet .actor-header {
+  background: var(--actor-header-default) center;
+  border-bottom: 2px solid var(--system-color-1);
+}
+
+/*__WOD5E_ORDER_00829__*/
+.sheet .actor-header .field-header {
+  color: var(--system-color-6);
+}
+
+/*__WOD5E_ORDER_00830__*/
+.sheet .actor-header .name-field {
+  color: var(--system-color-6);
+}
+
+/*__WOD5E_ORDER_00831__*/
+.sheet .collapsible-content {
+  color: hwb(0deg 7% 98% / 100%);
+  background: var(--system-color-4);
+}
+
+/*__WOD5E_ORDER_00832__*/
+.sheet .toggle-limited {
+  color: var(--system-color-5);
+}
+
+/*__WOD5E_ORDER_00833__*/
+.sheet .toggle-limited:not(.visible) {
+  color: var(--system-color-7);
+}
+
+/*__WOD5E_ORDER_00834__*/
+.sheet .sheet-banner {
+  background-color: var(--system-color-1);
+}
+
+/*__WOD5E_ORDER_00835__*/
+.sheet .sheet-banner .actor-type-field select {
+  background-color: var(--system-color-4);
+}
+
+/*__WOD5E_ORDER_00836__*/
+.sheet .tabs-container {
+  background-color: var(--system-color-4);
+}
+
+/*__WOD5E_ORDER_00837__*/
+.sheet .sheet-tabs .lock-btn,
+.sheet .sheet-tabs > [data-tab] .navicon {
+  color: var(--system-color-5);
+  background-color: var(--system-color-6);
+  border: 1px solid var(--system-color-5);
+}
+
+/*__WOD5E_ORDER_00838__*/
+.sheet .sheet-tabs .lock-btn:hover {
+  color: var(--system-color-5);
+}
+
+/*__WOD5E_ORDER_00839__*/
+.sheet .item-list .category {
+  background-color: var(--system-color-4);
+  border: 2px solid #1b1b1b;
+}
+
+/*__WOD5E_ORDER_00840__*/
+.sheet .item-list .category .item .item-image img {
+  border: 1px solid var(--system-color-5);
+}
+
+/*__WOD5E_ORDER_00841__*/
+.sheet .item-image img {
+  border: 1px solid var(--system-color-6);
+}
+
+/*__WOD5E_ORDER_00842__*/
+.sheet .resource-header {
+  border-bottom: 1px solid var(--system-color-5);
+}
+
+/*__WOD5E_ORDER_00843__*/
+.sheet .stats-container {
+  background-color: var(--system-color-4);
+  border: 2px solid #1b1b1b;
+}
+
+/*__WOD5E_ORDER_00844__*/
+.sheet .specialty {
+  text-shadow: 0 0 5px var(--system-color-9);
+}
+
+/*__WOD5E_ORDER_00845__*/
+.sheet .stats-content .side-panel .item-image img {
+  border: 1px inset var(--system-color-5);
+}
+
+/*__WOD5E_ORDER_00846__*/
+.sheet .stats-content .stats-container .stats-footer {
+  background-color: var(--system-color-8);
+}
+
+/*__WOD5E_ORDER_00847__*/
+.sheet .stats-content .stats-container.attributes .stats-footer {
+  border-bottom: 1px solid var(--system-color-5);
+}
+
+/*__WOD5E_ORDER_00848__*/
+.sheet .stats-content .stats-container.skills .stats-footer {
+  border-top: 1px solid var(--system-color-5);
+}
+
+/*__WOD5E_ORDER_00849__*/
+.sheet select {
+  background-color: var(--system-color-4);
+}
+
+/*__WOD5E_ORDER_00850__*/
+.sheet .clickable {
+  cursor: pointer;
+}
+
+/*__WOD5E_ORDER_00852__*/
+.tab[data-tab="experience"] .xp-icon {
+  background-color: #1c1c1c;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
+}
+
+/*__WOD5E_ORDER_00854__*/
 .resource-value .resource-value-step {
   border: 1px solid var(--system-color-5);
   background-color: #00000047;
 }
 
+/*__WOD5E_ORDER_00855__*/
 .resource-value-static .resource-value-static-step {
   border: 1px solid var(--system-color-5);
 }
 
+/*__WOD5E_ORDER_00856__*/
 .resource-value .resource-value-empty {
   border: 1px solid var(--system-color-5);
-  background: linear-gradient(
-    45deg,
-    transparent 0%,
-    transparent 43%,
-    var(--system-color-5) 45%,
-    var(--system-color-5) 55%,
-    transparent 57%,
-    transparent 100%
-  ),
-  linear-gradient(
-    135deg,
-    transparent 0%,
-    transparent 43%,
-    var(--system-color-5) 45%,
-    var(--system-color-5) 55%,
-    transparent 57%,
-    transparent 100%
-  );
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, var(--system-color-5) 45%, var(--system-color-5) 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, var(--system-color-5) 45%, var(--system-color-5) 55%, transparent 57%, transparent 100%);
 }
 
+/*__WOD5E_ORDER_00857__*/
 .resource-counter .resource-counter-step {
   border: 1px solid var(--system-color-5);
 }
 
+/*__WOD5E_ORDER_00858__*/
 .resource-counter .resource-counter-step[data-state="/"] {
-  background: linear-gradient(
-    135deg,
-    transparent 0%,
-    transparent 43%,
-    var(--system-color-5) 45%,
-    var(--system-color-5) 55%,
-    transparent 57%,
-    transparent 100%
-  );
+  background: linear-gradient(135deg, transparent 0%, transparent 43%, var(--system-color-5) 45%, var(--system-color-5) 55%, transparent 57%, transparent 100%);
 }
 
+/*__WOD5E_ORDER_00859__*/
 .resource-counter .resource-counter-step[data-state="x"] {
-  background: linear-gradient(
-    45deg,
-    transparent 0%,
-    transparent 43%,
-    var(--system-color-5) 45%,
-    var(--system-color-5) 55%,
-    transparent 57%,
-    transparent 100%
-  ),
-  linear-gradient(
-    135deg,
-    transparent 0%,
-    transparent 43%,
-    var(--system-color-5) 45%,
-    var(--system-color-5) 55%,
-    transparent 57%,
-    transparent 100%
-  );
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, var(--system-color-5) 45%, var(--system-color-5) 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, var(--system-color-5) 45%, var(--system-color-5) 55%, transparent 57%, transparent 100%);
 }
 
+/*__WOD5E_ORDER_00860__*/
 .cell-resource-counter .cell-resource-counter-step {
   border: 1px solid var(--system-color-5);
 }
 
+/*__WOD5E_ORDER_00861__*/
 .cell-resource-counter .cell-resource-counter-step[data-state="/"] {
-  background: linear-gradient(
-    135deg,
-    transparent 0%,
-    transparent 43%,
-    var(--system-color-5) 45%,
-    var(--system-color-5) 55%,
-    transparent 57%,
-    transparent 100%
-  );
+  background: linear-gradient(135deg, transparent 0%, transparent 43%, var(--system-color-5) 45%, var(--system-color-5) 55%, transparent 57%, transparent 100%);
 }
 
+/*__WOD5E_ORDER_00862__*/
 .cell-resource-counter .cell-resource-counter-step[data-state="x"] {
-  background: linear-gradient(
-    45deg,
-    transparent 0%,
-    transparent 43%,
-    var(--system-color-5) 45%,
-    var(--system-color-5) 55%,
-    transparent 57%,
-    transparent 100%
-  ),
-  linear-gradient(
-    135deg,
-    transparent 0%,
-    transparent 43%,
-    var(--system-color-5) 45%,
-    var(--system-color-5) 55%,
-    transparent 57%,
-    transparent 100%
-  );
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, var(--system-color-5) 45%, var(--system-color-5) 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, var(--system-color-5) 45%, var(--system-color-5) 55%, transparent 57%, transparent 100%);
 }
 
-/* Item Sheets */
-.dialog-app,
-.item.sheet {
-  .sheet-tabs {
-    background-color: var(--system-color-6);
-
-    a {
-      color: var(--system-color-5);
-    }
-  }
+/*__WOD5E_ORDER_00864__*/
+.dialog-app .sheet-tabs,
+.item.sheet .sheet-tabs {
+  background-color: var(--system-color-6);
 }
 
-/* Sidebar */
-/* General Sidebar Styling */
+/*__WOD5E_ORDER_00865__*/
+.dialog-app .sheet-tabs a,
+.item.sheet .sheet-tabs a {
+  color: var(--system-color-5);
+}
+
+/*__WOD5E_ORDER_00868__*/
 #sidebar-tabs {
   background: var(--system-color-5);
   border-bottom: 1px solid var(--system-color-6);
 }
 
+/*__WOD5E_ORDER_00869__*/
 #sidebar-tabs > .item.active {
   background: #690a0a;
 }
 
+/*__WOD5E_ORDER_00870__*/
 #sidebar-content #chat .chat-scroll {
-    direction: ltr;
+  direction: ltr;
 }
 
+/*__WOD5E_ORDER_00871__*/
 .sidebar-tab {
   padding-left: 10px;
 }
 
+/*__WOD5E_ORDER_00872__*/
 .chat-message button,
 .directory .action-buttons button,
 .compendium-sidebar .wod5e-compendium-search {
@@ -397,305 +376,256 @@ prose-mirror {
   color: var(--system-color-6);
 }
 
+/*__WOD5E_ORDER_00873__*/
 .subdirectory {
   background: var(--system-color-8);
 }
 
-/* Headers */
+/*__WOD5E_ORDER_00875__*/
 .combat-sidebar .combat-tracker-header,
 .directory .directory-header {
   border-bottom: 2px groove #CCC;
   background: var(--system-color-8);
 }
 
-/* Footers */
+/*__WOD5E_ORDER_00877__*/
 .directory .directory-footer:not(:empty) {
   background: rgba(161, 161, 161, 0.836);
 }
 
-/* Settings Sidebar */
-.settings-sidebar {
-  h2 {
-    border-bottom: 2px groove #CCC;
-    background: var(--system-color-11);
-  }
+/*__WOD5E_ORDER_00879__*/
+.settings-sidebar h2 {
+  border-bottom: 2px groove #CCC;
+  background: var(--system-color-11);
 }
 
-/* Roll Dialogs */
-.dialog-content {
-  .dice-group-header {
-    color: var(--system-color-4);
-  }
-
-  .dice-input img {
-    background-color: var(--system-color-5);
-    border-radius: 4px;
-
-    &.hunger-dice,
-    &.rage-dice {
-      background-color: #9b0b00;
-      border-color: #330300;
-    }
-
-    &.vampire-dice {
-      background-color: rgb(20, 20, 20);
-      border-color: rgb(200, 200, 200);
-    }
-
-    &.werewolf-dice {
-      background-color: #5d651a;
-      border-color: #131405;
-    }
-
-    &.hunter-dice {
-      background-color: #ee7e1f;
-      border-color: var(--system-color-5);
-    }
-
-    &.desperation-dice {
-      background-color: var(--system-color-5);
-      border-color: #cc6d28;
-    }
-  }
-
-  .advanced-dice .dice-input img,
-  .roll-dialog.vampire .advanced-dice .dice-input img,
-  .wod5e.vampire .advanced-dice .dice-input img {
-    background-color: #9b0b00;
-    border-color: #330300;
-  }
-
-  .roll-dialog.werewolf .basic-dice .dice-input img,
-  .wod5e.werewolf .basic-dice .dice-input img {
-    background-color: #5d651a;
-    border-color: #131405;
-  }
-
-  .roll-dialog.werewolf .advanced-dice .dice-input img,
-  .wod5e.werewolf .advanced-dice .dice-input img {
-    background-color: #9b0b00;
-    border-color: #330300;
-  }
-
-  .roll-dialog.hunter .basic-dice .dice-input img,
-  .wod5e.hunter .basic-dice .dice-input img {
-    background-color: #ee7e1f;
-    border-color: var(--system-color-5);
-  }
-
-  .roll-dialog.hunter .advanced-dice .dice-input img,
-  .wod5e.hunter .advanced-dice .dice-input img {
-    background-color: var(--system-color-5);
-    border-color: #cc6d28;
-  }
-
-  .dialog-control:hover,
-  .dialog-control:focus {
-      color: var(--system-color-5);
-  }
-
-  .situational-modifiers {
-    background-color: var(--system-color-6);
-    box-shadow: 0 0 10px var(--color-shadow-dark);
-  }
+/*__WOD5E_ORDER_00881__*/
+.dialog-content .dice-group-header {
+  color: var(--system-color-4);
 }
 
-/* Actors Sidebar */
-.actors-sidebar {
-  // Groups
-  .group-item {
-    border-left: 1px solid var(--color-border-dark-1);
-
-    .context {
-      background-color: transparent !important;
-      border-color: var(--color-border-highlight);
-    }
-
-    > .group-header {
-      color: var(--system-color-6);
-      background: rgba(255 255 255 20%);
-      border-top: 1px sod var(--color-border-dark);
-      border-bottom: 1px sod var(--color-border-dark);
-
-      h3 {
-        color: var(--color-text-ght-highght);
-        font-size: var(--font-size-16);
-      }
-
-      .create-button {
-        .fa-plus {
-          background: var(--system-color-5);
-          color: var(--color-text-ght-highght);
-        }
-      }
-
-      .create-button:hover .fa-plus {
-        color: var(--color-text-hypernk);
-      }
-    }
-  }
-
-  .group-item.collapsed {
-    > .group-header {
-      background: rgba(0 0 0 50%);
-    }
-  }
-
-  .group-item.droptarget > header {
-    h3 {
-      text-shadow: 1px 1px 3px var(--color-shadow-dark);
-
-      i {
-        text-shadow: 0 0 4px var(--color-shadow-color-1);
-      }
-    }
-  }
+/*__WOD5E_ORDER_00882__*/
+.dialog-content .dice-input img {
+  background-color: var(--system-color-5);
+  border-radius: 4px;
 }
 
-/* Chat */
+/*__WOD5E_ORDER_00884__*/
+.dialog-content .dice-input img.vampire-dice {
+  background-color: #141414;
+  border-color: #c8c8c8;
+}
+
+/*__WOD5E_ORDER_00889__*/
+.dialog-content .dialog-control:hover,
+.dialog-content .dialog-control:focus {
+  color: var(--system-color-5);
+}
+
+/*__WOD5E_ORDER_00890__*/
+.dialog-content .situational-modifiers {
+  background-color: var(--system-color-6);
+  box-shadow: 0 0 10px var(--color-shadow-dark);
+}
+
+/*__WOD5E_ORDER_00892__*/
+.actors-sidebar .group-item {
+  border-left: 1px solid var(--color-border-dark-1);
+}
+
+/*__WOD5E_ORDER_00893__*/
+.actors-sidebar .group-item .context {
+  background-color: transparent !important;
+  border-color: var(--color-border-highlight);
+}
+
+/*__WOD5E_ORDER_00894__*/
+.actors-sidebar .group-item > .group-header {
+  color: var(--system-color-6);
+  background: rgba(255 255 255 20%);
+  border-top: 1px sod var(--color-border-dark);
+  border-bottom: 1px sod var(--color-border-dark);
+}
+
+/*__WOD5E_ORDER_00895__*/
+.actors-sidebar .group-item > .group-header h3 {
+  color: var(--color-text-ght-highght);
+  font-size: var(--font-size-16);
+}
+
+/*__WOD5E_ORDER_00896__*/
+.actors-sidebar .group-item > .group-header .create-button .fa-plus {
+  background: var(--system-color-5);
+  color: var(--color-text-ght-highght);
+}
+
+/*__WOD5E_ORDER_00897__*/
+.actors-sidebar .group-item > .group-header .create-button:hover .fa-plus {
+  color: var(--color-text-hypernk);
+}
+
+/*__WOD5E_ORDER_00898__*/
+.actors-sidebar .group-item.collapsed > .group-header {
+  background: rgba(0 0 0 50%);
+}
+
+/*__WOD5E_ORDER_00899__*/
+.actors-sidebar .group-item.droptarget > header h3 {
+  text-shadow: 1px 1px 3px var(--color-shadow-dark);
+}
+
+/*__WOD5E_ORDER_00900__*/
+.actors-sidebar .group-item.droptarget > header h3 i {
+  text-shadow: 0 0 4px var(--color-shadow-color-1);
+}
+
+/*__WOD5E_ORDER_00902__*/
 #chat-log .message {
   border-top: 2px double var(--system-color-6);
 }
 
+/*__WOD5E_ORDER_00903__*/
 .chat-message.whisper {
   background-color: var(--system-color-11);
 }
 
+/*__WOD5E_ORDER_00904__*/
 .chat-message.blind {
   background-color: var(--system-color-10);
 }
 
+/*__WOD5E_ORDER_00905__*/
 .chat-message {
   background-color: var(--system-color-7);
   color: var(--system-color-6);
-
-  .message-header,
-  h3 {
-    color: var(--system-color-6);
-  }
-
-  a.content-link,
-  a.inline-roll {
-    color: var(--system-color-5);
-  }
-
-  .modifiers .mod {
-    background-color: var(--system-color-6);
-    border: 1px solid #424242;
-    color: var(--system-color-5);
-  }
-
-  .total-and-difficulty {
-    border: 1px solid var(--system-color-5);
-  }
-  .roll-result-label {
-    border: 1px solid var(--system-color-5);
-    background: #222;
-    text-shadow: 0 0 5px var(--system-color-5);
-  }
-
-  .roll-result-label.success,
-  .roll-result-label.critical-success {
-    background-color: #065200;
-    color: #dbd6d6;
-  }
-
-  .roll-result-label.messy-critical {
-    background-color: #f10808;
-    color: var(--system-color-6);
-  }
-
-  .roll-result-label.failure,
-  .roll-result-label.critical-failure,
-  .roll-result-label.bestial-failure {
-    background-color: #900;
-    color: #dbdbdb;
-  }
-
-  .roll-result-label.desperation-success,
-  .roll-result-label.desperation-failure {
-    background-color: #e97c00;
-  }
-
-  .roll-result-label.rage-failure {
-    background-color: #783b01;
-    color: #dbdbdb;
-  }
 }
 
+/*__WOD5E_ORDER_00906__*/
+.chat-message .message-header,
+.chat-message h3 {
+  color: var(--system-color-6);
+}
+
+/*__WOD5E_ORDER_00907__*/
+.chat-message a.content-link,
+.chat-message a.inline-roll {
+  color: var(--system-color-5);
+}
+
+/*__WOD5E_ORDER_00908__*/
+.chat-message .modifiers .mod {
+  background-color: var(--system-color-6);
+  border: 1px solid #424242;
+  color: var(--system-color-5);
+}
+
+/*__WOD5E_ORDER_00909__*/
+.chat-message .total-and-difficulty {
+  border: 1px solid var(--system-color-5);
+}
+
+/*__WOD5E_ORDER_00910__*/
+.chat-message .roll-result-label,
+.sidebar-message .roll-result-label,
+.wod5e-chat-card .roll-result-label {
+  border: 1px solid var(--system-color-5);
+  background: #222;
+  text-shadow: 0 0 5px var(--system-color-5);
+}
+
+/*__WOD5E_ORDER_00912__*/
+.chat-message .roll-result-label.messy-critical,
+.sidebar-message .roll-result-label.messy-critical,
+.wod5e-chat-card .roll-result-label.messy-critical {
+  background-color: #f10808;
+  color: var(--system-color-6);
+}
+
+/*__WOD5E_ORDER_00915__*/
+.chat-message .roll-result-label.rage-failure,
+.sidebar-message .roll-result-label.rage-failure,
+.wod5e-chat-card .roll-result-label.rage-failure {
+  background-color: #783b01;
+  color: #dbdbdb;
+}
+
+/*__WOD5E_ORDER_00916__*/
 .roll-img.mortal-dice {
-  background: rgb(20, 20, 20);
-  border-color: rgb(15, 55, 5);
+  background: #141414;
+  border-color: #0f3705;
 }
 
+/*__WOD5E_ORDER_00917__*/
 .roll-img.vampire-dice {
-  background: rgb(20, 20, 20);
-  border-color: rgb(200, 200, 200);
+  background: #141414;
+  border-color: #c8c8c8;
 }
 
+/*__WOD5E_ORDER_00918__*/
 .roll-img.hunger-dice,
 .roll-img.rage-dice {
   background: #9b0b00;
   border-color: #330300;
 }
 
+/*__WOD5E_ORDER_00919__*/
 .roll-img.hunter-dice {
   background: #ee7e1f;
   border-color: var(--system-color-5);
 }
 
+/*__WOD5E_ORDER_00920__*/
 .roll-img.desperation-dice {
   background: var(--system-color-5);
   border-color: #cc6d28;
 }
 
+/*__WOD5E_ORDER_00921__*/
 .roll-img.werewolf-dice {
   background: #5d651a;
   border-color: #131405;
 }
 
+/*__WOD5E_ORDER_00922__*/
 .roll-img.rerolled {
   background: #7b7b7b80;
 }
 
+/*__WOD5E_ORDER_00923__*/
 .roll-img.hunger-dice.rerolled,
 .roll-img.rage-dice.rerolled {
   border-color: #d3d3d3;
 }
 
-.roll-label {
-  .danger {
-    color: #831515;
-  }
-
-  .success {
-    color: #18520b;
-  }
+/*__WOD5E_ORDER_00924__*/
+.roll-label .danger {
+  color: #831515;
 }
 
-/* Journals */
-.app.journal-entry {
-  .journal-entry-content {
-    background-color: var(--system-color-8);
-    background-blend-mode: color;
-  }
+/*__WOD5E_ORDER_00925__*/
+.roll-label .success {
+  color: #18520b;
 }
 
-/* Legacy Controls UI */
-#controls {
-  ol.control-tools > li {
-    box-shadow: 0 0 10px var(--system-color-3);
-    border: 1px solid var(--system-color-2);
-  }
-
-  ol.control-tools > li.active,
-  ol.control-tools > li:hover {
-    filter: drop-shadow(0px 0px 2px white);
-  }
+/*__WOD5E_ORDER_00927__*/
+.app.journal-entry .journal-entry-content {
+  background-color: var(--system-color-8);
+  background-blend-mode: color;
 }
 
-#navigation {
-  #scene-list .scene.active {
-    filter: drop-shadow(0px 0px 2px white);
-  }
+/*__WOD5E_ORDER_00929__*/
+#controls ol.control-tools > li {
+  box-shadow: 0 0 10px var(--system-color-3);
+  border: 1px solid var(--system-color-2);
+}
+
+/*__WOD5E_ORDER_00930__*/
+#controls ol.control-tools > li.active,
+#controls ol.control-tools > li:hover {
+  filter: drop-shadow(0px 0px 2px white);
+}
+
+/*__WOD5E_ORDER_00931__*/
+#navigation #scene-list .scene.active {
+  filter: drop-shadow(0px 0px 2px white);
 }

@@ -1,1000 +1,893 @@
-:root {
-  --xp-gain-icon: url("/marketplace/rulesets/wod5e/assets/icons/sheet/exp-gain.webp");
-  --xp-spend-icon: url("/marketplace/rulesets/wod5e/assets/icons/sheet/exp-spend.webp");
-  --xp-neutral-icon: url("/marketplace/rulesets/wod5e/assets/icons/sheet/exp-neutral.webp");
+/*__WOD5E_ORDER_00409__*/
+.sheet .tab[data-tab="details"] prose-mirror,
+.sheet .tab[data-tab="patronSpirit"] prose-mirror {
+  max-height: 150px;
 }
 
-/* The actor sheet itself */
-.actor.sheet:not(.minimized):not(.group) {
-  min-width: 850px;
-  min-height: 300px;
+/*__WOD5E_ORDER_00417__*/
+.sheet.spc .balance-trackers .wolf-resource {
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
+/*__WOD5E_ORDER_00428__*/
 .actor.sheet {
   position: fixed;
   overflow: hidden;
   border-radius: 0;
-
-  .align-center {
-    justify-content: center;
-  }
-
-  .window-content {
-    padding: 0;
-    padding-bottom: 20px;
-
-    .actor-header,
-    .tab {
-      margin-left: 45px;
-    }
-
-    section.tab {
-      overflow-y: scroll;
-      align-items: flex-start;
-      height: 100%;
-    }
-  }
-
   /* Input and resource fields */
-  prose-mirror {
-    min-width: 100%;
-    resize: vertical;
-
-    .editor-content {
-      max-width: 100%;
-    }
-  }
-
-  input,
-  .resource {
-    display: flex;
-  }
-
-  .resource {
-    padding: 5px;
-    position: relative;
-    place-content: center;
-    min-height: 30px;
-
-    .data-item {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 85%;
-    }
-
-    .search-data-item {
-      position: absolute;
-      right: 23px;
-    }
-
-    .edit-data-item,
-    .add-data-item {
-      position: absolute;
-      right: 3px;
-    }
-
-    .remove-data-item {
-      position: absolute;
-      right: 23px;
-    }
-  }
-
-
   /* Limited Sheet */
-  section[data-application-part="limited"] {
-    overflow-y: scroll;
-
-    .limited-actor-header {
-      display: flex;
-      flex-grow: 0;
-
-      .charname {
-        font-size: 20pt;
-      }
-
-      .header-content {
-        flex-grow: 1;
-        text-align: center;
-        margin-top: auto;
-
-        .profile-img {
-          margin-left: auto;
-          margin-right: auto;
-        }
-      }
-    }
-
-    .description-content {
-      align-self: flex-start;
-    }
-
-    .limited-description-body {
-      padding: 10px;
-    }
-  }
-
   /* Actor Header */
-  .actor-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-align: center;
-    flex-grow: 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 0 5px 0 5px;
-
-    input,
-    .resource {
-      margin-bottom: 5px;
-      min-height: 30px;
-    }
-
-    .header-profile {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-
-      .name-field {
-        width: 250px;
-        position: absolute;
-        height: 100%;
-        align-items: flex-end;
-      }
-
-      .name-field:not(.clickthrough) {
-        height: 35px;
-        bottom: 0;
-      }
-
-      .clickthrough {
-        pointer-events: none;
-      }
-    }
-
-    .header-profile-img {
-      margin-bottom: 10px;
-      width: 240px;
-      height: 200px;
-
-      img {
-        height: fit-content;
-        cursor: pointer;
-        max-width: 240px;
-        max-height: 200px;
-        min-width: 50px;
-        min-height: 50px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-
-    .charname:not(input) {
-      font-size: 35px;
-      font-family: "Modesto Condensed", serif;
-      width: 100%;
-      text-align: center;
-      backdrop-filter: blur(2px);
-      -webkit-text-stroke-width: 1px;
-      -webkit-text-stroke-color: rgb(0, 0, 0);
-    }
-
-    input.charname {
-      font-size: 30px;
-      text-align: center;
-    }
-
-    .header-fields {
-      display: flex;
-      width: 100%;
-      align-self: flex-end;
-
-      .header-fields-left,
-      .header-fields-right {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        flex: 1;
-
-        .field-section {
-          margin-bottom: 5px;
-          width: 250px;
-
-          .shared-row {
-            max-width: 125px;
-            margin-left: 2px;
-            margin-right: 2px;
-          }
-        }
-      }
-
-      .header-fields-left {
-        padding-right: 10px;
-      }
-
-      .header-fields-right {
-        padding-left: 10px;
-      }
-    }
-
-    .field-header {
-      justify-content: center;
-      margin-bottom: 0;
-    }
-  }
-
   /* Experience Tab */
-  .tab[data-tab="experience"] {
-    .experience-trackers {
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-
-      .tracker {
-        margin-bottom: 10px;
-        text-wrap: nowrap;
-
-        .exp-tracker {
-          margin-left: 10px;
-          margin-right: 10px;
-        }
-
-        input {
-          max-width: 50px;
-          text-align: center;
-          margin-left: auto;
-          margin-right: auto;
-        }
-
-        .field-header {
-          font-size: 15pt;
-        }
-      }
-    }
-
-    .xp-header {
-      font-weight: bold;
-      font-size: 14pt;
-    }
-
-    .xp-icon {
-      width: 20px;
-      max-width: 20px;
-      height: 20px;
-      max-height: 20px;
-      margin-right: 10px;
-      background-size: cover;
-      border-radius: 50%;
-      padding: 2px;
-    }
-
-    .xp-spend-icon {
-      content: var(--xp-spend-icon);
-    }
-
-    .xp-gain-icon {
-      content: var(--xp-gain-icon);
-    }
-
-    .xp-neutral-icon {
-      content: var(--xp-neutral-icon);
-    }
-
-    .xp-amount {
-      text-align: right;
-      min-width: 50px;
-    }
-
-    .xp-amount:not(.xp-header-label) {
-      flex-grow: 0;
-    }
-
-    .xp-controls {
-      text-align: right;
-    }
-
-    .spend-experience,
-    .add-experience {
-      font-size: 13pt;
-      margin-left: auto;
-      font-weight: bold;
-    }
-  }
-
   /* Features tab */
-  .tab[data-tab="features"] {
-    .character-details {
-      max-width: 400px;
-      margin-left: 10px;
-      margin-right: 10px;
-      align-self: flex-start;
-
-      .field-header {
-        font-size: 16pt;
-      }
-
-      .detail-row {
-        width: 100%;
-        margin-bottom: 5px;
-
-        .shared-row {
-          margin-left: 2px;
-          margin-right: 2px;
-        }
-      }
-
-      .description-field {
-        width: -webkit-fill-available;
-        width: -moz-available;
-
-        .resource-label {
-          flex-wrap: nowrap;
-          display: inline-flex;
-        }
-
-        .description-content {
-          text-align: initial;
-        }
-      }
-    }
-
-    .features-list {
-      .category {
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-  }
-
   /* Equipment Tab */
-  .tab[data-tab="equipment"] {
-    .equipment-notes {
-      max-width: 400px;
-      margin-left: 10px;
-      margin-right: 10px;
-      align-self: flex-start;
-
-      .field-header {
-        font-size: 16pt;
-      }
-    }
-
-    .equipment-list {
-      .category {
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-  }
-
   /* Biography Tab */
-  .tab[data-tab="biography"] {
-    .detailed-section {
-      align-self: flex-start;
-      margin-left: auto;
-      margin-right: auto;
-
-      .details-header {
-        text-align: center;
-      }
-
-      .detail {
-        margin-left: 10px;
-        margin-right: 10px;
-        text-align: center;
-      }
-
-      input {
-        text-align: center;
-      }
-
-      input.number {
-        min-width: 100px;
-      }
-    }
-
-    .descriptive-section {
-      margin-top: 10px;
-      align-items: flex-start;
-
-      .field-header {
-        font-size: 16pt;
-      }
-
-      .description-field {
-        margin-bottom: 5px;
-        padding: 5px;
-      }
-
-      .resource-label {
-        flex-wrap: nowrap;
-        display: inline-flex;
-      }
-    }
-  }
-
   /* Notes Tab */
-  .tab[data-tab="notepad"] {
-    .note-container {
-      padding: 3px;
-      margin: 5px;
-      width: 50%;
-      align-self: flex-start;
-
-      .field-header {
-        font-size: 16pt;
-      }
-    }
-  }
-
   /* Limited View Toggle Button */
-  .toggle-limited {
-    font-size: 13pt;
-    margin-left: 5px;
-    margin-top: 3px;
-    cursor: pointer;
-  }
-
   /* Power Descriptions */
-  .discipline-description,
-  .edge-description,
-  .gift-description {
-    width: 100%;
-    resize: none;
-    font-family: Vollkorn, serif;
-    line-height: 1.6em;
-    word-spacing: 0.05em;
-    font-size: 1em;
-    border: 0;
-    height: auto;
-    font-weight: 500;
-    margin-bottom: -5px;
-  }
-
   /* Sheet Banner */
-  .sheet-banner {
-    text-align: center;
-    margin: -10px -10px 0 0;
-    font-size: 14pt;
-    padding: 3px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-
-    .actor-type-field {
-      text-align: left;
-      padding-left: 5px;
-    }
-
-    .sheet-label {
-      text-align: right;
-      padding-right: 5px;
-    }
-  }
-
-  .resource-plus,
-  .resource-minus {
-    cursor: pointer;
-    flex-grow: 0;
-  }
-
-  .resource-plus {
-    margin-left: 5px;
-  }
-
-  .resource-minus {
-    margin-right: 5px;
-  }
-
-  .lock-btn {
-    max-width: 40px;
-    height: 40px;
-    width: 40px;
-    align-self: center;
-  }
-
-  .lock-btn i {
-    margin: auto;
-  }
-
   /* Sheet tabs */
-  section .tab {
-    padding: 8px;
-  }
-
-  .tabs-container {
-    position: absolute;
-    height: 100%;
-    left: -2px;
-    overflow: hidden;
-  }
-
-  .sheet-tabs {
-    display: flex !important;
-    flex-direction: column !important;
-    height: calc(100% - 30px) !important;
-    align-items: flex-start !important;
-    width: 50px !important;
-    justify-content: flex-start !important;
-    overflow: hidden;
-    gap: unset;
-    border-top: 0;
-    border-bottom: 0;
-
-    /* Force-override for the LockView Module */
-    margin: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-
-    > [data-tab] {
-      display: flex;
-      height: 50px;
-      width: 50px;
-      cursor: pointer;
-      justify-content: center;
-      align-items: center;
-      font-size: 15pt;
-      padding: 5px;
-    }
-
-    > [data-tab] .navicon {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-    }
-
-    > [data-tab] .navicon i,
-    > [data-tab] .navicon .wod5e-symbol {
-      width: 100%;
-    }
-  }
-
   /* Basic Item List Layout */
-  .item-list {
-    align-self: flex-start;
-
-    .category {
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 425px;
-      margin: 5px;
-      padding: 5px;
-
-      .item-description {
-        margin-left: 10px;
-        margin-right: 10px;
-      }
-
-      .item {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        align-items: center !important;
-
-        .item-image {
-          flex: 0 0 25px;
-          max-width: 25px;
-
-          img {
-            border-radius: 50%;
-            padding: 2px;
-          }
-        }
-
-        .item-header {
-          .item-name {
-            font-size: 16pt;
-            font-weight: bold;
-          }
-
-          .item-controls {
-            text-align-last: right;
-          }
-        }
-
-        .item-name {
-          flex: 1 1 auto !important;
-          min-width: 0 !important;
-          text-align: left !important;
-          padding: 3px 0 !important;
-          margin-left: 6px !important;
-          margin-right: 8px !important;
-          text-overflow: ellipsis !important;
-          overflow: hidden !important;
-          white-space: nowrap !important;
-        }
-
-        .dot-tracker {
-          flex: 0 0 auto !important;
-          display: flex !important;
-          align-items: center !important;
-          margin-left: auto !important;
-          white-space: nowrap !important;
-        }
-
-        .item-controls {
-          flex: 0 0 auto !important;
-          display: flex !important;
-          align-items: center !important;
-          gap: 4px !important;
-          margin-left: 8px !important;
-          text-align: right !important;
-
-          .item-control {
-            margin-left: 3px;
-          }
-        }
-      }
-    }
-  }
-
   /* Apply these to all "items," even ones not in "item-list"s */
-  .item-header {
-    .item-name {
-      font-size: 16pt;
-      font-weight: bold;
-    }
-
-    .item-controls {
-      text-align-last: right;
-    }
-  }
-
   /* For things like conditions which don't fall under an item-header */
-  .item .item-controls {
-    flex-flow: row;
-    display: flex;
-  }
-
-  .item-name {
-    text-wrap: nowrap;
-  }
-
-  .item-image img {
-    border-radius: 50%;
-    padding: 2px;
-    min-width: 25px;
-    min-height: 25px;
-    max-width: 25px;
-    max-height: 25px;
-  }
-
   /* General Resources */
-  .resource-header {
-    display: block;
-    font-weight: 200;
-    font-size: 20pt;
-    width: 90%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    text-wrap: nowrap;
-  }
-
   /* Statistics Page */
-  .stats-container {
-    display: flex;
-    flex-flow: column;
-    margin: 5px;
-
-    .stats-list {
-      display: flex;
-      flex-flow: column;
-      flex-grow: 1;
-      flex-shrink: 0;
-      padding-left: 15px;
-      padding-right: 15px;
-
-      .attribute,
-      .skill {
-        display: flex;
-        justify-content: space-between;
-      }
-    }
-  }
-
-  .specialty {
-    position: relative;
-    top: -5px;
-    font-size: 10pt;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  .stats-content {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 5px;
-
-    .skills-attributes,
-    .side-panel {
-      flex: 1 1 auto;
-    }
-
-    .side-panel {
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 300px;
-
-      .items-list {
-        flex: 1 1 auto;
-        padding: 5px;
-      }
-
-      .item-image {
-        max-width: 30px;
-
-        img {
-          border-radius: 0;
-        }
-      }
-
-      .item-name {
-        flex-grow: 1;
-        margin-left: 5px;
-        margin-right: 5px;
-        overflow-x: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .item-controls {
-        text-align-last: right;
-        max-width: 35px;
-      }
-    }
-
-    .edit-skill {
-      margin-left: -15px;
-    }
-
-    .stats-container {
-      .skill-attribute-input {
-        height: 20px;
-      }
-
-      .stats-footer {
-        text-align: center;
-      }
-    }
-  }
 }
 
-/* Suppressed view for a condition item */
-.suppressed {
-  filter: grayscale(1) opacity(0.8);
+/*__WOD5E_ORDER_00429__*/
+.actor.sheet .align-center {
+  justify-content: center;
 }
 
-.field-header.big-header {
+/*__WOD5E_ORDER_00430__*/
+.actor.sheet .window-content {
+  padding: 0;
+  padding-bottom: 20px;
+}
+
+/*__WOD5E_ORDER_00431__*/
+.actor.sheet .window-content .actor-header,
+.actor.sheet .window-content .tab {
+  margin-left: 58px;
+}
+
+/*__WOD5E_ORDER_00432__*/
+.actor.sheet .window-content section.tab {
+  overflow-y: scroll;
+  align-items: flex-start;
+  height: 100%;
+}
+
+/*__WOD5E_ORDER_00433__*/
+.actor.sheet prose-mirror {
+  min-width: 100%;
+  resize: vertical;
+}
+
+/*__WOD5E_ORDER_00434__*/
+.actor.sheet prose-mirror .editor-content {
+  max-width: 100%;
+}
+
+/*__WOD5E_ORDER_00435__*/
+.actor.sheet input,
+.actor.sheet .resource {
+  display: flex;
+}
+
+/*__WOD5E_ORDER_00436__*/
+.actor.sheet .resource {
+  padding: 5px;
+  position: relative;
+  place-content: center;
+  min-height: 38px;
+}
+
+/*__WOD5E_ORDER_00450__*/
+.actor.sheet .actor-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  flex-grow: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0 5px 0 5px;
+}
+
+/*__WOD5E_ORDER_00452__*/
+.actor.sheet .header-fields-right .shared-row input,
+.actor.sheet .header-fields-right .shared-row .resource,
+.loom-window .actor.sheet .header-fields-right .shared-row input,
+.loom-window .actor.sheet .header-fields-right .shared-row .resource {
+  margin: 0 !important;
+  margin-bottom: 5px !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  max-height: 32px !important;
+  box-sizing: border-box !important;
+  border-radius: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 4px 8px !important;
+  position: relative !important;
+}
+
+/*__WOD5E_ORDER_00454__*/
+.actor.sheet .header-fields-left .resource.health,
+.actor.sheet .header-fields-left .resource.willpower,
+.actor.sheet .resource.health,
+.actor.sheet .resource.willpower {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+/*__WOD5E_ORDER_00455__*/
+.actor.sheet .resource.health .resource-content,
+.actor.sheet .resource.willpower .resource-content {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+}
+
+/*__WOD5E_ORDER_00456__*/
+.actor.sheet .resource-counter,
+.loom-window .actor.sheet .resource-counter {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+/*__WOD5E_ORDER_00457__*/
+.actor.sheet .resource-counter .resource-counter-step,
+.loom-window .actor.sheet .resource-counter .resource-counter-step {
+  margin: 0 1px !important;
+}
+
+/*__WOD5E_ORDER_00465__*/
+.actor.sheet .actor-header .despair .resource {
+  justify-content: center !important;
+}
+
+/*__WOD5E_ORDER_00466__*/
+.actor.sheet .actor-header .header-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/*__WOD5E_ORDER_00467__*/
+.actor.sheet .actor-header .header-profile .name-field {
+  width: 250px;
+  position: absolute;
+  height: 100%;
+  align-items: flex-end;
+}
+
+/*__WOD5E_ORDER_00468__*/
+.actor.sheet .actor-header .header-profile .name-field:not(.clickthrough) {
+  height: 35px;
+  bottom: 0;
+}
+
+/*__WOD5E_ORDER_00469__*/
+.actor.sheet .actor-header .header-profile .clickthrough {
+  pointer-events: none;
+}
+
+/*__WOD5E_ORDER_00470__*/
+.actor.sheet .actor-header .header-profile-img {
+  margin-bottom: 10px;
+  width: 240px;
+  height: 200px;
+}
+
+/*__WOD5E_ORDER_00471__*/
+.actor.sheet .actor-header .header-profile-img img {
+  height: fit-content;
+  cursor: pointer;
+  max-width: 240px;
+  max-height: 200px;
+  min-width: 50px;
+  min-height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*__WOD5E_ORDER_00472__*/
+.actor.sheet .actor-header .charname:not(input) {
+  font-size: 35px;
+  font-family: "Modesto Condensed", serif;
+  width: 100%;
+  text-align: center;
+  backdrop-filter: blur(2px);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000000;
+}
+
+/*__WOD5E_ORDER_00473__*/
+.actor.sheet .actor-header input.charname {
+  font-size: 30px;
+  text-align: center;
+}
+
+/*__WOD5E_ORDER_00474__*/
+.actor.sheet .actor-header .header-fields {
+  display: flex;
+  width: 100%;
+  align-self: flex-end;
+}
+
+/*__WOD5E_ORDER_00475__*/
+.actor.sheet .actor-header .header-fields .header-fields-left,
+.actor.sheet .actor-header .header-fields .header-fields-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+/*__WOD5E_ORDER_00476__*/
+.actor.sheet .actor-header .header-fields .header-fields-left .field-section,
+.actor.sheet .actor-header .header-fields .header-fields-right .field-section {
+  margin-bottom: 5px;
+  width: 320px;
+}
+
+/*__WOD5E_ORDER_00477__*/
+.actor.sheet .actor-header .header-fields .header-fields-left .field-section .shared-row,
+.actor.sheet .actor-header .header-fields .header-fields-right .field-section .shared-row {
+  max-width: 170px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+/*__WOD5E_ORDER_00478__*/
+.actor.sheet .actor-header .header-fields .header-fields-left {
+  padding-right: 10px;
+}
+
+/*__WOD5E_ORDER_00479__*/
+.actor.sheet .actor-header .header-fields .header-fields-right {
+  padding-left: 10px;
+}
+
+/*__WOD5E_ORDER_00480__*/
+.actor.sheet .actor-header .field-header {
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+/*__WOD5E_ORDER_00483__*/
+.tab[data-tab="experience"] hr,
+.actor.sheet .tab[data-tab="experience"] hr,
+.wod5e .tab[data-tab="experience"] hr {
+  flex: 0 0 1px !important;
+  height: 1px !important;
+  min-height: 1px !important;
+  max-height: 1px !important;
+  border: 0 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+  background: none !important;
+  margin: 10px 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  box-sizing: content-box !important;
+}
+
+/*__WOD5E_ORDER_00484__*/
+.tab[data-tab="experience"] .experience-trackers,
+.actor.sheet .tab[data-tab="experience"] .experience-trackers,
+.wod5e .tab[data-tab="experience"] .experience-trackers {
+  margin: 0 auto 8px auto;
+  text-align: center;
+  max-width: 280px;
+}
+
+/*__WOD5E_ORDER_00485__*/
+.tab[data-tab="experience"] .experience-trackers .tracker,
+.actor.sheet .tab[data-tab="experience"] .experience-trackers .tracker {
+  margin-bottom: 8px;
+  text-wrap: nowrap;
+}
+
+/*__WOD5E_ORDER_00486__*/
+.tab[data-tab="experience"] .experience-trackers .tracker .exp-tracker,
+.actor.sheet .tab[data-tab="experience"] .experience-trackers .tracker .exp-tracker {
+  margin: 0 10px;
+}
+
+/*__WOD5E_ORDER_00487__*/
+.tab[data-tab="experience"] .experience-trackers .tracker input,
+.actor.sheet .tab[data-tab="experience"] .experience-trackers .tracker input,
+.wod5e .tab[data-tab="experience"] .experience-trackers .tracker input {
+  width: 60px !important;
+  max-width: 60px !important;
+  min-width: 60px !important;
+  height: 32px !important;
+  max-height: 32px !important;
+  min-height: 32px !important;
+  text-align: center !important;
+  margin: 0 auto 4px auto !important;
+  font-size: 13pt !important;
+  font-weight: bold;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  box-sizing: border-box;
+}
+
+/*__WOD5E_ORDER_00488__*/
+.tab[data-tab="experience"] .experience-trackers .tracker .field-header,
+.actor.sheet .tab[data-tab="experience"] .experience-trackers .tracker .field-header {
+  font-size: 14pt;
+  margin-bottom: 6px;
+}
+
+/*__WOD5E_ORDER_00489__*/
+.tab[data-tab="experience"] .spend-experience,
+.tab[data-tab="experience"] .add-experience,
+.actor.sheet .tab[data-tab="experience"] .spend-experience,
+.actor.sheet .tab[data-tab="experience"] .add-experience {
+  font-size: 11pt !important;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  margin: 0 6px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  color: #e0e0e0 !important;
+  transition: all 0.15s ease;
+}
+
+/*__WOD5E_ORDER_00491__*/
+.actor.sheet .tab[data-tab="experience"] .xp-header {
+  font-weight: bold;
+  font-size: 14pt;
+}
+
+/*__WOD5E_ORDER_00492__*/
+.tab[data-tab="experience"] .xp-icon,
+.actor.sheet .tab[data-tab="experience"] .xp-icon,
+.wod5e .tab[data-tab="experience"] .xp-icon {
+  width: 22px !important;
+  max-width: 22px !important;
+  min-width: 22px !important;
+  height: 22px !important;
+  max-height: 22px !important;
+  min-height: 22px !important;
+  margin-right: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 4px;
+  padding: 2px;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/*__WOD5E_ORDER_00493__*/
+.tab[data-tab="experience"] .xp-spend-icon,
+.actor.sheet .tab[data-tab="experience"] .xp-spend-icon {
+  content: var(--xp-spend-icon);
+}
+
+/*__WOD5E_ORDER_00494__*/
+.tab[data-tab="experience"] .xp-gain-icon,
+.actor.sheet .tab[data-tab="experience"] .xp-gain-icon {
+  content: var(--xp-gain-icon);
+}
+
+/*__WOD5E_ORDER_00495__*/
+.tab[data-tab="experience"] .xp-neutral-icon,
+.actor.sheet .tab[data-tab="experience"] .xp-neutral-icon {
+  content: var(--xp-neutral-icon);
+}
+
+/*__WOD5E_ORDER_00501__*/
+.actor.sheet .tab[data-tab="experience"] .spend-experience,
+.actor.sheet .tab[data-tab="experience"] .add-experience {
+  font-size: 13pt;
+  margin-left: auto;
+  font-weight: bold;
+}
+
+/*__WOD5E_ORDER_00502__*/
+.actor.sheet .tab[data-tab="features"] .character-details {
+  max-width: 400px;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-self: flex-start;
+}
+
+/*__WOD5E_ORDER_00503__*/
+.actor.sheet .tab[data-tab="features"] .character-details .field-header {
   font-size: 16pt;
 }
 
-/* Vampire Font in headers and the sheet banner */
-.vampire-font-headers.en {
-  .sheet-banner,
-  .field-header,
-  .resource-header,
-  .specialty {
-    font-family: "vampireRevised", "sans-serif";
-  }
-
-  .item-header {
-    .item-name {
-      font-family: "vampireRevised", "sans-serif";
-    }
-  }
+/*__WOD5E_ORDER_00504__*/
+.actor.sheet .tab[data-tab="features"] .character-details .detail-row {
+  width: 100%;
+  margin-bottom: 5px;
 }
 
-/* LoomVTT fix for absolute positioning of tabs */
+/*__WOD5E_ORDER_00505__*/
+.actor.sheet .tab[data-tab="features"] .character-details .detail-row .shared-row {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+/*__WOD5E_ORDER_00506__*/
+.actor.sheet .tab[data-tab="features"] .character-details .description-field {
+  width: -webkit-fill-available;
+  width: -moz-available;
+}
+
+/*__WOD5E_ORDER_00507__*/
+.actor.sheet .tab[data-tab="features"] .character-details .description-field .resource-label {
+  flex-wrap: nowrap;
+  display: inline-flex;
+}
+
+/*__WOD5E_ORDER_00508__*/
+.actor.sheet .tab[data-tab="features"] .character-details .description-field .description-content {
+  text-align: initial;
+}
+
+/*__WOD5E_ORDER_00509__*/
+.actor.sheet .tab[data-tab="features"] .features-list .category {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*__WOD5E_ORDER_00510__*/
+.actor.sheet .tab[data-tab="equipment"] .equipment-notes {
+  max-width: 400px;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-self: flex-start;
+}
+
+/*__WOD5E_ORDER_00511__*/
+.actor.sheet .tab[data-tab="equipment"] .equipment-notes .field-header {
+  font-size: 16pt;
+}
+
+/*__WOD5E_ORDER_00512__*/
+.actor.sheet .tab[data-tab="equipment"] .equipment-list .category {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*__WOD5E_ORDER_00513__*/
+.actor.sheet .tab[data-tab="biography"] .detailed-section {
+  align-self: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*__WOD5E_ORDER_00514__*/
+.actor.sheet .tab[data-tab="biography"] .detailed-section .details-header {
+  text-align: center;
+}
+
+/*__WOD5E_ORDER_00515__*/
+.actor.sheet .tab[data-tab="biography"] .detailed-section .detail {
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+/*__WOD5E_ORDER_00516__*/
+.actor.sheet .tab[data-tab="biography"] .detailed-section input {
+  text-align: center;
+}
+
+/*__WOD5E_ORDER_00517__*/
+.actor.sheet .tab[data-tab="biography"] .detailed-section input.number {
+  min-width: 100px;
+}
+
+/*__WOD5E_ORDER_00518__*/
+.actor.sheet .tab[data-tab="biography"] .descriptive-section {
+  margin-top: 10px;
+  align-items: flex-start;
+}
+
+/*__WOD5E_ORDER_00519__*/
+.actor.sheet .tab[data-tab="biography"] .descriptive-section .field-header {
+  font-size: 16pt;
+}
+
+/*__WOD5E_ORDER_00520__*/
+.actor.sheet .tab[data-tab="biography"] .descriptive-section .description-field {
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+/*__WOD5E_ORDER_00521__*/
+.actor.sheet .tab[data-tab="biography"] .descriptive-section .resource-label {
+  flex-wrap: nowrap;
+  display: inline-flex;
+}
+
+/*__WOD5E_ORDER_00522__*/
+.actor.sheet .tab[data-tab="notepad"] .note-container {
+  padding: 3px;
+  margin: 5px;
+  width: 50%;
+  align-self: flex-start;
+}
+
+/*__WOD5E_ORDER_00523__*/
+.actor.sheet .tab[data-tab="notepad"] .note-container .field-header {
+  font-size: 16pt;
+}
+
+/*__WOD5E_ORDER_00524__*/
+.actor.sheet .toggle-limited {
+  font-size: 13pt;
+  margin-left: 5px;
+  margin-top: 3px;
+  cursor: pointer;
+}
+
+/*__WOD5E_ORDER_00525__*/
+.actor.sheet .discipline-description,
+.actor.sheet .edge-description,
+.actor.sheet .gift-description {
+  width: 100%;
+  resize: none;
+  font-family: Vollkorn, serif;
+  line-height: 1.6em;
+  word-spacing: 0.05em;
+  font-size: 1em;
+  border: 0;
+  height: auto;
+  font-weight: 500;
+  margin-bottom: -5px;
+}
+
+/*__WOD5E_ORDER_00526__*/
+.actor.sheet .sheet-banner {
+  text-align: center;
+  margin: -10px -10px 0 0;
+  font-size: 14pt;
+  padding: 3px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/*__WOD5E_ORDER_00527__*/
+.actor.sheet .sheet-banner .actor-type-field {
+  text-align: left;
+  padding-left: 5px;
+}
+
+/*__WOD5E_ORDER_00528__*/
+.actor.sheet .sheet-banner .sheet-label {
+  text-align: right;
+  padding-right: 5px;
+}
+
+/*__WOD5E_ORDER_00529__*/
+.actor.sheet .resource-plus,
+.actor.sheet .resource-minus {
+  cursor: pointer;
+  flex-grow: 0;
+}
+
+/*__WOD5E_ORDER_00530__*/
+.actor.sheet .resource-plus {
+  margin-left: 5px;
+}
+
+/*__WOD5E_ORDER_00531__*/
+.actor.sheet .resource-minus {
+  margin-right: 5px;
+}
+
+/*__WOD5E_ORDER_00532__*/
+.actor.sheet .lock-btn,
+.loom-window .actor.sheet .lock-btn {
+  max-width: 40px;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  align-self: center;
+  border-radius: 0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  color: var(--color-text-primary, #e8e8e6) !important;
+  padding: 0 !important;
+  margin: 5px auto !important;
+  box-shadow: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  line-height: normal !important;
+}
+
+/*__WOD5E_ORDER_00533__*/
+.actor.sheet .lock-btn i,
+.loom-window .actor.sheet .lock-btn i {
+  margin: auto;
+  font-size: 14pt;
+}
+
+/*__WOD5E_ORDER_00534__*/
+.actor.sheet .lock-btn:hover,
+.loom-window .actor.sheet .lock-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/*__WOD5E_ORDER_00535__*/
+.actor.sheet section .tab {
+  padding: 8px;
+}
+
+/*__WOD5E_ORDER_00536__*/
+.actor.sheet .tabs-container {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  width: 50px;
+  overflow: hidden;
+}
+
+/*__WOD5E_ORDER_00537__*/
+.actor.sheet .sheet-tabs {
+  display: flex !important;
+  flex-direction: column !important;
+  height: calc(100% - 30px) !important;
+  align-items: flex-start !important;
+  width: 50px !important;
+  justify-content: flex-start !important;
+  overflow: hidden;
+  background: transparent !important;
+  gap: unset;
+  border: none !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  position: relative !important;
+  top: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/*__WOD5E_ORDER_00538__*/
+.actor.sheet .sheet-tabs > [data-tab] {
+  display: flex;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  font-size: 15pt;
+  padding: 5px;
+}
+
+/*__WOD5E_ORDER_00539__*/
+.actor.sheet .sheet-tabs > [data-tab] .navicon {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/*__WOD5E_ORDER_00540__*/
+.actor.sheet .sheet-tabs > [data-tab] .navicon i,
+.actor.sheet .sheet-tabs > [data-tab] .navicon .wod5e-symbol {
+  width: 100%;
+}
+
+/*__WOD5E_ORDER_00558__*/
+.actor.sheet .resource-header {
+  display: block;
+  font-weight: 200;
+  font-size: 20pt;
+  width: 90%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: nowrap;
+}
+
+/*__WOD5E_ORDER_00559__*/
+.actor.sheet .stats-container {
+  display: flex;
+  flex-flow: column;
+  margin: 5px;
+}
+
+/*__WOD5E_ORDER_00560__*/
+.actor.sheet .stats-container .stats-list {
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/*__WOD5E_ORDER_00561__*/
+.actor.sheet .stats-container .stats-list .attribute,
+.actor.sheet .stats-container .stats-list .skill {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*__WOD5E_ORDER_00562__*/
+.actor.sheet .specialty {
+  position: relative;
+  top: -5px;
+  font-size: 10pt;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/*__WOD5E_ORDER_00563__*/
+.actor.sheet .stats-content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
+/*__WOD5E_ORDER_00564__*/
+.actor.sheet .stats-content .skills-attributes,
+.actor.sheet .stats-content .side-panel {
+  flex: 1 1 auto;
+}
+
+/*__WOD5E_ORDER_00565__*/
+.actor.sheet .stats-content .side-panel {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 300px;
+}
+
+/*__WOD5E_ORDER_00571__*/
+.actor.sheet .stats-content .edit-skill {
+  margin-left: -15px;
+}
+
+/*__WOD5E_ORDER_00572__*/
+.actor.sheet .stats-content .stats-container .skill-attribute-input {
+  height: 20px;
+}
+
+/*__WOD5E_ORDER_00573__*/
+.actor.sheet .stats-content .stats-container .stats-footer {
+  text-align: center;
+}
+
+/*__WOD5E_ORDER_00581__*/
 .actor.sheet .loom-window-body,
 .actor.sheet form {
   position: relative;
 }
 
-/* LoomVTT fix: Move tabs outside the window on the left (wod6e style) */
+/*__WOD5E_ORDER_00583__*/
 .actor.sheet.loom-window {
   overflow: visible !important;
 }
+
+/*__WOD5E_ORDER_00584__*/
 .actor.sheet .loom-window-body {
   position: relative;
   overflow: visible !important;
 }
 
-/* LoomVTT fix: Make sure the body has the dark background if the actor theme is dark */
-.theme-dark .actor.sheet .loom-window-body,
-.wod-vampire-theme .actor.sheet .loom-window-body {
-  background: var(--actor-background-dark) repeat;
-  color: var(--system-dark-color-4);
-}
-
-/* LoomVTT fix: Move tabs outside the window on the left */
-.actor.sheet .sheet-tabs.tabs-container {
-  position: absolute !important;
-  left: -55px !important;
-  top: 40px !important; /* Push down a bit so it aligns with the header */
-  width: 50px !important;
-  height: calc(100% - 40px) !important;
-  overflow: visible !important;
-  background: transparent !important;
-  border: none !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  padding: 0 !important;
-}
-
-/* LoomVTT Fix: Hide inactive tabs since jQuery .hide() was removed */
-.actor.sheet .sheet-body .tab {
-  display: none;
-}
-.actor.sheet .sheet-body .tab.active {
-  display: block;
-}
-
-/* LoomVTT fix: Override native .loom-window .tabs so icons center properly */
-.actor.sheet .loom-window-body .sheet-tabs.tabs-container.tabs {
-    align-items: center !important;
-    justify-content: flex-start !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    flex-wrap: nowrap !important;
-    overflow: visible !important;
-    background: transparent !important;
-}
-
-/* Ensure the links (icons) inside the tabs take full width and center */
-.actor.sheet .loom-window-body .sheet-tabs.tabs-container.tabs .item {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100% !important;
-    padding: 10px 0 !important;
-}
-
-/* LoomVTT fix: Override ALL conflicting rules for tabs */
-.actor.sheet.loom-window .loom-window-body .tabs-container.sheet-tabs.tabs {
-  position: absolute !important;
-  left: -55px !important;
-  top: 40px !important;
-  width: 50px !important;
-  height: calc(100% - 40px) !important;
-  overflow: visible !important;
-  background: transparent !important;
-  border: none !important;
+/*__WOD5E_ORDER_00596__*/
+.actor.sheet .tabs-container .sheet-tabs,
+.loom-window .actor.sheet .tabs-container .sheet-tabs,
+.actor.sheet.loom-window .tabs-container .sheet-tabs,
+.actor.sheet.loom-window .loom-window-body .tabs-container .sheet-tabs {
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   justify-content: flex-start !important;
-  padding: 0 !important;
+  width: 50px !important;
+  height: 100% !important;
   margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  position: relative !important;
+  top: auto !important;
   gap: 2px !important;
+  overflow: visible !important;
 }
 
-/* Bulletproof centering for the icons */
-.actor.sheet.loom-window .loom-window-body .tabs-container.sheet-tabs.tabs .item,
-.actor.sheet.loom-window .loom-window-body .tabs-container.sheet-tabs.tabs .tab-link {
+/*__WOD5E_ORDER_00598__*/
+.actor.sheet .tabs-container .sheet-tabs > [data-tab],
+.loom-window .actor.sheet .tabs-container .sheet-tabs > [data-tab],
+.actor.sheet.loom-window .tabs-container .sheet-tabs > [data-tab] {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
   width: 100% !important;
-  height: 40px !important;
+  height: 50px !important;
   margin: 0 !important;
   padding: 0 !important;
   text-align: center !important;
+  border: none !important;
 }
 
-/* Force centering of the tabs container itself and its children */
-.actor.sheet.loom-window .loom-window-body .tabs-container.sheet-tabs.tabs {
-  align-items: center !important;
-}
-
-.actor.sheet.loom-window .loom-window-body .tabs-container.sheet-tabs.tabs .item,
-.actor.sheet.loom-window .loom-window-body .tabs-container.sheet-tabs.tabs a.item,
-.actor.sheet.loom-window .loom-window-body .tabs-container.sheet-tabs.tabs .tab-link {
+/*__WOD5E_ORDER_00600__*/
+.actor.sheet.loom-window .sheet-tabs > [data-tab] .navicon {
+  display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  /* This centers it horizontally */
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/*__WOD5E_ORDER_00602__*/
+.actor.sheet.loom-window .sheet-tabs > [data-tab] {
+  width: 100% !important;
   display: flex !important;
-  text-align: center !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+  justify-content: center !important;
 }
 
-.actor.sheet.loom-window .loom-window-body .tabs-container.sheet-tabs.tabs .item i,
-.actor.sheet.loom-window .loom-window-body .tabs-container.sheet-tabs.tabs a.item i {
-  margin: 0 auto !important;
-  display: block !important;
-  text-align: center !important;
-}
-
-/* Fix for .navicon to center the icons perfectly */
-.actor.sheet.loom-window .sheet-tabs > [data-tab] .navicon {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important; /* This centers it horizontally */
-    width: 100% !important;
-    height: 100% !important;
-}
-
-/* Also ensure the [data-tab] link itself is centered in the bar */
+/*__WOD5E_ORDER_00604__*/
 .actor.sheet.loom-window .sheet-tabs > [data-tab] {
-    width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
 }
 
-/* The ultimate centering rule */
-.actor.sheet.loom-window .sheet-tabs > [data-tab] {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100% !important;
-}
-
+/*__WOD5E_ORDER_00605__*/
 .actor.sheet.loom-window .sheet-tabs > [data-tab] .navicon,
 .actor.sheet.loom-window .sheet-tabs > [data-tab] .navicon i {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    text-align: center !important;
-    margin: 0 auto !important;
-    width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  margin: 0 auto !important;
+  width: 100% !important;
 }
 
-/* Fix text-align for FontAwesome icons */
+/*__WOD5E_ORDER_00607__*/
 .actor.sheet.loom-window .sheet-tabs > [data-tab] .navicon i,
 .actor.sheet.loom-window .sheet-tabs > [data-tab] .navicon .wod5e-symbol {
-    display: block !important;
-    text-align: center !important;
-    width: 100% !important;
+  display: block !important;
+  text-align: center !important;
+  width: 100% !important;
 }
 
-/* Fix for transparent/invisible buttons in Skills and Attributes */
-.actor.sheet.loom-window .sheet-body .stat-name.rollable,
-.actor.sheet.loom-window .sheet-body .resource-label.rollable,
-.actor.sheet.loom-window .sheet-body .skill .resource-label label.rollable {
-    background: transparent !important;
-    border: none !important;
-    color: var(--color-text-primary) !important;
-    text-transform: none !important;
-    padding: 0 !important;
-    box-shadow: none !important;
-    display: inline !important;
-    visibility: visible !important;
-    min-width: 0 !important;
-}
-
-/* Ensure skill icons and labels flex correctly */
+/*__WOD5E_ORDER_00611__*/
 .actor.sheet.loom-window .sheet-body .skill .resource-label {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 5px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
 }
 
-.actor.sheet.loom-window .sheet-body .stat-name.rollable:hover,
-.actor.sheet.loom-window .sheet-body .resource-label.rollable:hover,
-.actor.sheet.loom-window .sheet-body .skill .resource-label label.rollable:hover {
-    color: var(--vampire-color-2) !important;
-}
-
-/* Ensure the layout grid for Habilidades aligns the name and dots */
+/*__WOD5E_ORDER_00614__*/
 .actor.sheet.loom-window .sheet-body .skills-list .stat-row,
 .actor.sheet.loom-window .sheet-body .attributes-list .stat-row {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    width: 100% !important;
-    margin-bottom: 2px !important;
-}
-/* Hotfixes for UI Bugs (Powers Tree and Tab Bar) */
-.powers-display-tree li span {
-  justify-content: flex-start !important;
-  width: max-content;
-}
-.powers-display-tree .select-label {
-  margin-left: 5px !important;
-  text-align: left !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  margin-bottom: 2px !important;
 }

@@ -20,14 +20,14 @@ export const MigrateGroupSheets = async function () {
       migrationIDs.push(actor.uuid)
 
       // Update the actor's data with the new information
-      actor.update({ type: 'group', 'system.groupType': 'coterie' })
+      await actor.update({ type: 'group', 'system.groupType': 'coterie' })
     } else if (actor.type === 'cell') {
       // Cell sheets
       Loom.ui?.notifications.info(`Fixing actor ${actor.name}: Converting from Cell sheet to Group sheet`)
       migrationIDs.push(actor.uuid)
 
       // Update the actor's data with the new information
-      actor.update({ type: 'group', 'system.groupType': 'cell' })
+      await actor.update({ type: 'group', 'system.groupType': 'cell' })
     }
   }
 

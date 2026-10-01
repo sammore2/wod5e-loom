@@ -321,6 +321,15 @@ export const loadSettings = async function () {
     type: String
   })
 
+  // Track data migrations individually so a package version bump does not rerun
+  // every legacy migration against the world.
+  Loom.settings.register('wod5e', 'completedMigrations', {
+    scope: 'world',
+    config: false,
+    default: [],
+    type: Array
+  })
+
   // Whether the user declined the migration or not
   Loom.settings.register('wod5e', 'declinedMigration', {
     scope: 'world',

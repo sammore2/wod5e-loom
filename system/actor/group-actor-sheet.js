@@ -27,10 +27,13 @@ import {
   _onSearchItem
 } from './scripts/item-actions.js'
 import { _onToggleCollapse } from './scripts/on-toggle-collapse.js'
+import { _onToggleLimited } from './scripts/on-toggle-limited.js'
+import { saveActorPersonalNotes } from './scripts/personal-notes.js'
 import { _addActor, _openActorSheet, _removeActor } from './scripts/group-members.js'
 import {
   prepareGroupFeaturesContext,
   prepareEquipmentContext,
+  prepareLimitedContext,
   prepareNotepadContext,
   prepareSettingsContext,
   prepareGroupMembersContext
@@ -82,11 +85,13 @@ export class GroupActorSheet extends LoomHandlebarsMixin(
       removeMember: _removeActor,
 
       // Various other sheet functions
+      tab: function (event, target) { this._onTabSelect(event, target) },
       dotCounterChange: _onDotCounterChange,
       dotCounterEmpty: _onDotCounterEmpty,
       editImage: _onEditImage,
       toggleLock: _onToggleLock,
-      toggleCollapse: _onToggleCollapse
+      toggleCollapse: _onToggleCollapse,
+      toggleLimited: _onToggleLimited
     },
     dragDrop: [
       {
@@ -123,6 +128,9 @@ export class GroupActorSheet extends LoomHandlebarsMixin(
     },
     settings: {
       template: 'marketplace/rulesets/wod5e/display/shared/actors/parts/actor-settings.hbs'
+    },
+    limited: {
+      template: 'marketplace/rulesets/wod5e/display/shared/actors/limited-sheet.hbs'
     },
     banner: {
       template: 'marketplace/rulesets/wod5e/display/shared/actors/parts/type-banner.hbs'
@@ -167,6 +175,25 @@ export class GroupActorSheet extends LoomHandlebarsMixin(
   }
 
   getTabs() {
+    if (this._limitedView) {
+      const tabs = {
+        biography: {
+          ...this.tabs.features,
+          id: 'biography',
+          title: 'WOD5E.Tabs.Biography',
+          icon: '<i class="fas fa-id-card"></i>'
+        },
+        notepad: { ...this.tabs.notepad, title: 'WOD5E.Tabs.PublicNotes' }
+      }
+
+      for (const tab of Object.values(tabs)) {
+        tab.active = this.tabGroups[tab.group] === tab.id
+        tab.cssClass = tab.active ? 'active' : ''
+      }
+
+      return tabs
+    }
+
     const tabs = this.tabs
 
     // Remove hidden tabs
@@ -180,6 +207,57 @@ export class GroupActorSheet extends LoomHandlebarsMixin(
     }
 
     return tabs
+  }
+
+  _configureRenderOptions(options) {
+    super._configureRenderOptions(options)
+
+    const userOwnsActor =
+      this.actor?.testUserPermission?.(Loom.user, CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER) ?? false
+    if (!userOwnsActor) {
+      this._limitedView = true
+      this.tabGroups.primary = 'biography'
+      options.parts = ['tabs', 'limited']
+    } else if (Array.isArray(options.parts)) {
+      this._limitedView = false
+      if (!this.tabs[this.tabGroups.primary]) {
+        this.tabGroups.primary = Object.keys(this.tabs)[0] || 'members'
+      }
+      options.parts = options.parts.filter((part) => part !== 'limited')
+    } else {
+      this._limitedView = false
+      if (!this.tabs[this.tabGroups.primary]) {
+        this.tabGroups.primary = Object.keys(this.tabs)[0] || 'members'
+      }
+    }
+  }
+
+  _onTabSelect(event, target) {
+    event?.preventDefault?.()
+    const tab = target?.getAttribute('data-tab')
+    if (!tab) return
+    const group = target?.getAttribute('data-group') || 'primary'
+    this.tabGroups[group] = tab
+    this._applyActiveTab()
+  }
+
+  _applyActiveTab() {
+    const root = this.element
+    if (!root) return
+    for (const [group, tab] of Object.entries(this.tabGroups)) {
+      if (!tab) continue
+      root.querySelectorAll(`.tab[data-group="${group}"]`).forEach((el) => {
+        el.style.display = el.getAttribute('data-tab') === tab ? '' : 'none'
+      })
+      root.querySelectorAll(`[data-group="${group}"][data-tab]`).forEach((el) => {
+        el.classList.toggle('active', el.getAttribute('data-tab') === tab)
+      })
+    }
+  }
+
+  async _postRender(context, options) {
+    if (typeof super._postRender === 'function') await super._postRender(context, options)
+    this._applyActiveTab()
   }
 
   async _prepareContext() {
@@ -279,7 +357,7 @@ export class GroupActorSheet extends LoomHandlebarsMixin(
 
       settings: actorData.settings,
 
-      isOwner: true,
+      isOwner: userOwnsActor,
       locked,
 
       features: actorData.features,
@@ -431,6 +509,10 @@ export class GroupActorSheet extends LoomHandlebarsMixin(
       case 'notepad':
         return prepareNotepadContext(context, actor)
 
+      // Limited view
+      case 'limited':
+        return prepareLimitedContext(context, actor)
+
       // Settings
       case 'settings':
         return prepareSettingsContext(context, actor)
@@ -440,11 +522,23 @@ export class GroupActorSheet extends LoomHandlebarsMixin(
   }
 
   static async onSubmitActorForm(event, form, formData) {
+    const target = event?.target ?? null
+    if (target?.getAttribute?.('data-path') === 'personalNotes') {
+      await saveActorPersonalNotes(this.actor, target.value)
+      return
+    }
+
     // Process submit data
     const submitData =
       typeof this._prepareSubmitData === 'function'
         ? this._prepareSubmitData(event, form, formData)
         : (formData?.object || formData || {})
+    let personalNotesValue
+
+    if (Object.hasOwn(submitData, 'personalNotes')) {
+      personalNotesValue = submitData.personalNotes
+      delete submitData.personalNotes
+    }
 
     // Overrides
     const overrides = Loom.utils.flattenObject(this.actor?.overrides ?? {})
@@ -475,6 +569,9 @@ export class GroupActorSheet extends LoomHandlebarsMixin(
     if (Object.keys(topLevelUpdates).length > 0) {
       await this.actor.update(topLevelUpdates)
     }
+    if (personalNotesValue !== undefined) {
+      await saveActorPersonalNotes(this.actor, personalNotesValue)
+    }
   }
 
   _preRender() {
@@ -484,6 +581,15 @@ export class GroupActorSheet extends LoomHandlebarsMixin(
 
   async _onRender() {
     const html = this.element
+
+    if (!this._personalNotesSaveWired) {
+      this._personalNotesSaveWired = true
+      html.addEventListener('change', async (event) => {
+        const input = event.target
+        if (input?.getAttribute?.('data-path') !== 'personalNotes') return
+        await saveActorPersonalNotes(this.actor, input.value)
+      })
+    }
 
     // Update the window title (since ActorSheetV2 doesn't do it automatically)
     this.window.title.textContent = this.title
