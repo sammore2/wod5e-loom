@@ -5,6 +5,11 @@ Each release tag `vX.Y.Z` publishes the section headed `## [X.Y.Z]` as its relea
 
 ## [Unreleased]
 
+## [0.1.2]
+
+### Changed
+- Keep the distributed stylesheet reproducible from the organized LESS modules and retain the pre-sync CSS backup outside version control.
+
 ## [0.1.1]
 
 ### Fixed
