@@ -3402,6 +3402,16 @@ input.itemname:focus {
   height: 100% !important;
   box-sizing: border-box !important;
 }
+
+/* LoomVTT fix: this scope swaps the text variables to a light parchment palette (#1a1a1a text), but the tab areas are
+   transparent and the window frame keeps the dark theme background: dark text on a dark window, unreadable.
+   The tab area gets the parchment it was designed for. */
+.item.sheet section.tab.active,
+.loom-window .item.sheet section.tab.active,
+.loom-window.item.sheet section.tab.active {
+  background: #e8e0cf !important;
+  color: #1a1a1a !important;
+}
 .item.sheet prose-mirror,
 .loom-window.item.sheet prose-mirror,
 .loom-window .item.sheet prose-mirror {
