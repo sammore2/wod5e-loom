@@ -1,4 +1,5 @@
 import { qs, on, val, get, fadeIn, fadeOut, each } from './utils.js'
+import './scripts/chat-roll-command.js'
 
 // Custom UI Classes
 import { WoDChatLog } from './ui/wod-chat-log.js'
