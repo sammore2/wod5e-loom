@@ -89,7 +89,8 @@ export class ActorUX {
     } else if (typeof Item?.implementation?.fromDropData === 'function') {
       item = await Item.implementation.fromDropData(data)
     } else {
-      item = Loom.fromUuidSync?.(data?.uuid)
+      // The collection may not have caught up with a freshly created item: ask for it instead of giving up.
+      item = Loom.fromUuidSync?.(data?.uuid) ?? (await Loom.fromUuid?.(data?.uuid))
     }
     if (!item) return false
 
