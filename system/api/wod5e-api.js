@@ -24,6 +24,7 @@ export class wod5eAPI {
    * @param rerollHunger              (Optional, default false) Whether to reroll failed hunger dice
    * @param selectors                 (Optional, default []) Any selectors to use when compiling situational modifiers
    * @param macro                     (Optional, default '') A macro to run after the roll has been made
+   * @param system                    (Optional, default the actor's game system) Which game system's dice to roll
    *
    */
   static async Roll({
@@ -44,7 +45,8 @@ export class wod5eAPI {
     rollMode = Loom.settings.get('core', 'rollMode'),
     rerollHunger = false,
     selectors = [],
-    macro = ''
+    macro = '',
+    system
   }) {
     if (!actor || !data) {
       Loom.ui?.notifications.error(Loom.i18n.localize('WOD5E.Notifications.NoActorDefined'))
@@ -71,7 +73,8 @@ export class wod5eAPI {
       increaseHunger,
       decreaseRage,
       selectors,
-      macro
+      macro,
+      system
     })
   }
 
