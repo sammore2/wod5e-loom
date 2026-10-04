@@ -67,7 +67,7 @@
                 </a>
             </div>
         </div>
-        <div class="flexcol">
+        <div class="flexcol xp-history">
             <div>
                 <div class="field-header big-header flexrow flex-center">
                     {{localize "WOD5E.Experience.History"}}
@@ -85,7 +85,7 @@
                 </div>
             </div>
             {{#each experiences as |experience key|}}
-                <div class="flexrow{{#ifgr experience.value 0}} experience-gain{{/ifgr}}{{#ifless experience.value 0}} experience-spend{{/ifless}}">
+                <div class="experience-entry flexrow{{#ifgr experience.value 0}} experience-gain{{/ifgr}}{{#ifless experience.value 0}} experience-spend{{/ifless}}">
                     {{#ifgr experience.value 0}}
                         <img class="xp-icon xp-gain-icon"/>
                     {{/ifgr}}
@@ -95,7 +95,7 @@
                     {{#ifless experience.value 0}}
                         <img class="xp-icon xp-spend-icon"/>
                     {{/ifless}}
-                    <div class="xp-label">
+                    <div class="xp-label" title="{{experience.name}}">
                         {{experience.name}}
                     </div>
                     <div class="xp-amount">

@@ -5,6 +5,14 @@ Each release tag `vX.Y.Z` publishes the section headed `## [X.Y.Z]` as its relea
 
 ## [Unreleased]
 
+## [0.1.3]
+
+### Fixed
+- Keep long item descriptions inside a scrollable editor and make item titles readable.
+- Align sheet item icons and headings, and give editable notes fields more writing space.
+- Improve group sheet title sizing and experience table readability without clipping its columns.
+- Make item drag-and-drop into sheets more reliable and route dropped items to the right section.
+
 ## [0.1.2]
 
 ### Changed

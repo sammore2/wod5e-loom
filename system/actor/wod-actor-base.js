@@ -849,7 +849,10 @@ export class WoDActorBase extends LoomHandlebarsMixin(
   }
 
   _onDragStart(event) {
-    const dataset = event.target.dataset
+    const dragTarget = event.target?.closest?.('[data-drag]')
+    if (!dragTarget) return
+
+    const dataset = dragTarget.dataset
     if ('link' in dataset) return
 
     // Extract the data you need
@@ -875,9 +878,9 @@ export class WoDActorBase extends LoomHandlebarsMixin(
     // é o MESMO objeto em toda chamada pra um único drop — marcar nele trava a
     // duplicação na entrada, não importa quantos listeners existam por trás.
     if (event.__loomItemDropHandled) return
-    event.__loomItemDropHandled = true
-
     const data = Loom.applications.ux.getDragEventData(event)
+    if (!data?.type) return false
+    event.__loomItemDropHandled = true
 
     // Handle different data types
     switch (data.type) {

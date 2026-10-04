@@ -279,7 +279,7 @@ h3.item-name {
 /*__WOD5E_ORDER_00672__*/
 .item.sheet .item-header .header-fields {
   flex: 1;
-  margin-top: auto;
+  margin-top: 0;
 }
 
 /*__WOD5E_ORDER_00673__*/
@@ -291,6 +291,7 @@ h3.item-name {
   margin: 0 !important;
   padding: 0 4px !important;
   border: none !important;
+  color: #ffffff !important;
 }
 
 /*__WOD5E_ORDER_00674__*/
@@ -316,7 +317,7 @@ input.itemname {
   height: auto !important;
   min-height: unset !important;
   line-height: 1.1 !important;
-  color: inherit !important;
+  color: #ffffff !important;
   width: 100% !important;
   box-sizing: border-box !important;
 }
@@ -377,6 +378,7 @@ input.itemname:focus {
   box-sizing: border-box !important;
 }
 
+/*__WOD5E_ORDER_02003__*/
 /* LoomVTT fix: this scope swaps the text variables to a light parchment palette (#1a1a1a text), but the tab areas are
    transparent and the window frame keeps the dark theme background: dark text on a dark window, unreadable.
    The tab area gets the parchment it was designed for. */
@@ -392,8 +394,12 @@ input.itemname:focus {
 .item.sheet prose-mirror,
 .loom-window.item.sheet prose-mirror,
 .loom-window .item.sheet prose-mirror {
+  display: block !important;
   width: 100% !important;
   min-height: 160px !important;
+  max-height: 40vh !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
   background: rgba(255, 255, 255, 0.45) !important;
   border: 1px solid rgba(0, 0, 0, 0.15) !important;
   border-radius: 4px !important;

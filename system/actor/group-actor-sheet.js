@@ -696,7 +696,10 @@ export class GroupActorSheet extends LoomHandlebarsMixin(
   }
 
   _onDragStart(event) {
-    const dataset = event.target.dataset
+    const dragTarget = event.target?.closest?.('[data-drag]')
+    if (!dragTarget) return
+
+    const dataset = dragTarget.dataset
     if ('link' in dataset) return
 
     // Extract the data you need
@@ -714,12 +717,21 @@ export class GroupActorSheet extends LoomHandlebarsMixin(
   _onDragOver() {}
 
   async _onDrop(event) {
+    // One physical drop can reach more than one Loom drag handler. Ignore the
+    // duplicate event so it cannot create the same embedded item twice.
+    if (event.__loomItemDropHandled) return false
+
     const data = Loom.applications.ux.getDragEventData(event)
+    if (!data?.type) return false
+    event.__loomItemDropHandled = true
 
     // Handle different data types
     switch (data.type) {
-      case 'Item':
-        return ActorUX._onDropItem(event, this.actor, data)
+      case 'Item': {
+        const result = await ActorUX._onDropItem(event, this.actor, data)
+        if (typeof this._reloadDocument === 'function') await this._reloadDocument()
+        return result
+      }
       case 'Actor':
         return _addActor(this.actor, data.uuid)
     }

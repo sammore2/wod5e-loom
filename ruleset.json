@@ -4,7 +4,7 @@
   "type": "ruleset",
   "name": "wod5e",
   "title": "World of Darkness 5e",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "sammore2",
   "license": "GPL-3.0-or-later",
   "description": "Vampire, Werewolf and Hunter community system adapted for LoomVTT. Original WoD5E system by Rayji96, with upstream development led by Veilza.",

@@ -61,6 +61,9 @@
 /*__WOD5E_ORDER_00433__*/
 .actor.sheet prose-mirror {
   min-width: 100%;
+  min-height: 160px;
+  box-sizing: border-box;
+  overflow-y: auto;
   resize: vertical;
 }
 
@@ -890,4 +893,85 @@
   justify-content: space-between !important;
   width: 100% !important;
   margin-bottom: 2px !important;
+}
+
+/*__WOD5E_ORDER_02010__*/
+.actor.sheet .tab[data-tab="experience"] .grid-2col > .flexcol,
+.actor.sheet .tab[data-tab="experience"] .xp-history {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/*__WOD5E_ORDER_02011__*/
+.actor.sheet .tab[data-tab="experience"] .xp-header {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 64px 56px;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 7px 8px 7px 36px;
+  margin: 0 0 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 4px 4px 0 0;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+/*__WOD5E_ORDER_02012__*/
+.actor.sheet .tab[data-tab="experience"] .xp-header-label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  line-height: 1.15;
+}
+
+/*__WOD5E_ORDER_02013__*/
+.actor.sheet .tab[data-tab="experience"] .xp-header .xp-amount,
+.actor.sheet .tab[data-tab="experience"] .xp-header .xp-controls {
+  text-align: center;
+}
+
+/*__WOD5E_ORDER_02014__*/
+.actor.sheet .tab[data-tab="experience"] .experience-entry {
+  display: grid !important;
+  grid-template-columns: 22px minmax(0, 1fr) 64px 56px;
+  gap: 8px;
+  align-items: center !important;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/*__WOD5E_ORDER_02015__*/
+.actor.sheet .tab[data-tab="experience"] .experience-entry .xp-icon {
+  margin: 0;
+}
+
+/*__WOD5E_ORDER_02016__*/
+.actor.sheet .tab[data-tab="experience"] .experience-entry .xp-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*__WOD5E_ORDER_02017__*/
+.actor.sheet .tab[data-tab="experience"] .experience-entry .xp-amount {
+  min-width: 0;
+  text-align: right;
+}
+
+/*__WOD5E_ORDER_02018__*/
+.actor.sheet .tab[data-tab="experience"] .experience-entry .xp-controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  margin-left: 0;
+}
+
+/*__WOD5E_ORDER_02019__*/
+.actor.sheet .tab[data-tab="experience"] .experience-entry .xp-control {
+  flex: 0 0 auto;
 }

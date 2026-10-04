@@ -2086,6 +2086,9 @@ body.uk .actor.sheet {
 }
 .actor.sheet prose-mirror {
   min-width: 100%;
+  min-height: 160px;
+  box-sizing: border-box;
+  overflow-y: auto;
   resize: vertical;
 }
 .actor.sheet prose-mirror .editor-content {
@@ -3321,7 +3324,7 @@ body.uk .actor.sheet {
 }
 .item.sheet .item-header .header-fields {
   flex: 1;
-  margin-top: auto;
+  margin-top: 0;
 }
 .item.sheet .item-header .header-fields h1,
 .loom-window.item.sheet .item-header .header-fields h1 {
@@ -3331,6 +3334,7 @@ body.uk .actor.sheet {
   margin: 0 !important;
   padding: 0 4px !important;
   border: none !important;
+  color: #ffffff !important;
 }
 .item.sheet .item-header .header-fields .itemname,
 .item.sheet .item-header input.itemname,
@@ -3354,7 +3358,7 @@ input.itemname {
   height: auto !important;
   min-height: unset !important;
   line-height: 1.1 !important;
-  color: inherit !important;
+  color: #ffffff !important;
   width: 100% !important;
   box-sizing: border-box !important;
 }
@@ -3402,22 +3406,15 @@ input.itemname:focus {
   height: 100% !important;
   box-sizing: border-box !important;
 }
-
-/* LoomVTT fix: this scope swaps the text variables to a light parchment palette (#1a1a1a text), but the tab areas are
-   transparent and the window frame keeps the dark theme background: dark text on a dark window, unreadable.
-   The tab area gets the parchment it was designed for. */
-.item.sheet section.tab.active,
-.loom-window .item.sheet section.tab.active,
-.loom-window.item.sheet section.tab.active {
-  /* tan parchment: change this one value to make the tab area lighter or darker */
-  background: var(--wod5e-item-tab-bg, #bdb196) !important;
-  color: #1a1a1a !important;
-}
 .item.sheet prose-mirror,
 .loom-window.item.sheet prose-mirror,
 .loom-window .item.sheet prose-mirror {
+  display: block !important;
   width: 100% !important;
   min-height: 160px !important;
+  max-height: 40vh !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
   background: rgba(255, 255, 255, 0.45) !important;
   border: 1px solid rgba(0, 0, 0, 0.15) !important;
   border-radius: 4px !important;
@@ -5538,4 +5535,97 @@ prose-mirror .editor-menu button::before {
   background: rgba(255, 255, 255, 0.18) !important;
   color: #ffffff !important;
   border-radius: 4px !important;
+}
+.group.sheet .actor-header .header-profile .name-field {
+  width: 250px;
+  max-width: 100%;
+}
+.group.sheet .actor-header .header-profile .name-field input.charname {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 2px 4px;
+  font-size: 16px !important;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+.group.sheet .actor-header .header-profile .name-field .charname:not(input) {
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 18px !important;
+  line-height: 1.15;
+  word-spacing: normal;
+  white-space: nowrap;
+  text-decoration: none !important;
+}
+/* LoomVTT fix: this scope swaps the text variables to a light parchment palette (#1a1a1a text), but the tab areas are
+   transparent and the window frame keeps the dark theme background: dark text on a dark window, unreadable.
+   The tab area gets the parchment it was designed for. */
+.actor.sheet .tab[data-tab="experience"] .grid-2col > .flexcol,
+.actor.sheet .tab[data-tab="experience"] .xp-history {
+  min-width: 0;
+  box-sizing: border-box;
+}
+.actor.sheet .tab[data-tab="experience"] .xp-header {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 64px 56px;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 7px 8px 7px 36px;
+  margin: 0 0 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 4px 4px 0 0;
+  background: rgba(0, 0, 0, 0.28);
+}
+.actor.sheet .tab[data-tab="experience"] .xp-header-label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  line-height: 1.15;
+}
+.actor.sheet .tab[data-tab="experience"] .xp-header .xp-amount,
+.actor.sheet .tab[data-tab="experience"] .xp-header .xp-controls {
+  text-align: center;
+}
+.actor.sheet .tab[data-tab="experience"] .experience-entry {
+  display: grid !important;
+  grid-template-columns: 22px minmax(0, 1fr) 64px 56px;
+  gap: 8px;
+  align-items: center !important;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.actor.sheet .tab[data-tab="experience"] .experience-entry .xp-icon {
+  margin: 0;
+}
+.actor.sheet .tab[data-tab="experience"] .experience-entry .xp-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.actor.sheet .tab[data-tab="experience"] .experience-entry .xp-amount {
+  min-width: 0;
+  text-align: right;
+}
+.actor.sheet .tab[data-tab="experience"] .experience-entry .xp-controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  margin-left: 0;
+}
+.actor.sheet .tab[data-tab="experience"] .experience-entry .xp-control {
+  flex: 0 0 auto;
+}
+.item.sheet section.tab.active,
+.loom-window .item.sheet section.tab.active,
+.loom-window.item.sheet section.tab.active {
+  /* tan parchment: change this one value to make the tab area lighter or darker */
+  background: var(--wod5e-item-tab-bg, #bdb196) !important;
+  color: #1a1a1a !important;
 }
