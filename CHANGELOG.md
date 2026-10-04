@@ -5,7 +5,7 @@ Each release tag `vX.Y.Z` publishes the section headed `## [X.Y.Z]` as its relea
 
 ## [Unreleased]
 
-## [0.1.3]
+## [1.0.3]
 
 ### Fixed
 - Keep long item descriptions inside a scrollable editor and make item titles readable.
