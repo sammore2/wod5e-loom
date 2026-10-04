@@ -137,7 +137,6 @@ jobs:
             body: JSON.stringify({
               repository: process.env.RELEASE_REPOSITORY,
               tag: process.env.RELEASE_TAG,
-              packageSlug: 'wod5e-loom'
             })
           });
           const result = await response.json().catch(() => ({}));
