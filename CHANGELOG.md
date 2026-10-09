@@ -5,6 +5,11 @@ Each release tag `vX.Y.Z` publishes the section headed `## [X.Y.Z]` as its relea
 
 ## [Unreleased]
 
+## [1.0.4]
+
+### Fixed
+- Prevent Quality and Defect item modifiers from being counted twice in rolls.
+
 ## [1.0.3]
 
 ### Fixed
