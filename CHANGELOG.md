@@ -5,6 +5,11 @@ Each release tag `vX.Y.Z` publishes the section headed `## [X.Y.Z]` as its relea
 
 ## [Unreleased]
 
+## [1.0.5]
+
+### Fixed
+- Apply pool-category modifiers to standalone skill rolls and only once when categories are combined.
+
 ## [1.0.4]
 
 ### Fixed

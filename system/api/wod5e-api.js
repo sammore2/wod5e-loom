@@ -194,8 +194,14 @@ export class wod5eAPI {
         if (dataset.useAbsoluteValue && dataset.absoluteValue)
           modifiedDataset.absoluteValue += actor.system.skills[skillSelect].value
 
-        // Add the attribute selectors to the roll
-        selectorsArray = selectorsArray.concat(['skills', `skills.${skillSelect}`])
+        // Add the skill selectors and its pool category to the roll. Category
+        // modifiers (for example, all Social pools) must also apply when a skill
+        // is rolled by itself, without an attribute selected in the dialog.
+        selectorsArray = selectorsArray.concat([
+          'skills',
+          `skills.${skillSelect}`,
+          WOD5E.Skills.getList({})[skillSelect].type
+        ])
       }
       // Handle adding an attribute to the dicepool
       if (attributeSelect) {
@@ -287,7 +293,7 @@ export class wod5eAPI {
       // Join the value array
       modifiedDataset.valuePaths = valueArray.join(' ')
       // Join the selectors
-      modifiedDataset.selectors = selectorsArray.join(' ')
+      modifiedDataset.selectors = [...new Set(selectorsArray)].join(' ')
 
       await _onConfirmRoll(modifiedDataset, actor)
     }
