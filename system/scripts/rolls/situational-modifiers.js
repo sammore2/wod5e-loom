@@ -12,9 +12,14 @@ export async function getSituationalModifiers({ actor, selectors }) {
   // Surge, etc.) and item-based bonuses that `prepareDerivedData` computes never actually
   // survive on it: they're written into `actor.derivedData`, a plain persistent property,
   // which is the only place they can reliably be read back from.
+  const hasDerivedItemModifiers = Array.isArray(actor.derivedData?.itemModifiers)
   const derivedBonuses = [
     ...(Array.isArray(actor.derivedData?.bonuses) ? actor.derivedData.bonuses : []),
-    ...(Array.isArray(actor.derivedData?.itemModifiers) ? actor.derivedData.itemModifiers : [])
+    ...(hasDerivedItemModifiers
+      ? actor.derivedData.itemModifiers
+      : Array.isArray(data?.itemModifiers)
+        ? data.itemModifiers
+        : [])
   ]
   const allModifiers = getModifiers(data, selectors, derivedBonuses)
   const activeModifiers = filterModifiers(data, allModifiers)
@@ -27,24 +32,10 @@ export async function getSituationalModifiers({ actor, selectors }) {
   function getModifiers(data, selectors, extraModifiers = []) {
     const modifiers = []
 
-    // Add all modifiers we get from items to start
-    if (!Loom.utils.isEmpty(data?.itemModifiers) && Array.isArray(data?.itemModifiers)) {
-      // Check for matching modifiers, or 'all'
-      const matchingModifiers = data.itemModifiers.filter(
-        (bonus) =>
-          selectors.some((selector) => bonus.paths.includes(selector)) ||
-          bonus.paths.includes('all')
-      )
-
-      // If there are any matching modifiers, push it to the modifiers list
-      if (matchingModifiers.length > 0) {
-        modifiers.push(...matchingModifiers)
-      }
-    }
-
-    // Same matching rule as above, applied to the bonuses that actually persist
-    // (`actor.derivedData`) instead of the ones that only ever lived on a throwaway
-    // `actor.system` snapshot.
+    // Collect from one canonical source. Item modifiers in `actor.system` may be
+    // a stale copy of the same item bonuses already recomputed into `derivedData`.
+    // Reading both lists caused each Quality/Defect bonus to appear twice and the
+    // same bonus to be included twice in the dice pool.
     if (extraModifiers.length > 0) {
       const matchingExtra = extraModifiers.filter(
         (bonus) =>
