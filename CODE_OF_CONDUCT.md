@@ -54,10 +54,7 @@ further defined and clarified by project maintainers.
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported by contacting the project team at veilzakinsemi+wod5e@gmail.com. All
-complaints will be reviewed and investigated and will result in a response that
-is deemed necessary and appropriate to the circumstances. The project team is
+Instances of abusive, harassing, or otherwise unacceptable behavior can be reported to the project maintainer through their GitHub account, [@sammore2](https://github.com/sammore2). All complaints will be reviewed and investigated promptly and fairly, and the reporter's privacy will be respected. The project team is
 obligated to maintain confidentiality with regard to the reporter of an incident.
 Further details of specific enforcement policies may be posted separately.
 
