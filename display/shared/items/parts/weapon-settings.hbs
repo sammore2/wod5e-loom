@@ -1,0 +1,19 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+    <!-- Select the type this weapon belongs to -->
+    <div class="flex-group-center flexrow">
+        <div class="field-header flexrow">
+            {{localize "WOD5E.EquipmentList.WeaponType"}}
+        </div>
+        <div>
+            <select data-path="weaponType" data-type="String">
+                {{selectOptions weaponTypeOptions selected=weaponTypeSelected localize=true}}
+            </select>
+        </div>
+    </div>
+
+    {{> "marketplace/rulesets/wod5e/display/shared/items/parts/item-uses.hbs"}}
+
+    {{> "marketplace/rulesets/wod5e/display/shared/items/parts/data-item-id.hbs"}}
+
+    {{> "marketplace/rulesets/wod5e/display/shared/items/parts/source.hbs"}}
+</section>

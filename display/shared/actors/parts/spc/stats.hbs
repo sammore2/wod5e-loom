@@ -1,0 +1,43 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+    <div class="grid grid-2col flexrow spc-stats-body">
+        <div>
+            {{> "marketplace/rulesets/wod5e/display/shared/actors/parts/spc/standard-dice-pools.hbs"}}
+
+            {{> "marketplace/rulesets/wod5e/display/shared/actors/parts/spc/exceptional-dice-pools.hbs"}}
+
+            {{#if showDisciplines}}
+                {{> "marketplace/rulesets/wod5e/display/shared/actors/parts/spc/spc-disciplines.hbs"}}
+            {{/if}}
+
+            {{#if showGifts}}
+                {{> "marketplace/rulesets/wod5e/display/shared/actors/parts/spc/spc-gifts.hbs"}}
+            {{/if}}
+
+            {{#if showEdges}}
+                {{> "marketplace/rulesets/wod5e/display/shared/actors/parts/spc/spc-edges.hbs"}}
+            {{/if}}
+        </div>
+
+        <div>
+            {{#ifeq currentActorType 'spirit'}}
+                <div class="description-field">
+                    <div class="flex-center field-header">
+                        <span class="resource-label">
+                            {{localize "WOD5E.WTA.PossessionManifestation"}}
+                        </span>
+                    </div>
+                    <div class="description-content resource">
+                        <prose-mirror data-path="manifestation" value="{{manifestation}}"
+                            toggled="true" compact="true">
+                            {{{enrichedManifestation}}}
+                        </prose-mirror>
+                    </div>
+                </div>
+            {{/ifeq}}
+
+            {{> "marketplace/rulesets/wod5e/display/shared/actors/parts/spc/spc-traits.hbs"}}
+
+            {{> "marketplace/rulesets/wod5e/display/shared/actors/parts/spc/spc-conditions.hbs"}}
+        </div>
+    </div>
+</section>

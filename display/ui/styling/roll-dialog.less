@@ -1,0 +1,362 @@
+/*__WOD5E_ORDER_00128__*/
+.sidebar-message .message-content,
+.chat-message .message-content,
+.wod5e-chat-card .message-content,
+.sidebar-message .collapsible-container,
+.chat-message .collapsible-container,
+.sidebar-message .dice-roll,
+.chat-message .dice-roll,
+.sidebar-message .dice-result,
+.chat-message .dice-result,
+.dice-roll .collapsible-content,
+.chat-message .collapsible-content,
+.sidebar-message .collapsible-content,
+.wod5e-chat-card .collapsible-content {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/*__WOD5E_ORDER_00141__*/
+.dice-roll .dice-tooltip {
+  display: none;
+}
+
+/*__WOD5E_ORDER_00142__*/
+.dice-roll.expanded .dice-tooltip {
+  display: block;
+}
+
+/*__WOD5E_ORDER_00144__*/
+.dice-roll .dice-result > .collapsible-content {
+  max-height: none;
+  overflow: visible;
+}
+
+/*__WOD5E_ORDER_00147__*/
+.dice-tooltip .dice-rolls {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+/*__WOD5E_ORDER_00148__*/
+.dice-tooltip .dice-rolls .roll {
+  border: 1px solid;
+  border-radius: 3px;
+  min-width: 1.4em;
+  text-align: center;
+}
+
+/*__WOD5E_ORDER_00155__*/
+.chat-message .roll-total,
+.sidebar-message .roll-total,
+.wod5e-chat-card .roll-total,
+.chat-message .roll-difficulty,
+.sidebar-message .roll-difficulty,
+.wod5e-chat-card .roll-difficulty {
+  display: flex;
+  flex-grow: 1;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+/*__WOD5E_ORDER_00158__*/
+.roll-img {
+  max-width: 40px;
+  margin: 2px;
+  border-radius: 4px;
+  border: 1px solid;
+}
+
+/*__WOD5E_ORDER_00160__*/
+.roll-label {
+  font-weight: 700;
+  font-family: Vollkorn, serif;
+  font-variant-caps: titling-caps;
+  font-size: 1.4em;
+  margin: 0.1em;
+  text-align: center;
+}
+
+/*__WOD5E_ORDER_00161__*/
+.roll-label:nth-of-type(1) {
+  line-height: 1em;
+  margin-top: 0.4em;
+  margin-bottom: 0.3em;
+}
+
+/*__WOD5E_ORDER_00162__*/
+.roll-content {
+  font-size: 120%;
+  font-family: Vollkorn, serif;
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
+}
+
+/*__WOD5E_ORDER_00164__*/
+p.roll-label.uppercase {
+  letter-spacing: 0.03rem;
+  line-height: 1.4rem;
+}
+
+/*__WOD5E_ORDER_00165__*/
+.reroll .die-select,
+.willpower-reroll .die-select {
+  flex: 0;
+}
+
+/*__WOD5E_ORDER_00166__*/
+.reroll .selected img,
+.willpower-reroll .selected img {
+  border: 2px solid var(--system-color-3);
+  filter: invert(1);
+}
+
+/*__WOD5E_ORDER_00168__*/
+.roll-prompt-message .user-roll {
+  background-color: #555555;
+  padding: 5px;
+  margin: 3px;
+}
+
+/*__WOD5E_ORDER_00169__*/
+.roll-prompt-message .user-roll .actor-roll-header .remove-actor-button {
+  flex-grow: 0;
+  cursor: pointer;
+  margin-right: 3px;
+}
+
+/*__WOD5E_ORDER_00206__*/
+.roll-menu.application.minimized .roll-menu-hint,
+.roll-menu.application.minimizing .roll-menu-hint {
+  display: none;
+}
+
+/*__WOD5E_ORDER_00207__*/
+.roll-menu.application .window-content {
+  padding: 0;
+  flex-direction: row;
+}
+
+/*__WOD5E_ORDER_00208__*/
+.roll-menu.application .roll-menu-hint {
+  cursor: pointer;
+}
+
+/*__WOD5E_ORDER_00209__*/
+.roll-menu.application .clickable-button {
+  cursor: pointer;
+}
+
+/*__WOD5E_ORDER_00210__*/
+.roll-menu.application .clickable-button:hover {
+  font-weight: bold;
+}
+
+/*__WOD5E_ORDER_00211__*/
+.roll-menu.application .roll-menu-sidebar {
+  padding-right: 1rem;
+  border-right: 1px solid;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+/*__WOD5E_ORDER_00212__*/
+.roll-menu.application .roll-menu-sidebar .title {
+  font-size: 16pt;
+  text-align: center;
+}
+
+/*__WOD5E_ORDER_00213__*/
+.roll-menu.application .roll-menu-sidebar .roll-builder {
+  font-size: 14pt;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/*__WOD5E_ORDER_00214__*/
+.roll-menu.application .roll-menu-sidebar hr {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/*__WOD5E_ORDER_00215__*/
+.roll-menu.application .roll-menu-sidebar .active {
+  font-weight: bold;
+}
+
+/*__WOD5E_ORDER_00216__*/
+.roll-menu.application .roll-menu-sidebar .saved-rolls-list {
+  padding: 5px;
+  display: flex;
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+
+/*__WOD5E_ORDER_00217__*/
+.roll-menu.application .roll-menu-sidebar .saved-rolls-list .saved-roll .remove-saved-roll {
+  flex-grow: 0;
+  padding: 3px;
+}
+
+/*__WOD5E_ORDER_00218__*/
+.roll-menu.application .roll-menu-sidebar .saved-rolls-list .saved-roll:not(.active) {
+  cursor: pointer;
+}
+
+/*__WOD5E_ORDER_00219__*/
+.roll-menu.application .roll-menu-sidebar .saved-rolls-footer {
+  margin-top: auto;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+/*__WOD5E_ORDER_00220__*/
+.roll-menu.application .main {
+  flex-grow: 1;
+  position: relative;
+}
+
+/*__WOD5E_ORDER_00221__*/
+.roll-menu.application .main .roll-menu-body {
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/*__WOD5E_ORDER_00222__*/
+.roll-menu.application .main .roll-menu-body .splat-die-options {
+  justify-content: space-between;
+}
+
+/*__WOD5E_ORDER_00223__*/
+.roll-menu.application .main .roll-menu-body .splat-die-options .die-img {
+  justify-items: center;
+}
+
+/*__WOD5E_ORDER_00224__*/
+.roll-menu.application .main .roll-menu-body .splat-die-options .die-img img {
+  cursor: pointer;
+}
+
+/*__WOD5E_ORDER_00225__*/
+.roll-menu.application .main .roll-menu-body .splat-die-options .die-img:not(.active) {
+  filter: saturate(250%);
+}
+
+/*__WOD5E_ORDER_00226__*/
+.roll-menu.application .main .roll-menu-body .splat-die-options .die-img.active {
+  filter: saturate(50%);
+}
+
+/*__WOD5E_ORDER_00227__*/
+.roll-menu.application .main .roll-menu-body .roll-constructor {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  position: relative;
+}
+
+/*__WOD5E_ORDER_00228__*/
+.roll-menu.application .main .roll-menu-body .roll-constructor .constructed-roll {
+  flex-grow: 1;
+}
+
+/*__WOD5E_ORDER_00229__*/
+.roll-menu.application .main .roll-menu-body .roll-constructor .roll-options .option-toggle {
+  text-align: center;
+}
+
+/*__WOD5E_ORDER_00230__*/
+.roll-menu.application .main .roll-menu-body .roll-menu-footer {
+  margin-top: auto;
+  padding: 0.5rem;
+}
+
+/*__WOD5E_ORDER_00231__*/
+.roll-menu.application .main .roll-menu-body .roll-menu-footer .roll-menu-footer-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+/*__WOD5E_ORDER_00232__*/
+.roll-menu.application .main .roll-menu-body .roll-menu-footer .roll-menu-footer-buttons .prompt-button,
+.roll-menu.application .main .roll-menu-body .roll-menu-footer .roll-menu-footer-buttons .roll-button {
+  align-content: center;
+}
+
+/*__WOD5E_ORDER_00276__*/
+.roll-dialog {
+  overflow: visible;
+  width: 400px;
+}
+
+/*__WOD5E_ORDER_00277__*/
+.roll-dialog .window-content {
+  overflow: visible;
+}
+
+/*__WOD5E_ORDER_00609__*/
+.actor.sheet.loom-window .sheet-body .stat-name.rollable,
+.actor.sheet.loom-window .sheet-body .resource-label.rollable,
+.actor.sheet.loom-window .sheet-body .skill .resource-label label.rollable {
+  background: transparent !important;
+  border: none !important;
+  color: var(--color-text-primary) !important;
+  text-transform: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  display: inline !important;
+  visibility: visible !important;
+  min-width: 0 !important;
+}
+
+/*__WOD5E_ORDER_00612__*/
+.actor.sheet.loom-window .sheet-body .stat-name.rollable:hover,
+.actor.sheet.loom-window .sheet-body .resource-label.rollable:hover,
+.actor.sheet.loom-window .sheet-body .skill .resource-label label.rollable:hover {
+  color: var(--vampire-color-2) !important;
+}
+
+/*__WOD5E_ORDER_00911__*/
+.chat-message .roll-result-label.success,
+.chat-message .roll-result-label.critical-success,
+.sidebar-message .roll-result-label.success,
+.sidebar-message .roll-result-label.critical-success,
+.wod5e-chat-card .roll-result-label.success,
+.wod5e-chat-card .roll-result-label.critical-success {
+  background-color: #065200;
+  color: #dbd6d6;
+}
+
+/*__WOD5E_ORDER_00913__*/
+.chat-message .roll-result-label.failure,
+.chat-message .roll-result-label.critical-failure,
+.chat-message .roll-result-label.bestial-failure,
+.sidebar-message .roll-result-label.failure,
+.sidebar-message .roll-result-label.critical-failure,
+.sidebar-message .roll-result-label.bestial-failure,
+.wod5e-chat-card .roll-result-label.failure,
+.wod5e-chat-card .roll-result-label.critical-failure,
+.wod5e-chat-card .roll-result-label.bestial-failure {
+  background-color: #900;
+  color: #dbdbdb;
+}
+
+/*__WOD5E_ORDER_00914__*/
+.chat-message .roll-result-label.desperation-success,
+.chat-message .roll-result-label.desperation-failure,
+.sidebar-message .roll-result-label.desperation-success,
+.sidebar-message .roll-result-label.desperation-failure,
+.wod5e-chat-card .roll-result-label.desperation-success,
+.wod5e-chat-card .roll-result-label.desperation-failure {
+  background-color: #e97c00;
+}

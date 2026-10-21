@@ -1,0 +1,19 @@
+<div class="flex-group-center flexrow">
+    <div class="field-header flexrow">
+        {{localize 'WOD5E.ItemsList.ItemUsesEnabled'}}
+    </div>
+    <div>
+        <input type="checkbox" data-path="uses.enabled"{{#if uses.enabled}} checked{{/if}}/>
+    </div>
+</div>
+
+{{#if uses.enabled}}
+    <div class="flex-group-center flexrow">
+        <div class="field-header flexrow">
+            {{localize 'WOD5E.ItemsList.MaxUses'}}
+        </div>
+        <div>
+            <input type="number" data-path="uses.max" value="{{uses.max}}"/>
+        </div>
+    </div>
+{{/if}}

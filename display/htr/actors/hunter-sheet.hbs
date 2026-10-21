@@ -1,0 +1,49 @@
+{{!-- Hunter Sheet Header --}}
+<header class="actor-header" {{#if headerbg}} style="background: url({{headerbg}}) center;"{{/if}}>
+    <div class="header-fields">
+        <div class="header-fields-left">
+            {{!-- Health Tracker --}}
+            {{> "marketplace/rulesets/wod5e/display/shared/actors/parts/health.hbs"}}
+            {{!-- Willpower Tracker --}}
+            {{> "marketplace/rulesets/wod5e/display/shared/actors/parts/willpower.hbs"}}
+        </div>
+    </div>
+    <!-- Middle of the header -->
+    {{> "marketplace/rulesets/wod5e/display/shared/actors/parts/header-profile.hbs"}}
+    <div class="header-fields">
+        <div class="header-fields-right">
+            <div class="flexcol">
+                <div class="field-section flexrow">
+                    <div class="flexrow nowrap shared-row">
+                        <div class="flexcol">
+                            <label for="cellname" class="resource-label field-header">{{localize 'WOD5E.HTR.Cell'}}</label>
+                            <input id="cellname" name="headers.cellname" data-path="headers.cellname" type="text" value="{{cellname}}" placeholder="{{localize 'WOD5E.HTR.Cell'}}" autocomplete="off" aria-label="{{localize 'WOD5E.HTR.Cell'}}"/>
+                        </div>
+                    </div>
+                    <div class="flexcol despair shared-row">
+                        <span class="resource-label field-header">{{localize 'WOD5E.HTR.Despair'}}</span>
+                        {{> "marketplace/rulesets/wod5e/display/htr/actors/parts/despair.hbs"}}
+                    </div>
+                </div>
+                <div class="field-section flexrow">
+                    <div class="flexrow nowrap flexend">
+                        <div class="flexcol shared-row">
+                            <span class="resource-label field-header">{{localize 'WOD5E.HTR.Drive'}}</span>
+                            <div class="resource resource-content">
+                                {{> "marketplace/rulesets/wod5e/display/shared/actors/partials/dynamic-item-display.hbs" item=drive type="drive"}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flexrow nowrap flexend">
+                        <div class="flexcol shared-row">
+                            <span class="resource-label field-header">{{localize 'WOD5E.HTR.Creed'}}</span>
+                            <div class="resource resource-content">
+                                {{> "marketplace/rulesets/wod5e/display/shared/actors/partials/dynamic-item-display.hbs" item=creed type="creed"}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

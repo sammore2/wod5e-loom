@@ -1,0 +1,43 @@
+<div class="flexrow pack-features grid-2col">
+    <div class="territory">
+        <div class="flexrow field-header">
+            <span class="resource-label">{{localize "WOD5E.WTA.Territory"}}</span>
+        </div>
+        <div class="resource resource-content">
+            <div class="resource-value" data-value="{{territory.value}}" data-path="territory.value">
+                <span class="resource-value-empty" data-action="dotCounterEmpty"></span>
+                {{#numLoop 5}}
+                    <span class="resource-value-step" data-action="dotCounterChange" data-index="{{this}}"></span>
+                {{/numLoop}}
+            </div>
+        </div>
+    </div>
+    <div class="community">
+        <div class="flexrow field-header">
+            <span class="resource-label">{{localize "WOD5E.WTA.Community"}}</span>
+        </div>
+        <div class="resource resource-content">
+            <div class="resource-value" data-value="{{community.value}}" data-path="community.value">
+                <span class="resource-value-empty" data-action="dotCounterEmpty"></span>
+                {{#numLoop 5}}
+                    <span class="resource-value-step" data-action="dotCounterChange" data-index="{{this}}"></span>
+                {{/numLoop}}
+            </div>
+        </div>
+    </div>
+    <div class="spirit">
+        <div class="flexrow field-header">
+            <span class="resource-label">{{localize "WOD5E.WTA.Spirit"}}</span>
+        </div>
+        <div class="resource resource-content">
+            <div class="resource-value" data-value="{{spirit.value}}" data-path="spirit.value">
+                <span class="resource-value-empty" data-action="dotCounterEmpty"></span>
+                {{#numLoop 5}}
+                    <span class="resource-value-step" data-action="dotCounterChange" data-index="{{this}}"></span>
+                {{/numLoop}}
+            </div>
+        </div>
+    </div>
+    {{!-- Guiding Spirit --}}
+    {{> "marketplace/rulesets/wod5e/display/wta/actors/parts/guiding-spirit.hbs"}}
+</div>

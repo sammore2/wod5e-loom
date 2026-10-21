@@ -1,0 +1,25 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+    <div class="flexrow">
+        <div class="character-details flexcol">
+            <div class="flexcol flex-group-center">
+                <!-- Core character details -->
+                {{> "marketplace/rulesets/wod5e/display/shared/actors/parts/core-details.hbs"}}
+
+                <!-- Hunter-specific details -->
+                {{> "marketplace/rulesets/wod5e/display/htr/actors/parts/redemption.hbs"}}
+
+                {{> "marketplace/rulesets/wod5e/display/htr/actors/parts/creed-fields.hbs"}}
+
+                <!-- Chronicle Tenets -->
+                {{> "marketplace/rulesets/wod5e/display/shared/actors/parts/chronicle-tenets.hbs"}}
+
+                <!-- Touchstones/Convictions -->
+                {{> "marketplace/rulesets/wod5e/display/shared/actors/parts/touchstones-convictions.hbs"}}
+            </div>
+        </div>
+        <div class="features-list item-list">
+            <!-- Core features -->
+            {{> "marketplace/rulesets/wod5e/display/shared/actors/parts/core-features.hbs"}}
+        </div>
+    </div>
+</section>

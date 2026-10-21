@@ -1,0 +1,79 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+    <div class="flexcol">
+        <div class="details-header field-header flex-center big-header">{{localize "WOD5E.BiographyList.PersonalInformation"}}</div>
+        <div class="detailed-section flexrow">
+            <div class="detail">
+                <label for="bio-trueage">
+                    <b>{{localize "WOD5E.BiographyList.Age"}}</b>
+                </label>
+                <input id="bio-trueage" name="bio.age.trueage" type="text" class="number" data-path="bio.age.trueage" value="{{bio.age.trueage}}" autocomplete="off" aria-label="{{localize 'WOD5E.BiographyList.Age'}}"{{#if locked}} disabled="true"{{/if}}/>
+            </div>
+            {{#ifeq currentActorType 'vampire'}}
+                <div class="detail">
+                    <label for="bio-apparent-age">
+                        <b>{{localize "WOD5E.BiographyList.ApparentAge"}}</b>
+                    </label>
+                    <input id="bio-apparent-age" name="bio.age.apparent" type="text" class="number" data-path="bio.age.apparent" value="{{bio.age.apparent}}" autocomplete="off" aria-label="{{localize 'WOD5E.BiographyList.ApparentAge'}}"{{#if locked}} disabled="true"{{/if}}/>
+                </div>
+            {{/ifeq}}
+            <div class="detail">
+                <label for="bio-birth">
+                    <b>{{localize "WOD5E.BiographyList.DateOfBirth"}}</b>
+                </label>
+                <input id="bio-birth" name="bio.dateof.birth" type="text" class="number" data-path="bio.dateof.birth" value="{{bio.dateof.birth}}" autocomplete="off" aria-label="{{localize 'WOD5E.BiographyList.DateOfBirth'}}"{{#if locked}} disabled="true"{{/if}}/>
+            </div>
+            {{#ifeq currentActorType 'vampire'}}
+                <div class="detail">
+                    <label for="bio-death">
+                        <b>{{localize "WOD5E.BiographyList.DateOfDeath"}}</b>
+                    </label>
+                    <input id="bio-death" name="bio.dateof.death" type="text" class="number" data-path="bio.dateof.death" value="{{bio.dateof.death}}" autocomplete="off" aria-label="{{localize 'WOD5E.BiographyList.DateOfDeath'}}"{{#if locked}} disabled="true"{{/if}}/>
+                </div>
+            {{/ifeq}}
+        </div>
+        <div class="descriptive-section flexrow">
+            <div class="description-field">
+                <div class="flex-center field-header">
+                    <span class="resource-label">
+                        {{localize "WOD5E.BiographyList.Label"}}
+                        <div class="toggle-limited{{#if settings.limited.biography}} visible{{/if}}" data-action="toggleLimited" data-path="settings.limited.biography"
+                            title="{{#if settings.limited.biography}}{{localize "WOD5E.Tabs.IsVisible"}}{{else}}{{localize "WOD5E.Tabs.IsNotVisible"}}{{/if}}">
+                            {{#if settings.limited.biography}}
+                                <i class="fa-solid fa-eye"></i>
+                            {{else}}
+                                <i class="fa-solid fa-eye-slash"></i>
+                            {{/if}}
+                        </div>
+                    </span>
+                </div>
+                <div class="description-content resource">
+                    <prose-mirror data-path="biography" value="{{biography}}"
+                        toggled="true" compact="true">
+                        {{{enrichedBiography}}}
+                    </prose-mirror>
+                </div>
+            </div>
+            <div class="description-field">
+                <div class="flex-center field-header">
+                    <span class="resource-label">
+                        {{localize "WOD5E.BiographyList.Appearance"}}
+                        <div class="toggle-limited{{#if settings.limited.appearance}} visible{{/if}}" data-action="toggleLimited" data-path="settings.limited.appearance"
+                            title="{{#if settings.limited.appearance}}{{localize "WOD5E.Tabs.IsVisible"}}{{else}}{{localize "WOD5E.Tabs.IsNotVisible"}}{{/if}}">
+                            {{#if settings.limited.appearance}}
+                                <i class="fa-solid fa-eye"></i>
+                            {{else}}
+                                <i class="fa-solid fa-eye-slash"></i>
+                            {{/if}}
+                        </div>
+                    </span>
+                </div>
+                <div class="description-content resource">
+                    <prose-mirror data-path="appearance" value="{{appearance}}"
+                        toggled="true" compact="true">
+                        {{{enrichedAppearance}}}
+                    </prose-mirror>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

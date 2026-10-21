@@ -1,0 +1,67 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+    <div class="form-group">
+        <span>{{localize "WOD5E.ActorSettings.ActorHeaderBackground" }}</span>
+        <div class="form-fields">
+            <file-picker class="actor-header-bg-filepicker" data-path="settings.headerbg" type="imagevideo" value="{{headerbg}}"></file-picker>
+        </div>
+    </div>
+    <div class="form-group">
+        <span>{{localize "WOD5E.ActorSettings.ActorBackground" }}</span>
+        <div class="form-fields">
+            <file-picker class="actor-background-filepicker" data-path="settings.background" type="imagevideo" value="{{actorbg}}"></file-picker>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="setting-actor-type">{{localize "WOD5E.ActorSettings.ActorType" }}</label>
+        <div class="form-fields">
+            <select id="setting-actor-type" class="actor-type-selector" name="{{actorTypePath}}" data-type="String"{{#if actor.limited}} disabled{{/if}}>
+                {{selectOptions actorOptions selected=currentActorType localize=true}}
+            </select>
+        </div>
+    </div>
+
+    {{#if hasSkillAttributeData}}
+        <div class="form-group">
+            <label for="setting-skill-attribute-inputs">{{localize "WOD5E.ActorSettings.UseInputFieldsForStats" }}</label>
+            <div class="form-fields">
+                <input id="setting-skill-attribute-inputs" name="settings.skillAttributeInputs" type="checkbox" data-path="settings.skillAttributeInputs" {{#if settings.skillAttributeInputs}}checked{{/if}}>
+            </div>
+        </div>
+    {{/if}}
+
+    {{#ifeq baseActorType 'spc'}}
+        <div class="form-group">
+            <label for="setting-general-difficulty">{{localize "WOD5E.ActorSettings.ShowGeneralDifficulty" }}</label>
+            <div class="form-fields">
+                <input id="setting-general-difficulty" name="settings.generalDifficultyEnabled" type="checkbox" data-path="settings.generalDifficultyEnabled" {{#if generalDifficultyEnabled}}checked{{/if}}>
+            </div>
+        </div>
+    {{/ifeq}}
+
+    {{#if showOptionalPowers}}
+        {{#ifeq gamesystem 'vampire'}}
+            <div class="form-group">
+                <label for="setting-enable-disciplines">{{localize "WOD5E.ActorSettings.ShowDisciplines" }}</label>
+                <div class="form-fields">
+                    <input id="setting-enable-disciplines" name="settings.enableDisciplines" type="checkbox" data-path="settings.enableDisciplines" {{#if enableDisciplines}}checked{{/if}}>
+                </div>
+            </div>
+        {{/ifeq}}
+        {{#ifeq gamesystem 'hunter'}}
+            <div class="form-group">
+                <label for="setting-enable-edges">{{localize "WOD5E.ActorSettings.ShowEdges" }}</label>
+                <div class="form-fields">
+                    <input id="setting-enable-edges" name="settings.enableEdges" type="checkbox" data-path="settings.enableEdges" {{#if enableEdges}}checked{{/if}}>
+                </div>
+            </div>
+        {{/ifeq}}
+        {{#ifeq gamesystem 'werewolf'}}
+            <div class="form-group">
+                <label for="setting-enable-gifts">{{localize "WOD5E.ActorSettings.ShowGifts" }}</label>
+                <div class="form-fields">
+                    <input id="setting-enable-gifts" name="settings.enableGifts" type="checkbox" data-path="settings.enableGifts" {{#if enableGifts}}checked{{/if}}>
+                </div>
+            </div>
+        {{/ifeq}}
+    {{/if}}
+</section>

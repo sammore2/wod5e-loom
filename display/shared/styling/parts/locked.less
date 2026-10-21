@@ -1,0 +1,41 @@
+/*__WOD5E_ORDER_00741__*/
+.locked .item-edit,
+.locked .item-create,
+.locked .item-delete,
+.locked .edit-skill,
+.locked .add-edge,
+.locked .add-edge-pool,
+.locked .add-discipline,
+.locked .discipline-delete,
+.locked .add-gift,
+.locked .xp-control,
+.locked .xp-controls,
+.locked .resource-plus,
+.locked .resource-minus,
+.locked .resource-value-empty:not(.hunger-value, .rage-value),
+.locked .edit-exceptional-pools,
+.locked .exceptionalskill-delete,
+.locked .power-create,
+.locked .power-delete,
+.locked .search-data-item,
+.locked .add-data-item,
+.locked .edit-data-item,
+.locked .remove-actor,
+.actor:not(.locked) .condition-suppression {
+  display: none;
+}
+
+/*__WOD5E_ORDER_00743__*/
+.owned-group-member .resource-value-empty,
+.owned-group-member .resource-value-step {
+  display: inline-flex !important;
+  cursor: pointer !important;
+}
+
+/*__WOD5E_ORDER_00745__*/
+.locked .resource-value-empty:not(.hunger-value, .rage-value),
+.locked .resource-value-step:not(.hunger-value, .rage-value),
+.locked .resource-plus,
+.locked .resource-minus {
+  cursor: default;
+}

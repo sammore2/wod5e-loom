@@ -1,0 +1,62 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+    <div class="flexrow">
+        <div class="character-details flexcol">
+            <div class="flexcol flex-group-center">
+                <div class="flexcol detail-row">
+                    <label for="group-concept" class="resource-label field-header">{{localize "WOD5E.BiographyList.Concept"}}</label>
+                    <input id="group-concept" name="headers.concept" type="text" data-path="headers.concept" value="{{concept}}" placeholder="{{localize 'WOD5E.BiographyList.Concept'}}" autocomplete="off" aria-label="{{localize 'WOD5E.BiographyList.Concept'}}" />
+                </div>
+                <div class="flexcol detail-row">
+                    <label for="group-chronicle" class="resource-label field-header">{{localize "WOD5E.BiographyList.Chronicle"}}</label>
+                    <input id="group-chronicle" name="headers.chronicle" type="text" data-path="headers.chronicle" value="{{chronicle}}" placeholder="{{localize 'WOD5E.BiographyList.Chronicle'}}" autocomplete="off" aria-label="{{localize 'WOD5E.BiographyList.Chronicle'}}" />
+                </div>
+                <div class="description-field">
+                    <div class="flex-center field-header">
+                        <span class="resource-label">
+                            {{localize "WOD5E.BiographyList.ChronicleTenets"}}
+                            <div class="toggle-limited{{#if settings.limited.tenets}} visible{{/if}}" data-action="toggleLimited" data-path="settings.limited.tenets"
+                                title="{{#if settings.limited.tenets}}{{localize "WOD5E.Tabs.IsVisible"}}{{else}}{{localize "WOD5E.Tabs.IsNotVisible"}}{{/if}}">
+                                {{#if settings.limited.tenets}}
+                                    <i class="fa-solid fa-eye"></i>
+                                {{else}}
+                                    <i class="fa-solid fa-eye-slash"></i>
+                                {{/if}}
+                            </div>
+                        </span>
+                    </div>
+                    <div class="description-content resource">
+                        <prose-mirror data-path="headers.tenets" value="{{tenets}}"
+                            toggled="true" compact="true">
+                            {{{enrichedTenets}}}
+                        </prose-mirror>
+                    </div>
+                </div>
+                <div class="description-field">
+                    <div class="flex-center field-header">
+                        <span class="resource-label">
+                            {{localize "WOD5E.BiographyList.History"}}
+                            <div class="toggle-limited{{#if settings.limited.biography}} visible{{/if}}" data-action="toggleLimited" data-path="settings.limited.biography"
+                                title="{{#if settings.limited.biography}}{{localize "WOD5E.Tabs.IsVisible"}}{{else}}{{localize "WOD5E.Tabs.IsNotVisible"}}{{/if}}">
+                                {{#if settings.limited.biography}}
+                                    <i class="fa-solid fa-eye"></i>
+                                {{else}}
+                                    <i class="fa-solid fa-eye-slash"></i>
+                                {{/if}}
+                            </div>
+                        </span>
+                    </div>
+                    <div class="description-content resource">
+                        <prose-mirror data-path="biography" value="{{biography}}"
+                            toggled="true" compact="true">
+                            {{{enrichedBiography}}}
+                        </prose-mirror>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="features-list item-list">
+            <!-- Core features -->
+            {{> "marketplace/rulesets/wod5e/display/shared/actors/parts/core-features.hbs"}}
+        </div>
+    </div>
+</section>
