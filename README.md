@@ -1,7 +1,9 @@
 
-# World of Darkness 5e System
+# World of Darkness 5e System
 
-[![GNU GPL v3 License]][License URL]
+[![Loom VTT](https://img.shields.io/badge/Loom%20VTT-2.0.5--alpha-blueviolet)](https://loomvtt.com)
+[![License](https://img.shields.io/badge/license-GPL--3.0--or--later-blue)](LICENSE.md)
+[![Downloads](https://img.shields.io/github/downloads/sammore2/wod5e-loom/latest/wod5e.zip?label=downloads)](https://github.com/sammore2/wod5e-loom/releases/latest)
 
 This is the LoomVTT adaptation of the community-created World of Darkness 5e system. It is maintained in a new repository and is not a GitHub fork of the upstream repository. The adaptation is based on [WoD5E by Rayji96 and its upstream contributors](https://github.com/WoD5E-Developers/wod5e).
 
@@ -72,8 +74,6 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-[GNU GPL v3 License]: https://img.shields.io/badge/License-GNU_GPL_v3-green
-[License URL]: ./LICENSE.md
 
 [Dark Pack]: ./assets/github/darkpack_logo2.png
 [Dark Pack URL]: https://www.paradoxinteractive.com/games/world-of-darkness/community/dark-pack-agreement
