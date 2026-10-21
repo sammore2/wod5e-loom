@@ -1,7 +1,8 @@
 
 # World of Darkness 5e System
 
-[![Loom VTT](https://img.shields.io/badge/Loom%20VTT-2.0.5--alpha-blueviolet)](https://loomvtt.com)
+[![Loom VTT](https://img.shields.io/badge/Loom%20VTT-2.0.5--alpha-blueviolet)](https://loomvtt.com)
+[![Version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsammore2%2Fwod5e-loom%2Fmain%2Fruleset.json&query=%24.version&label=version&color=c99738)](https://github.com/sammore2/wod5e-loom/releases)
 [![License](https://img.shields.io/badge/license-GPL--3.0--or--later-blue)](LICENSE.md)
 [![Downloads](https://img.shields.io/github/downloads/sammore2/wod5e-loom/latest/wod5e.zip?label=downloads)](https://github.com/sammore2/wod5e-loom/releases/latest)
 
