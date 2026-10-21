@@ -1,25 +1,33 @@
 import { _updateCSSVariable, cssVariablesRecord } from '../../scripts/update-css-variables.js'
+const { BaseWindow, LoomHandlebarsMixin } = Loom
 
-export class SplatColorsMenu extends Loom.BaseWindow {
-  static get defaultOptions() {
-    return Loom.utils.mergeObject(super.defaultOptions, {
-      title: Loom.i18n.localize('WOD5E.Settings.SplatColorsMenu'),
-      id: 'wod5e-splat-colors',
-      classes: ['wod5e'],
-      template: 'marketplace/rulesets/wod5e/display/ui/splat-colors-menu.hbs',
+export class SplatColorsMenu extends LoomHandlebarsMixin(BaseWindow) {
+  static DEFAULT_OPTIONS = {
+    id: 'wod5e-splat-colors',
+    classes: ['wod5e', 'dialog-app', 'sheet', 'application'],
+    window: {
+      title: 'WOD5E.Settings.SplatColorsMenu',
+      resizable: true
+    },
+    position: {
       width: 500,
-      height: 450,
-      resizable: true,
-      closeOnSubmit: true
-    })
+      height: 450
+    }
   }
 
-  /* -------------------------------------------- */
+  static PARTS = {
+    form: {
+      template: 'marketplace/rulesets/wod5e/display/ui/splat-colors-menu.hbs'
+    }
+  }
+
+  get title() {
+    return Loom.i18n.localize(this.options?.window?.title || 'WOD5E.Settings.SplatColorsMenu')
+  }
 
   /** @override */
-  async getData() {
-    const data = await super.getData()
-
+  async _prepareContext(options) {
+    const data = (await super._prepareContext?.(options)) ?? {}
     const cssVariables = cssVariablesRecord()
 
     data.cssVariablesRecord = cssVariables
@@ -40,15 +48,22 @@ export class SplatColorsMenu extends Loom.BaseWindow {
     return data
   }
 
-  /* -------------------------------------------- */
-
   /** @override */
-  activateListeners(html) {
-    // Initialize the JSColor library
-    JSColor.install()
+  async _onRender(context, options) {
+    if (typeof super._onRender === 'function') await super._onRender(context, options)
+
+    const root = this.element
+    if (!root) return
+
+    // Initialize the JSColor library if available
+    if (typeof JSColor !== 'undefined' && typeof JSColor.install === 'function') {
+      JSColor.install()
+    } else if (typeof jscolor !== 'undefined' && typeof jscolor.install === 'function') {
+      jscolor.install(root)
+    }
 
     // On input change, update colours
-    html[0].querySelectorAll('.color-input').forEach((input) => {
+    root.querySelectorAll('.color-input').forEach((input) => {
       input.addEventListener('change', function (event) {
         event.preventDefault()
 
@@ -60,7 +75,7 @@ export class SplatColorsMenu extends Loom.BaseWindow {
       })
     })
 
-    html[0].querySelectorAll('.reset-color').forEach((resetBtn) => {
+    root.querySelectorAll('.reset-color').forEach((resetBtn) => {
       resetBtn.addEventListener('click', async (event) => {
         event.preventDefault()
 
@@ -69,13 +84,22 @@ export class SplatColorsMenu extends Loom.BaseWindow {
         const cssVariable = event.currentTarget.dataset.cssVariable
 
         if (inputId && settingId) {
-          const inputElement = document.querySelector(`#${inputId}`)
-          const defaultColor = Loom.settings.settings.get(`wod5e.${settingId}`).default
+          const inputElement = root.querySelector(`#${inputId}`) || document.querySelector(`#${inputId}`)
+          const defaultColor = Loom.settings.settings.get(`wod5e.${settingId}`)?.default
 
-          inputElement.jscolor.fromString(defaultColor)
-          _updateCSSVariable(settingId, cssVariable, defaultColor)
+          if (inputElement?.jscolor && defaultColor) {
+            inputElement.jscolor.fromString(defaultColor)
+          }
+          if (defaultColor) {
+            _updateCSSVariable(settingId, cssVariable, defaultColor)
+          }
         }
       })
     })
+  }
+
+  // Compatibilidade com chamadas legadas
+  async getData() {
+    return this._prepareContext({})
   }
 }

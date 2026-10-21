@@ -85,20 +85,15 @@
 }
 
 /*__WOD5E_ORDER_01010__*/
-.wod-vampire-theme .sheet .journal-entry-content input,
-.wod-vampire-theme .dialog .journal-entry-content input,
-.wod-vampire-theme .sheet .window-content input,
-.wod-vampire-theme .dialog .window-content input,
-.wod-vampire-theme .sheet .journal-entry-content .actor-header,
-.wod-vampire-theme .dialog .journal-entry-content .actor-header,
-.wod-vampire-theme .sheet .window-content .actor-header,
-.wod-vampire-theme .dialog .window-content .actor-header,
-.wod-vampire-theme .sheet .journal-entry-content .tab,
-.wod-vampire-theme .dialog .journal-entry-content .tab,
-.wod-vampire-theme .sheet .window-content .tab,
-.wod-vampire-theme .dialog .window-content .tab {
-  color: #ffffff;
-  --input-text-color: #ffffff;
+.wod-vampire-theme {
+  .sheet, .dialog {
+    .journal-entry-content, .window-content {
+      input, .actor-header, .tab {
+        color: #ffffff;
+        --input-text-color: #ffffff;
+      }
+    }
+  }
 }
 
 /*__WOD5E_ORDER_01011__*/
@@ -161,15 +156,17 @@
 }
 
 /*__WOD5E_ORDER_01019__*/
-.wod-vampire-theme .actor.sheet .item-list .item,
-.wod-vampire-theme .actor.sheet .resource,
-.wod-vampire-theme .actor.sheet prose-mirror .editor-content,
-.wod-vampire-theme .actor.sheet .actor-header input,
-.wod-vampire-theme .actor.sheet .actor-header .resource,
-.wod-vampire-theme .actor.sheet .stats-container,
-.wod-vampire-theme .actor.sheet .stats-container .stats-footer {
-  background-color: var(--system-dark-color-2);
-  border-color: var(--system-dark-color-4);
+.wod-vampire-theme .actor.sheet {
+  .item-list .item,
+  .resource,
+  prose-mirror .editor-content,
+  .actor-header input,
+  .actor-header .resource,
+  .stats-container,
+  .stats-container .stats-footer {
+    background-color: var(--system-dark-color-2);
+    border-color: var(--system-dark-color-4);
+  }
 }
 
 /*__WOD5E_ORDER_01020__*/

@@ -1,24 +1,33 @@
-export class AutomationMenu extends Loom.BaseWindow {
-  static get defaultOptions() {
-    return Loom.utils.mergeObject(super.defaultOptions, {
-      title: Loom.i18n.localize('WOD5E.Settings.AutomationSettings'),
-      id: 'wod5e-automation',
-      classes: ['wod5e'],
-      template: 'marketplace/rulesets/wod5e/display/ui/automation-menu.hbs',
+const { BaseWindow, LoomHandlebarsMixin } = Loom
+
+export class AutomationMenu extends LoomHandlebarsMixin(BaseWindow) {
+  static DEFAULT_OPTIONS = {
+    id: 'wod5e-automation',
+    classes: ['wod5e', 'dialog-app', 'sheet', 'application'],
+    window: {
+      title: 'WOD5E.Settings.AutomationSettings',
+      resizable: true
+    },
+    position: {
       width: 500,
-      height: 'auto',
-      resizable: true,
-      closeOnSubmit: false
-    })
+      height: 'auto'
+    }
   }
 
-  /* -------------------------------------------- */
+  static PARTS = {
+    form: {
+      template: 'marketplace/rulesets/wod5e/display/ui/automation-menu.hbs'
+    }
+  }
+
+  get title() {
+    return Loom.i18n.localize(this.options?.window?.title || 'WOD5E.Settings.AutomationSettings')
+  }
 
   /** @override */
-  async getData() {
-    const data = await super.getData()
+  async _prepareContext(options) {
+    const data = (await super._prepareContext?.(options)) ?? {}
 
-    // Encrich editor content
     data.disableAutomation = Loom.settings.get('wod5e', 'disableAutomation')
     data.automatedWillpower = Loom.settings.get('wod5e', 'automatedWillpower')
     data.automatedHunger = Loom.settings.get('wod5e', 'automatedHunger')
@@ -28,12 +37,15 @@ export class AutomationMenu extends Loom.BaseWindow {
     return data
   }
 
-  /* -------------------------------------------- */
-
   /** @override */
-  activateListeners(html) {
-    html[0].querySelectorAll('input').forEach((input) => {
-      input.addEventListener('change', function (event) {
+  async _onRender(context, options) {
+    if (typeof super._onRender === 'function') await super._onRender(context, options)
+
+    const root = this.element
+    if (!root) return
+
+    root.querySelectorAll('input').forEach((input) => {
+      input.addEventListener('change', async (event) => {
         event.preventDefault()
         const data = event.target.dataset
 
@@ -41,9 +53,17 @@ export class AutomationMenu extends Loom.BaseWindow {
           const settingId = data.id
           const value = event.target.checked
 
-          Loom.settings.set('wod5e', settingId, value)
+          await Loom.settings.set('wod5e', settingId, value)
+          if (settingId === 'disableAutomation') {
+            this.render(false)
+          }
         }
       })
     })
+  }
+
+  // Compatibilidade com chamadas legadas
+  async getData() {
+    return this._prepareContext({})
   }
 }

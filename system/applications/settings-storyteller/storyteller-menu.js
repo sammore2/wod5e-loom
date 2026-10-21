@@ -5,29 +5,36 @@ import { Disciplines } from '../../api/def/disciplines.js'
 import { Edges } from '../../api/def/edges.js'
 import { Gifts } from '../../api/def/gifts.js'
 
-export class StorytellerMenu extends Loom.BaseWindow {
-  static get defaultOptions() {
-    return Loom.utils.mergeObject(super.defaultOptions, {
-      title: Loom.i18n.localize('WOD5E.Settings.StorytellerMenu'),
-      id: 'wod5e-storyteller',
-      classes: ['wod5e'],
-      template: 'marketplace/rulesets/wod5e/display/ui/storyteller-menu.hbs',
+const { BaseWindow, LoomHandlebarsMixin } = Loom
+
+export class StorytellerMenu extends LoomHandlebarsMixin(BaseWindow) {
+  static DEFAULT_OPTIONS = {
+    id: 'wod5e-storyteller',
+    classes: ['wod5e', 'dialog-app', 'sheet', 'application'],
+    window: {
+      title: 'WOD5E.Settings.StorytellerMenu',
+      resizable: true
+    },
+    position: {
       width: 500,
-      height: 450,
-      resizable: true,
-      closeOnSubmit: true,
-      tabs: [
-        {
-          navSelector: '.sheet-tabs',
-          contentSelector: 'section',
-          initial: 'modifications'
-        }
-      ]
-    })
+      height: 450
+    }
   }
 
-  constructor(application, options) {
-    super(application, options)
+  static PARTS = {
+    form: {
+      template: 'marketplace/rulesets/wod5e/display/ui/storyteller-menu.hbs'
+    }
+  }
+
+  get title() {
+    return Loom.i18n.localize(this.options?.window?.title || 'WOD5E.Settings.StorytellerMenu')
+  }
+
+  constructor(options = {}) {
+    super(options)
+
+    this._activeTab = 'modifications'
 
     this.listKeys = {
       attribute: {
@@ -76,8 +83,8 @@ export class StorytellerMenu extends Loom.BaseWindow {
   /* -------------------------------------------- */
 
   /** @override */
-  async getData() {
-    const data = await super.getData()
+  async _prepareContext(options) {
+    const data = (await super._prepareContext?.(options)) ?? {}
 
     data.attributeTypes = {
       physical: 'WOD5E.SPC.Physical',
@@ -86,18 +93,18 @@ export class StorytellerMenu extends Loom.BaseWindow {
     }
 
     // Grab the modifications from the game settings and add them to the application data
-    data.attributeModifications = Loom.settings.get('wod5e', 'modifiedAttributes')
-    data.skillModifications = Loom.settings.get('wod5e', 'modifiedSkills')
-    data.disciplineModifications = Loom.settings.get('wod5e', 'modifiedDisciplines')
-    data.edgeModifications = Loom.settings.get('wod5e', 'modifiedEdges')
-    data.giftModifications = Loom.settings.get('wod5e', 'modifiedGifts')
+    data.attributeModifications = Loom.settings.get('wod5e', 'modifiedAttributes') || []
+    data.skillModifications = Loom.settings.get('wod5e', 'modifiedSkills') || []
+    data.disciplineModifications = Loom.settings.get('wod5e', 'modifiedDisciplines') || []
+    data.edgeModifications = Loom.settings.get('wod5e', 'modifiedEdges') || []
+    data.giftModifications = Loom.settings.get('wod5e', 'modifiedGifts') || []
 
     // Grab the custom features from the game settings and add them to the application data
-    data.customAttributes = Loom.settings.get('wod5e', 'customAttributes')
-    data.customSkills = Loom.settings.get('wod5e', 'customSkills')
-    data.customDisciplines = Loom.settings.get('wod5e', 'customDisciplines')
-    data.customEdges = Loom.settings.get('wod5e', 'customEdges')
-    data.customGifts = Loom.settings.get('wod5e', 'customGifts')
+    data.customAttributes = Loom.settings.get('wod5e', 'customAttributes') || []
+    data.customSkills = Loom.settings.get('wod5e', 'customSkills') || []
+    data.customDisciplines = Loom.settings.get('wod5e', 'customDisciplines') || []
+    data.customEdges = Loom.settings.get('wod5e', 'customEdges') || []
+    data.customGifts = Loom.settings.get('wod5e', 'customGifts') || []
 
     return data
   }
@@ -105,19 +112,42 @@ export class StorytellerMenu extends Loom.BaseWindow {
   /* -------------------------------------------- */
 
   /** @override */
-  activateListeners(html) {
+  async _onRender(context, options) {
+    if (typeof super._onRender === 'function') await super._onRender(context, options)
+
+    const root = this.element
+    if (!root) return
+
+    // Tab switching
+    const activeTab = this._activeTab || 'modifications'
+    root.querySelectorAll('.sheet-tabs .item').forEach((tabEl) => {
+      const tabName = tabEl.getAttribute('data-tab')
+      tabEl.classList.toggle('active', tabName === activeTab)
+      tabEl.addEventListener('click', (event) => {
+        event.preventDefault()
+        this._activeTab = tabName
+        root.querySelectorAll('.sheet-tabs .item').forEach((t) => t.classList.toggle('active', t.getAttribute('data-tab') === tabName))
+        root.querySelectorAll('.tab[data-tab]').forEach((s) => {
+          s.style.display = s.getAttribute('data-tab') === tabName ? '' : 'none'
+        })
+      })
+    })
+    root.querySelectorAll('.tab[data-tab]').forEach((s) => {
+      s.style.display = s.getAttribute('data-tab') === activeTab ? '' : 'none'
+    })
+
     const handleClick = (selector, handler) => {
-      html[0].querySelectorAll(selector).forEach((element) => {
+      root.querySelectorAll(selector).forEach((element) => {
         element.addEventListener('click', function (event) {
           event.preventDefault()
-          const data = event.target.dataset
+          const data = event.currentTarget?.dataset || event.target?.dataset
           handler(data)
         })
       })
     }
 
     const addCustomItem = async (listKey, label) => {
-      const list = await Loom.settings.get('wod5e', listKey)
+      const list = (await Loom.settings.get('wod5e', listKey)) || []
       const newItem = {
         id: Loom.utils.randomID(8),
         label
@@ -131,6 +161,7 @@ export class StorytellerMenu extends Loom.BaseWindow {
       // Push the default item into the main list and save the new setting
       list.push(newItem)
       await Loom.settings.set('wod5e', listKey, list)
+      this.render(false)
     }
 
     handleClick('.add-mod-button', ({ type }) => this._onGenerateModPrompt(type))
@@ -170,32 +201,32 @@ export class StorytellerMenu extends Loom.BaseWindow {
 
       const handleFeature = (feature, list) => {
         const { id, type, label } = feature.dataset
-        const rename = $(feature).find('.mod-rename')[0].value
-        const hidden = $(feature).find('.mod-hidden')[0].checked
+        const rename = feature.querySelector('.mod-rename')?.value || ''
+        const hidden = feature.querySelector('.mod-hidden')?.checked || false
         list[type].push({ id, rename, label, hidden })
       }
 
       const handleCustomFeature = (feature, customList) => {
         const { id, type } = feature.dataset
-        const label = $(feature).find('.label')[0].value
-        const attrType = $(feature).find('.attr-type')[0]?.value || ''
+        const label = feature.querySelector('.label')?.value || ''
+        const attrType = feature.querySelector('.attr-type')?.value || ''
         const newItem = { id, label }
         if (type === 'attribute' || type === 'skill') newItem.type = attrType
         customList[type].push(newItem)
       }
 
-      html[0].querySelectorAll('.modification-row').forEach(function (row) {
+      root.querySelectorAll('.modification-row').forEach(function (row) {
         handleFeature(row, modifications)
       })
 
-      html[0].querySelectorAll('.customization-row').forEach(function (row) {
+      root.querySelectorAll('.customization-row').forEach(function (row) {
         handleCustomFeature(row, custom)
       })
 
       // Attributes
       Loom.settings.set('wod5e', 'modifiedAttributes', modifications.attribute)
       Loom.settings.set('wod5e', 'customAttributes', custom.attribute)
-      // SKills
+      // Skills
       Loom.settings.set('wod5e', 'modifiedSkills', modifications.skill)
       Loom.settings.set('wod5e', 'customSkills', custom.skill)
       // Disciplines
@@ -219,7 +250,7 @@ export class StorytellerMenu extends Loom.BaseWindow {
   // Function for rendering the dialog for adding a new modification
   async _onRenderPromptDialog(type, list, title) {
     const modifiedKey = `modified${this.listKeys[type].defCategory}`
-    const modifiedList = await Loom.settings.get('wod5e', modifiedKey)
+    const modifiedList = (await Loom.settings.get('wod5e', modifiedKey)) || []
 
     const effectiveList = Object.fromEntries(
       Object.entries(list).filter((item) => !modifiedList.some((mod) => mod.id === item[0]))
@@ -252,23 +283,31 @@ export class StorytellerMenu extends Loom.BaseWindow {
       const label = list[id]?.label || id
       modifiedList.push({ id, label, rename: '', hidden: false })
       await Loom.settings.set('wod5e', modifiedKey, modifiedList)
+      this.render(false)
     }
   }
 
   // Function for removing a change
   async _onRemoveChange(type, id) {
     const modifiedKey = `modified${this.listKeys[type].defCategory}`
-    let modifiedList = await Loom.settings.get('wod5e', modifiedKey)
+    let modifiedList = (await Loom.settings.get('wod5e', modifiedKey)) || []
     modifiedList = modifiedList.filter((item) => item.id !== id)
     await Loom.settings.set('wod5e', modifiedKey, modifiedList)
+    this.render(false)
   }
 
   // Function for removing a custom feature
   async _onRemoveCustom(type, id) {
     const customKey = `custom${this.listKeys[type].defCategory}`
     delete this.listKeys[type].defClass[id]
-    let customList = await Loom.settings.get('wod5e', customKey)
+    let customList = (await Loom.settings.get('wod5e', customKey)) || []
     customList = customList.filter((item) => item.id !== id)
     await Loom.settings.set('wod5e', customKey, customList)
+    this.render(false)
+  }
+
+  // Compatibilidade com chamadas legadas
+  async getData() {
+    return this._prepareContext({})
   }
 }
