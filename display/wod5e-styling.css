@@ -2185,10 +2185,11 @@ body.uk .actor.sheet {
   flex-grow: 0;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 0 15px !important;
+  padding: 34px 15px 6px 15px !important;
   box-sizing: border-box !important;
   width: 100% !important;
   margin-left: 0 !important;
+  border-radius: 6px 6px 0 0;
 }
 /* Header right fields (Célula, Credo, Ímpeto, Tribo, Auspício, Clã) */
 .actor.sheet .header-fields-right .shared-row input,
@@ -2695,7 +2696,7 @@ body.uk .actor.sheet {
 }
 .actor.sheet .tabs-container {
   position: absolute;
-  top: 40px;
+  top: 16px;
   right: 100%;
   left: auto;
   width: 52px;
@@ -5735,13 +5736,34 @@ prose-mirror .editor-menu button::before {
 .actor.sheet a:hover {
   color: var(--vampire-color-2, #ff2b2b);
 }
+/* Cabeçalho da janela integrado ao banner de arte da ficha */
+.actor.sheet .loom-window-header,
+.loom-window.actor.sheet .loom-window-header {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.15) 60%, transparent 100%) !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  z-index: 10 !important;
+}
+.actor.sheet .loom-window-header .loom-window-title {
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+  opacity: 0.85;
+}
+.actor.sheet .loom-window-controls button {
+  color: #fff !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+}
 /* Dock de abas flutuando externamente à esquerda */
 .actor.sheet .tabs-container,
 .loom-window .actor.sheet .tabs-container,
 .actor.sheet.loom-window .tabs-container,
 .actor.sheet.loom-window .loom-window-body .tabs-container {
   position: absolute !important;
-  top: 40px !important;
+  top: 16px !important;
   right: 100% !important;
   left: auto !important;
   width: 52px !important;
