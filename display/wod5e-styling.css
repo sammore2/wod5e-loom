@@ -5658,6 +5658,71 @@ prose-mirror .editor-menu button::before {
 .actor.sheet .field-header.resource-label.flexrow > * {
   flex: 0 0 auto !important;
 }
+/* =========================================================
+   SOBREPOSIÇÃO DO MOTOR LOOMVTT PARA FICHAS WOD5E
+   Garante autoridade do sistema sobre as regras do core
+   ========================================================= */
+/* Abas: protege tanto .sheet-tabs quanto .tabs dentro do container */
+.actor.sheet .tabs-container .tabs,
+.loom-window .actor.sheet .tabs-container .tabs {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  gap: 2px !important;
+  overflow: visible !important;
+}
+/* Grupos de formulário (.form-group) sem a divisão forçada de 30%/60% do core */
+.actor.sheet .form-group,
+.actor.sheet .form-group-horizontal,
+.loom-window .actor.sheet .form-group,
+.loom-window .actor.sheet .form-group-horizontal {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+.actor.sheet .form-group > label,
+.actor.sheet .form-group-horizontal > label,
+.loom-window .actor.sheet .form-group-horizontal > label {
+  flex: 0 0 auto !important;
+  width: auto !important;
+}
+.actor.sheet .form-group > input,
+.actor.sheet .form-group > select,
+.actor.sheet .form-group > textarea,
+.actor.sheet .form-group-horizontal > input,
+.actor.sheet .form-group-horizontal > select,
+.actor.sheet .form-group-horizontal > textarea,
+.loom-window .actor.sheet .form-group-horizontal > input:not([type="checkbox"]),
+.loom-window .actor.sheet .form-group-horizontal > select,
+.loom-window .actor.sheet .form-group-horizontal > textarea {
+  flex: 1 1 auto !important;
+  width: auto !important;
+  min-width: 0;
+}
+/* Tabelas limpas para itens, listas e inventários */
+.actor.sheet table {
+  margin-bottom: 0 !important;
+  border-collapse: collapse;
+}
+.actor.sheet th,
+.actor.sheet td {
+  padding: 4px 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+/* Imagens sem border-radius indesejado do core */
+.actor.sheet img:not(.profile-img) {
+  border-radius: 0;
+}
+/* Links sem cor de acento padrão do core */
+.actor.sheet a {
+  color: inherit;
+}
+.actor.sheet a:hover {
+  color: var(--vampire-color-2, #ff2b2b);
+}
 /* Reset Loom engine's .flexcol > * { flex: 1 } so vertical children keep their natural height */
 .wod5e .flexcol > * {
   flex: 0 0 auto;
