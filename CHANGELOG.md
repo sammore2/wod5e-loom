@@ -8,16 +8,16 @@ Each release tag `vX.Y.Z` publishes the section headed `## [X.Y.Z]` as its relea
 ## [1.0.11]
 
 ### Added
-- **Dock de Abas Flutuante Externo à Esquerda**: A barra de navegação das fichas de personagem agora flutua externamente à esquerda da janela, liberando 100% da largura útil interna para os dados do personagem e eliminando o offset rígido anterior.
-- **Seletor de Imagens nas Configurações do Ator**: Substituída a tag legada do Foundry por campos de entrada e botões integrados à `FilePickerWindow` nativa do LoomVTT, permitindo alterar com facilidade a imagem de cabeçalho e a imagem de fundo do personagem.
+- **External Floating Tab Dock on Left Edge**: Character sheet navigation tabs now float outside the window on the left edge, freeing 100% of the internal usable width for sheet data and removing the previous rigid offset.
+- **Image Pickers in Actor Settings**: Replaced legacy Foundry tag with text inputs and dedicated browse buttons integrated into LoomVTT's native `FilePickerWindow`, allowing users to easily customize actor header and background images.
 
 ### Changed
-- **Integração Visual do Cabeçalho com a Janela**: O `.loom-window-header` agora é posicionado de forma translúcida sobre a arte do cabeçalho da ficha, unificando o topo da janela como um bloco visual único e contínuo, com respiro de padding para não obstruir controles de janela.
+- **Seamless Window Header Integration**: The `.loom-window-header` is now positioned with a translucent gradient overlay on top of the sheet header artwork, unifying the top of the window as a single visual block while providing padding protection for window controls.
 
 ### Fixed
-- **Árvore de Disciplinas, Cerimônias e Rituais**: Conexões verticais contínuas sem falhas, ramificações horizontais estendidas até encostar nos ícones de poder e alinhamento sob o nó pai sem cortar os ícones.
-- **Painel de Condições e Rolagens Personalizadas**: Ajustada a disposição para acomodar itens lado a lado em telas largas e adicionado espaçamento inferior de segurança (`padding-bottom: 50px`) na aba para prevenir que elementos sejam encobertos pela barra inferior do tipo de ator (`.sheet-banner`).
-- **Remoção de Indicadores Artificiais**: Eliminadas barras laterais artificiais na aba ativa, mantendo estilo limpo e condizente com a interface nativa do Loom.
+- **Disciplines, Ceremonies, and Rituals Tree**: Vertical connection lines are now continuous without gaps, horizontal branches extend flush to power icons, and tree roots connect cleanly under category icons without piercing through them.
+- **Conditions and Custom Rolls Layout**: Responsive side-by-side flex layout on wider sheets, plus safety padding (`padding-bottom: 50px`) on tabs to prevent content from being clipped by the bottom actor type banner (`.sheet-banner`).
+- **Clean Active Tab Styling**: Removed artificial side-bar accent indicators on active tabs, maintaining a clean, native Loom interface aesthetic.
 
 ## [1.0.10]
 
