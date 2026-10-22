@@ -5796,8 +5796,8 @@ prose-mirror .editor-menu button::before {
 .actor.sheet .tabs-container .sheet-tabs > [data-tab].active,
 .loom-window .actor.sheet .tabs-container .sheet-tabs > [data-tab].active,
 .actor.sheet.loom-window .tabs-container .sheet-tabs > [data-tab].active {
-  background: rgba(255, 255, 255, 0.15) !important;
-  border-left: 3px solid var(--vampire-color-2, #ff2b2b) !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+  border: none !important;
 }
 /* Reset Loom engine's .flexcol > * { flex: 1 } so vertical children keep their natural height */
 .wod5e .flexcol > * {
