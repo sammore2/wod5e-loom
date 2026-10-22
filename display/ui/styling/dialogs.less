@@ -230,35 +230,32 @@
 
 /*__WOD5E_ORDER_00703__*/
 .item.sheet .tabs-container nav.tabs,
-.dialog-app.sheet .tabs-container nav.tabs {
+.item.sheet .tabs-container nav.sheet-tabs,
+.dialog-app.sheet .tabs-container nav.tabs,
+.dialog-app.sheet .tabs-container nav.sheet-tabs {
   background-color: white !important;
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: wrap !important;
   justify-content: center !important;
   padding: 5px 0 !important;
-  /* O core (`client/styles/windows.css`, `.loom-window .tabs`) aplica `margin: 0 -1.5rem`
-     em toda `.tabs` pra sangrar até a borda da janela quando ela é filha direta de
-     `.loom-window-body` (cancela o padding do body). Aqui `nav.tabs` fica dentro de um
-     `.tabs-container` extra (ver tab-navigation.hbs) — não é filho direto do body, então
-     essa margem negativa não cancela padding nenhum, só estoura a caixa ~24px pra cada
-     lado além da janela, vazando pro `.window-content` (overflow:auto) como barra de
-     rolagem horizontal pra JANELA INTEIRA. Zerado aqui — esta barra já tem fundo/borda
-     próprios, não precisa do efeito de sangria do core.
-  */
   margin: 0 !important;
 }
 
 /*__WOD5E_ORDER_00704__*/
 .item.sheet .tabs-container nav.tabs div,
-.dialog-app.sheet .tabs-container nav.tabs div {
+.item.sheet .tabs-container nav.sheet-tabs div,
+.dialog-app.sheet .tabs-container nav.tabs div,
+.dialog-app.sheet .tabs-container nav.sheet-tabs div {
   padding: 0 5px !important;
   cursor: pointer !important;
 }
 
 /*__WOD5E_ORDER_00705__*/
 .item.sheet .tabs-container nav.tabs span,
-.dialog-app.sheet .tabs-container nav.tabs span {
+.item.sheet .tabs-container nav.sheet-tabs span,
+.dialog-app.sheet .tabs-container nav.tabs span,
+.dialog-app.sheet .tabs-container nav.sheet-tabs span {
   color: black !important;
   font-weight: bold !important;
   cursor: pointer !important;
@@ -266,7 +263,9 @@
 
 /*__WOD5E_ORDER_00709__*/
 .item.sheet .tabs-container nav.tabs span,
-.dialog-app.sheet .tabs-container nav.tabs span {
+.item.sheet .tabs-container nav.sheet-tabs span,
+.dialog-app.sheet .tabs-container nav.tabs span,
+.dialog-app.sheet .tabs-container nav.sheet-tabs span {
   font-size: 13px !important;
   /* Antes `nowrap`: 5 abas (a última, "Configurações de Item", é comprida) numa única
      linha ficavam ~24px mais largas que a janela padrão (530px) — o `.tabs-container`
