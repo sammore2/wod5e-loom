@@ -2,13 +2,19 @@
     <div class="form-group">
         <span>{{localize "WOD5E.ActorSettings.ActorHeaderBackground" }}</span>
         <div class="form-fields">
-            <file-picker class="actor-header-bg-filepicker" data-path="settings.headerbg" type="imagevideo" value="{{headerbg}}"></file-picker>
+            <input type="text" class="actor-header-bg-input" name="settings.headerbg" data-path="settings.headerbg" value="{{headerbg}}" placeholder="path/to/header.webp">
+            <button type="button" class="file-picker-btn" data-action="pickFile" data-target="settings.headerbg" title="{{localize 'WOD5E.Select'}}">
+                <i class="fas fa-file-import"></i>
+            </button>
         </div>
     </div>
     <div class="form-group">
         <span>{{localize "WOD5E.ActorSettings.ActorBackground" }}</span>
         <div class="form-fields">
-            <file-picker class="actor-background-filepicker" data-path="settings.background" type="imagevideo" value="{{actorbg}}"></file-picker>
+            <input type="text" class="actor-bg-input" name="settings.background" data-path="settings.background" value="{{actorbg}}" placeholder="path/to/background.webp">
+            <button type="button" class="file-picker-btn" data-action="pickFile" data-target="settings.background" title="{{localize 'WOD5E.Select'}}">
+                <i class="fas fa-file-import"></i>
+            </button>
         </div>
     </div>
     <div class="form-group">

@@ -60,6 +60,8 @@
   overflow-y: auto;
   align-items: flex-start;
   height: 100%;
+  padding-bottom: 50px !important;
+  box-sizing: border-box !important;
 }
 
 /*__WOD5E_ORDER_00433__*/
@@ -787,9 +789,20 @@
 
 /*__WOD5E_ORDER_00565__*/
 .actor.sheet .stats-content .side-panel {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 300px;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  gap: 16px !important;
+  justify-content: center !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 10px 0 !important;
+}
+
+.actor.sheet .stats-content .side-panel .stat-panel-section {
+  flex: 1 1 240px !important;
+  min-width: 200px !important;
+  max-width: 450px !important;
 }
 
 /*__WOD5E_ORDER_00571__*/
@@ -844,6 +857,35 @@
 }
 
 /* Grupos de formulário (.form-group) sem a divisão forçada de 30%/60% do core */
+.actor.sheet .form-group .form-fields,
+.loom-window .actor.sheet .form-group .form-fields {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+}
+
+.actor.sheet .file-picker-btn,
+.loom-window .actor.sheet .file-picker-btn {
+  flex: 0 0 32px !important;
+  width: 32px !important;
+  height: 32px !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: var(--color-text-primary, #e8e8e6) !important;
+  border-radius: 4px !important;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.18) !important;
+  }
+}
+
 .actor.sheet .form-group,
 .actor.sheet .form-group-horizontal,
 .loom-window .actor.sheet .form-group,

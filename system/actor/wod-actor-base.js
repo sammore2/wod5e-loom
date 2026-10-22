@@ -20,6 +20,7 @@ import {
 // Various button functions
 import { _onRollItem } from './scripts/item-roll.js'
 import { _onEditImage } from './scripts/on-edit-image.js'
+import { _onPickFile } from './scripts/on-pick-file.js'
 import { _onToggleLock } from './scripts/on-toggle-lock.js'
 import { _onEditSkill } from './scripts/on-edit-skill.js'
 import { _onAddExperience, _onRemoveExperience, _onEditExperience } from './scripts/experience.js'
@@ -179,6 +180,7 @@ export class WoDActorBase extends LoomHandlebarsMixin(
       dotCounterChange: _onDotCounterChange,
       dotCounterEmpty: _onDotCounterEmpty,
       editImage: _onEditImage,
+      pickFile: _onPickFile,
       editSkill: _onEditSkill,
       toggleLock: _onToggleLock,
       toggleLimited: _onToggleLimited,

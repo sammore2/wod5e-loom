@@ -17,6 +17,7 @@ import {
 } from './scripts/counters.js'
 // Various button functions
 import { _onEditImage } from './scripts/on-edit-image.js'
+import { _onPickFile } from './scripts/on-pick-file.js'
 import { _onToggleLock } from './scripts/on-toggle-lock.js'
 import { getActorItems } from '../scripts/embedded-items.js'
 import {
@@ -89,6 +90,7 @@ export class GroupActorSheet extends LoomHandlebarsMixin(
       dotCounterChange: _onDotCounterChange,
       dotCounterEmpty: _onDotCounterEmpty,
       editImage: _onEditImage,
+      pickFile: _onPickFile,
       toggleLock: _onToggleLock,
       toggleCollapse: _onToggleCollapse,
       toggleLimited: _onToggleLimited
