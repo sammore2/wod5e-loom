@@ -118,7 +118,7 @@ export function queueActorFieldUpdate(actor, fields, value) {
     } catch (error) {
       console.error(`World of Darkness 5e | Error updating actor resource: ${error.message}`)
     }
-  }, 200)
+  }, 500)
 }
 
 // Handle assigning a new value to the appropriate actor field

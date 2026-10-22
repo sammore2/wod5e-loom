@@ -1507,8 +1507,14 @@ h3.item-name {
   background-color: var(--system-dark-color-2) !important;
   border: 1px solid var(--system-color-5) !important;
   border-radius: 0 !important;
-  padding: 5px !important;
-  height: 38px !important;
+  padding: 5px 8px !important;
+  min-height: 38px !important;
+  height: auto !important;
+  line-height: 1.25;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   color: inherit !important;
 }
 .actor.sheet.vampire .tab[data-tab="blood"] .resource .remorse-roll .field-header {
@@ -2284,12 +2290,10 @@ body.uk .actor.sheet {
 .actor.sheet .actor-header .header-profile .name-field {
   width: 250px;
   position: absolute;
-  height: 100%;
-  align-items: flex-end;
-}
-.actor.sheet .actor-header .header-profile .name-field:not(.clickthrough) {
   height: 35px;
-  bottom: 0;
+  bottom: 14px;
+  align-items: center;
+  justify-content: center;
 }
 .actor.sheet .actor-header .header-profile .clickthrough {
   pointer-events: none;
