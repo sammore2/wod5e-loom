@@ -5,6 +5,20 @@ Each release tag `vX.Y.Z` publishes the section headed `## [X.Y.Z]` as its relea
 
 ## [Unreleased]
 
+## [1.0.11]
+
+### Added
+- **Dock de Abas Flutuante Externo à Esquerda**: A barra de navegação das fichas de personagem agora flutua externamente à esquerda da janela, liberando 100% da largura útil interna para os dados do personagem e eliminando o offset rígido anterior.
+- **Seletor de Imagens nas Configurações do Ator**: Substituída a tag legada do Foundry por campos de entrada e botões integrados à `FilePickerWindow` nativa do LoomVTT, permitindo alterar com facilidade a imagem de cabeçalho e a imagem de fundo do personagem.
+
+### Changed
+- **Integração Visual do Cabeçalho com a Janela**: O `.loom-window-header` agora é posicionado de forma translúcida sobre a arte do cabeçalho da ficha, unificando o topo da janela como um bloco visual único e contínuo, com respiro de padding para não obstruir controles de janela.
+
+### Fixed
+- **Árvore de Disciplinas, Cerimônias e Rituais**: Conexões verticais contínuas sem falhas, ramificações horizontais estendidas até encostar nos ícones de poder e alinhamento sob o nó pai sem cortar os ícones.
+- **Painel de Condições e Rolagens Personalizadas**: Ajustada a disposição para acomodar itens lado a lado em telas largas e adicionado espaçamento inferior de segurança (`padding-bottom: 50px`) na aba para prevenir que elementos sejam encobertos pela barra inferior do tipo de ator (`.sheet-banner`).
+- **Remoção de Indicadores Artificiais**: Eliminadas barras laterais artificiais na aba ativa, mantendo estilo limpo e condizente com a interface nativa do Loom.
+
 ## [1.0.10]
 
 ### Changed
