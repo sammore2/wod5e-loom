@@ -2918,6 +2918,8 @@ body.uk .actor.sheet {
 .actor.sheet .loom-window-body {
   position: relative;
   overflow: visible !important;
+  padding: 0 !important;
+  gap: 0 !important;
 }
 /* LoomVTT fix: Make sure the body has the dark background if the actor theme is dark */
 .theme-dark .actor.sheet .loom-window-body,
@@ -5625,8 +5627,17 @@ prose-mirror .editor-menu button::before {
 .actor.sheet .tab[data-tab="experience"] .experience-entry .xp-control {
   flex: 0 0 auto;
 }
+.actor.sheet.vampire .tab[data-tab="blood"] .blood-potency > .flex-group-center > .resource,
+.actor.sheet.vampire .tab[data-tab="blood"] .blood-details > .flex-group-center:first-child > .resource {
+  min-height: 75px !important;
+  justify-content: center;
+}
 .actor.sheet .window-content .tab {
   margin-left: 58px;
+}
+/* Reset Loom engine's .flexcol > * { flex: 1 } so vertical children keep their natural height */
+.wod5e .flexcol > * {
+  flex: 0 0 auto;
 }
 .item.sheet section.tab.active,
 .loom-window .item.sheet section.tab.active,
