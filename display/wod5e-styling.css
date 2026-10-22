@@ -3906,7 +3906,7 @@ input.itemname:focus {
   content: '';
   position: absolute;
   top: 0;
-  bottom: -1px;
+  bottom: 0;
   left: -2px;
   width: 2px;
   background-color: var(--vampire-color-1, #650202);
@@ -3929,14 +3929,14 @@ input.itemname:focus {
 .powers-display-tree li:before {
   content: '';
   position: absolute;
-  top: 18px !important;
+  top: 16px !important;
   left: -2px !important;
-  width: 20px;
+  width: 32px !important;
   height: 2px !important;
   background-color: var(--vampire-color-1, #650202);
 }
 .powers-display-tree li:last-of-type:after {
-  height: 19px !important;
+  height: 17px !important;
   bottom: auto !important;
 }
 .powers-display-tree .icon {
@@ -5855,5 +5855,5 @@ prose-mirror .editor-menu button::before {
   color: #1a1a1a !important;
 }
 .powers-display-tree li:first-child:after {
-  top: -14px !important;
+  top: 0;
 }
