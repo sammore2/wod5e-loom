@@ -51,7 +51,8 @@
   width: 100% !important;
 }
 .actor.sheet .window-content .tab {
-  margin-left: 58px;
+  margin-left: 0 !important;
+  padding: 0 15px;
 }
 
 /*__WOD5E_ORDER_00432__*/
@@ -98,7 +99,7 @@
   flex-grow: 0;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 0 5px 0 58px !important;
+  padding: 0 15px !important;
   box-sizing: border-box !important;
   width: 100% !important;
   margin-left: 0 !important;
@@ -628,12 +629,12 @@
   min-width: 40px !important;
   min-height: 40px !important;
   align-self: center;
-  border-radius: 0 !important;
+  border-radius: 6px !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
   background-color: rgba(0, 0, 0, 0.4) !important;
   color: var(--color-text-primary, #e8e8e6) !important;
   padding: 0 !important;
-  margin: 5px auto !important;
+  margin: 4px auto !important;
   box-shadow: none !important;
   display: flex !important;
   align-items: center !important;
@@ -665,30 +666,38 @@
 /*__WOD5E_ORDER_00536__*/
 .actor.sheet .tabs-container {
   position: absolute;
-  height: 100%;
-  left: 0;
-  width: 50px;
-  overflow: hidden;
+  top: 40px;
+  right: 100%;
+  left: auto;
+  width: 52px;
+  height: auto;
+  overflow: visible;
+  border-radius: 8px 0 0 8px;
+  border: 1px solid var(--vampire-color-1, #650202);
+  border-right: none;
+  background: var(--system-dark-color-1, #0c0a0df5);
+  box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.6);
+  z-index: 10;
 }
 
 /*__WOD5E_ORDER_00537__*/
 .actor.sheet .sheet-tabs {
   display: flex !important;
   flex-direction: column !important;
-  height: calc(100% - 30px) !important;
-  align-items: flex-start !important;
-  width: 50px !important;
+  height: auto !important;
+  align-items: center !important;
+  width: 100% !important;
   justify-content: flex-start !important;
-  overflow: hidden;
+  overflow: visible;
   background: transparent !important;
-  gap: unset;
+  gap: 4px;
   border: none !important;
   border-top: 0 !important;
   border-bottom: 0 !important;
   position: relative !important;
   top: auto !important;
   margin: 0 !important;
-  padding: 0 !important;
+  padding: 6px 0 !important;
 }
 
 /*__WOD5E_ORDER_00538__*/
@@ -887,6 +896,41 @@
   }
 }
 
+/* Dock de abas flutuando externamente à esquerda */
+.actor.sheet .tabs-container,
+.loom-window .actor.sheet .tabs-container,
+.actor.sheet.loom-window .tabs-container,
+.actor.sheet.loom-window .loom-window-body .tabs-container {
+  position: absolute !important;
+  top: 40px !important;
+  right: 100% !important;
+  left: auto !important;
+  width: 52px !important;
+  height: auto !important;
+  overflow: visible !important;
+  border-radius: 8px 0 0 8px !important;
+  border: 1px solid var(--vampire-color-1, #650202) !important;
+  border-right: none !important;
+  background: var(--system-dark-color-1, #0c0a0df5) !important;
+  box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.6) !important;
+  z-index: 10 !important;
+}
+
+.actor.sheet.werewolf .tabs-container,
+.loom-window .actor.sheet.werewolf .tabs-container {
+  border-color: var(--werewolf-color-1, #4e2100) !important;
+}
+
+.actor.sheet.hunter .tabs-container,
+.loom-window .actor.sheet.hunter .tabs-container {
+  border-color: var(--hunter-color-1, #cf5b00) !important;
+}
+
+.actor.sheet.mortal .tabs-container,
+.loom-window .actor.sheet.mortal .tabs-container {
+  border-color: var(--mortal-color-1, #3a3a3a) !important;
+}
+
 /*__WOD5E_ORDER_00596__*/
 .actor.sheet .tabs-container .sheet-tabs,
 .loom-window .actor.sheet .tabs-container .sheet-tabs,
@@ -896,16 +940,16 @@
   flex-direction: column !important;
   align-items: center !important;
   justify-content: flex-start !important;
-  width: 50px !important;
-  height: 100% !important;
+  width: 100% !important;
+  height: auto !important;
   margin: 0 !important;
-  padding: 0 !important;
+  padding: 6px 0 !important;
   border: none !important;
   background: transparent !important;
   box-shadow: none !important;
   position: relative !important;
   top: auto !important;
-  gap: 2px !important;
+  gap: 4px !important;
   overflow: visible !important;
 }
 
@@ -916,12 +960,24 @@
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  width: 100% !important;
-  height: 50px !important;
-  margin: 0 !important;
+  width: 40px !important;
+  height: 40px !important;
+  margin: 0 auto !important;
   padding: 0 !important;
   text-align: center !important;
   border: none !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  &.active {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-left: 3px solid var(--vampire-color-2, #ff2b2b) !important;
+  }
 }
 
 /*__WOD5E_ORDER_00600__*/
