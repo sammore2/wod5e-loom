@@ -1504,6 +1504,12 @@ h3.item-name {
 .actor.sheet.vampire .tab[data-tab="blood"] .resource-contents:not(.prosemirror-resource),
 .actor.sheet.vampire .tab[data-tab="blood"] input.resource {
   font-weight: bold;
+  background-color: var(--system-dark-color-2) !important;
+  border: 1px solid var(--system-color-5) !important;
+  border-radius: 0 !important;
+  padding: 5px !important;
+  height: 38px !important;
+  color: inherit !important;
 }
 .actor.sheet.vampire .tab[data-tab="blood"] .resource .remorse-roll .field-header {
   display: inline-flex;
@@ -2080,7 +2086,7 @@ body.uk .actor.sheet {
   width: 100% !important;
 }
 .actor.sheet .window-content section.tab {
-  overflow-y: scroll;
+  overflow-y: auto;
   align-items: flex-start;
   height: 100%;
 }
@@ -2315,6 +2321,13 @@ body.uk .actor.sheet {
 .actor.sheet .actor-header input.charname {
   font-size: 30px;
   text-align: center;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  color: inherit;
+  font-family: inherit;
 }
 .actor.sheet .actor-header .header-fields {
   display: flex;
@@ -5634,6 +5647,13 @@ prose-mirror .editor-menu button::before {
 }
 .actor.sheet .window-content .tab {
   margin-left: 58px;
+}
+.actor.sheet .field-header.resource-label.flexrow {
+  justify-content: center;
+  gap: 12px;
+}
+.actor.sheet .field-header.resource-label.flexrow > * {
+  flex: 0 0 auto !important;
 }
 /* Reset Loom engine's .flexcol > * { flex: 1 } so vertical children keep their natural height */
 .wod5e .flexcol > * {

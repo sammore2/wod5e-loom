@@ -56,7 +56,7 @@
 
 /*__WOD5E_ORDER_00432__*/
 .actor.sheet .window-content section.tab {
-  overflow-y: scroll;
+  overflow-y: auto;
   align-items: flex-start;
   height: 100%;
 }
@@ -225,6 +225,21 @@
 .actor.sheet .actor-header input.charname {
   font-size: 30px;
   text-align: center;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  color: inherit;
+  font-family: inherit;
+}
+
+.actor.sheet .field-header.resource-label.flexrow {
+  justify-content: center;
+  gap: 12px;
+}
+.actor.sheet .field-header.resource-label.flexrow > * {
+  flex: 0 0 auto !important;
 }
 
 /*__WOD5E_ORDER_00474__*/
