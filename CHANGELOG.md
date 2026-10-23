@@ -4,10 +4,15 @@ All notable changes to this project are documented here.
 Each release tag `vX.Y.Z` publishes the section headed `## [X.Y.Z]` as its release notes.
 
 ## [2.0.1]
+###Added
 **Filepicker in Settings**: Filepicker added to the header and background fields in the system settings.
 
 ## [2.0.0]
+
+###Fixed
 **Placeholders**: Fix Settings Placeholders Inputs.
+
+###Changed
 **Redesign Sheet**: Redesign of the character sheet in the tabs and window style.
 
 ## [1.0.11]
