@@ -2698,7 +2698,7 @@ body.uk .actor.sheet {
 }
 .actor.sheet .tabs-container {
   position: absolute;
-  top: 16px;
+  top: 30px;
   right: 100%;
   left: auto;
   width: 52px;
