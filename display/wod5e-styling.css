@@ -5807,7 +5807,7 @@ prose-mirror .editor-menu button::before {
 .actor.sheet.loom-window .tabs-container,
 .actor.sheet.loom-window .loom-window-body .tabs-container {
   position: absolute !important;
-  top: 16px !important;
+  top: 30px !important;
   right: 100% !important;
   left: auto !important;
   width: 52px !important;
