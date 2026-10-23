@@ -25,9 +25,9 @@ export const loadSettings = async function () {
     type: String,
     default: 'default',
     choices: {
-      default: 'WOD5E.Settings.Default',
-      all: 'WOD5E.Settings.All',
-      none: 'WOD5E.Settings.None'
+      default: Loom.i18n.localize('WOD5E.Settings.Default'),
+      all: Loom.i18n.localize('WOD5E.Settings.All'),
+      none: Loom.i18n.localize('WOD5E.Settings.None') 
     },
     requiresReload: true
   })
@@ -41,8 +41,8 @@ export const loadSettings = async function () {
     type: String,
     default: 'plain',
     choices: {
-      plain: 'WOD5E.Settings.DiceStylePlain',
-      colored: 'WOD5E.Settings.DiceStyleColored'
+      plain: Loom.i18n.localize('WOD5E.Settings.DiceStylePlain'),
+      colored: Loom.i18n.localize('WOD5E.Settings.DiceStyleColored')
     },
     onChange: () => registerNativeDice()
   })
@@ -250,6 +250,7 @@ export const loadSettings = async function () {
     scope: 'world',
     config: true,
     default: '',
+    placeholder: 'modules/wod5e/assets/images/actor-headers/default.jpg',
     type: String,
     filePicker: 'image',
     onChange: async () => {
@@ -396,6 +397,47 @@ export const loadSettings = async function () {
         type: String
       })
     })
+  })
+  const attachSettingsFilePickers = () => {
+    document.querySelectorAll('input[data-action^="system-setting-wod5e-"]').forEach((input) => {
+      if (input.dataset.fpAttached) return
+      const key = input.dataset.action.replace('system-setting-wod5e-', '')
+      const def = Loom.settings?.settings?.get(`wod5e.${key}`)
+      if (!def?.filePicker) return
+
+      input.dataset.fpAttached = 'true'
+      if (input.parentElement) {
+        input.parentElement.style.display = 'flex'
+        input.parentElement.style.alignItems = 'center'
+        input.parentElement.style.gap = '6px'
+      }
+
+      const btn = document.createElement('button')
+      btn.type = 'button'
+      btn.className = 'btn btn-secondary file-picker-btn'
+      btn.style.padding = '6px 10px'
+      btn.innerHTML = '<i class="fas fa-file-import"></i>'
+      btn.addEventListener('click', (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        if (Loom.windowManager?.open && Loom.windows?.FilePickerWindow) {
+          Loom.windowManager.open(`file-picker-${key}`, Loom.windows.FilePickerWindow, {
+            onSelect: async (path) => {
+              if (!path) return
+              input.value = path
+              await Loom.settings.set('wod5e', key, path)
+            }
+          })
+        }
+      })
+
+      input.insertAdjacentElement('afterend', btn)
+    })
+  }
+
+  new MutationObserver(attachSettingsFilePickers).observe(document.body, {
+    childList: true,
+    subtree: true
   })
 }
 
