@@ -265,6 +265,7 @@ export const loadSettings = async function () {
     scope: 'world',
     config: true,
     default: '',
+    placeholder: 'modules/wod5e/assets/images/actor-backgrounds/default.jpg',
     type: String,
     filePicker: 'image',
     onChange: async () => {
@@ -280,6 +281,7 @@ export const loadSettings = async function () {
     scope: 'world',
     config: true,
     default: '',
+    placeholder: 'modules/wod5e/assets/images/xp-gain.png',
     type: String,
     filePicker: 'image',
     onChange: async (newIcon) => {
@@ -298,6 +300,7 @@ export const loadSettings = async function () {
     scope: 'world',
     config: true,
     default: '',
+    placeholder: 'modules/wod5e/assets/images/xp-spend.png',
     type: String,
     filePicker: 'image',
     onChange: async (newIcon) => {
@@ -316,6 +319,7 @@ export const loadSettings = async function () {
     scope: 'world',
     config: true,
     default: '',
+    placeholder: 'modules/wod5e/assets/images/xp-neutral.png',
     type: String,
     filePicker: 'image',
     onChange: async (newIcon) => {
