@@ -7,15 +7,17 @@ export async function _applyOblivionStains(actor, amount, rollMode) {
   if (!rollMode) rollMode = Loom.settings.get('core', 'rollMode')
 
   if (newStains > 0) {
-    const chatMessage = `<p class="roll-label uppercase">${Loom.i18n.localize('WOD5E.VTM.OblivionStainsTitle')}</p>
-    <p class="roll-content">${Loom.i18n.format('WOD5E.VTM.OblivionStainsContent', {
-      actor: actor.name,
-      amount
-    })}</p>`
-
-    // Post the message to the chat
+    // The chat card escapes `content`, so send title/description as an info card instead of HTML
     const message = Loom.ChatMessage.applyRollMode(
-      { speaker: Loom.ChatMessage.getSpeaker({ actor }), content: chatMessage },
+      {
+        speaker: Loom.ChatMessage.getSpeaker({ actor }),
+        flags: {
+          wod5e: {
+            name: Loom.i18n.localize('WOD5E.VTM.OblivionStainsTitle'),
+            description: Loom.i18n.format('WOD5E.VTM.OblivionStainsContent', { actor: actor.name, amount })
+          }
+        }
+      },
       rollMode
     )
     Loom.ChatMessage.create(message)
