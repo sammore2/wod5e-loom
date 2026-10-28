@@ -1,0 +1,32 @@
+/*__WOD5E_ORDER_01200__*/
+.loom-tooltip .wod5e-tip {
+  box-sizing: border-box;
+  max-height: var(--wod5e-tooltip-height, calc(100vh - 18px));
+  overflow: hidden;
+}
+.loom-tooltip .wod5e-tip .tip__text img {
+  display: block;
+  margin: 0 auto;
+  max-width: min(100%, 60px) !important;
+  max-height: 60px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain;
+}
+.loom-tooltip .wod5e-tip .tip__text {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.loom-tooltip:has(.wod5e-tip[data-wod5e-theme="vampire"]) { --wod5e-tip-color: var(--vampire-color-2); }
+.loom-tooltip:has(.wod5e-tip[data-wod5e-theme="werewolf"]) { --wod5e-tip-color: var(--werewolf-color-2); }
+.loom-tooltip:has(.wod5e-tip[data-wod5e-theme="hunter"]) { --wod5e-tip-color: var(--hunter-color-1); }
+.loom-tooltip:has(.wod5e-tip[data-wod5e-theme="mortal"]) { --wod5e-tip-color: var(--mortal-color-2); }
+.loom-tooltip:has(.wod5e-tip[data-wod5e-theme]) {
+  border-color: var(--wod5e-tip-color);
+  background: color-mix(in srgb, var(--wod5e-tip-color) 12%, #101016);
+}
+.loom-tooltip .wod5e-tip[data-wod5e-theme] {
+  --tip-accent: var(--wod5e-tip-color);
+}

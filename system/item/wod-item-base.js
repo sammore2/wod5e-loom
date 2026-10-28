@@ -289,6 +289,12 @@ export class WoDItemBase extends LoomHandlebarsMixin(
     const proseMirrors = html.querySelectorAll('prose-mirror')
     proseMirrors.forEach(pm => {
       pm.document = this.document
+      if (pm.shadowRoot && !pm.shadowRoot.querySelector('[data-wod5e-image-sizing]')) {
+        const style = document.createElement('style')
+        style.dataset.wod5eImageSizing = ''
+        style.textContent = '.loom-pm__content img, .ProseMirror img { display: block; margin: 0 auto; max-width: min(100%, 150px) !important; max-height: 150px !important; width: auto !important; height: auto !important; object-fit: contain; }'
+        pm.shadowRoot.appendChild(style)
+      }
       const btn = pm.querySelector('button.editor-edit, button.toggle, button')
       if (btn) btn.title = Loom.i18n?.localize ? Loom.i18n.localize('WOD5E.Edit') : 'Editar'
     })

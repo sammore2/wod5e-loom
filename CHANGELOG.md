@@ -3,6 +3,16 @@
 All notable changes to this project are documented here.
 Each release tag `vX.Y.Z` publishes the section headed `## [X.Y.Z]` as its release notes.
 
+## [2.0.2]
+
+### Added
+- Cards de tooltip para itens nas fichas, nos compêndios e na barra lateral, com cores correspondentes ao tipo de ator ou item quando identificado.
+- Descrições longas nos cards podem ser percorridas com a roda do mouse sobre o item.
+
+### Fixed
+- Poderes arrastados do compêndio mantêm sua disciplina e a tornam visível na ficha.
+- Cards longos se ajustam ao espaço disponível na tela; imagens das descrições são reduzidas e centralizadas nos cards e nas fichas de item.
+
 ## [2.0.1]
 ###Added
 **Filepicker in Settings**: Filepicker added to the header and background fields in the system settings.

@@ -1,5 +1,6 @@
 import { qs, on, val, get, fadeIn, fadeOut, each } from './utils.js'
 import './scripts/chat-roll-command.js'
+import { registerTooltips } from './scripts/tooltips.js'
 
 // Custom UI Classes
 import { WoDChatLog } from './ui/wod-chat-log.js'
@@ -132,6 +133,7 @@ if (typeof Loom !== 'undefined' && Loom.LoomItemSheet && !Object.getOwnPropertyD
 }
 
 Loom.LoomHooks.once('init', async function () {
+  registerTooltips()
   console.log('World of Darkness 5e | Initializing the World of Darkness 5e System')
 
   // Register system with LoomVTT systemRegistry so sidebar actor creation shows type selection dialog

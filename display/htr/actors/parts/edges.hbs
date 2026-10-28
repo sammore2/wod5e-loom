@@ -35,8 +35,8 @@
                             {{#each edge.perks as |perk key|}}
                                 <li>
                                     <span>
-                                        <div class="icon power-select{{#if perk.system.selected}} selected{{/if}}" data-action="selectEdgePerk" data-perk="{{perk.id}}" style="background-image: url('{{perk.imgUrl}}');"></div>
-                                        <a class="select-label" data-action="selectEdgePerk" data-perk="{{perk.id}}">{{perk.name}}</a>
+                                        <div class="icon power-select{{#if perk.system.selected}} selected{{/if}}" data-action="selectEdgePerk" data-perk="{{perk.id}}" data-tooltip-type="wod5e-card" data-tooltip-id="{{perk.id}}" style="background-image: url('{{perk.imgUrl}}');"></div>
+                                        <a class="select-label" data-action="selectEdgePerk" data-perk="{{perk.id}}" data-tooltip-type="wod5e-card" data-tooltip-id="{{perk.id}}">{{perk.name}}</a>
                                     </span>
                                 </li>
                             {{/each}}

@@ -1,6 +1,6 @@
 {
   "name": "wod5e",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "World of Darkness 5e community system adapted for LoomVTT",
   "scripts": {
     "gulp": "gulp",

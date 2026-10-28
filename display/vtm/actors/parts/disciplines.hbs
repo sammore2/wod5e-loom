@@ -54,8 +54,8 @@
                             {{#each discipline.powers as |power key|}}
                                 <li>
                                     <span>
-                                        <div class="icon power-select{{#if power.system.selected}} selected{{/if}}" data-action="selectDisciplinePower" data-power="{{power.id}}" style="background-image: url('{{power.imgUrl}}');"></div>
-                                        <a class="select-label" data-action="selectDisciplinePower" data-power="{{power.id}}">{{power.name}}</a>
+                                        <div class="icon power-select{{#if power.system.selected}} selected{{/if}}" data-action="selectDisciplinePower" data-power="{{power.id}}" data-tooltip-type="wod5e-card" data-tooltip-id="{{power.id}}" style="background-image: url('{{power.imgUrl}}');"></div>
+                                        <a class="select-label" data-action="selectDisciplinePower" data-power="{{power.id}}" data-tooltip-type="wod5e-card" data-tooltip-id="{{power.id}}">{{power.name}}</a>
                                     </span>
                                 </li>
                             {{/each}}

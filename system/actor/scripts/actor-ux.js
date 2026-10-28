@@ -118,24 +118,12 @@ export class ActorUX {
       const targetDiscipline = targetDisciplineEl?.dataset?.discipline?.toLowerCase()?.trim()
 
       let discKey = itemData.system?.discipline?.toLowerCase()?.trim()
-
-      if (targetDiscipline) {
-        discKey = targetDiscipline
-      } else if (!discKey || discKey === 'animalism') {
-        const selectedDisc = actor.system?.selectedDiscipline?.toLowerCase()?.trim()
-        if (selectedDisc) {
-          discKey = selectedDisc
-        }
-      }
-
       const discList = Disciplines.getList({})
-      if (!discKey || !discList[discKey]) {
-        const found = Object.keys(discList).find(
-          (k) => k === discKey || (discKey && discList[k]?.displayName?.toLowerCase() === discKey)
-        )
-        if (found) discKey = found
-        else discKey = 'animalism'
-      }
+      discKey = Object.keys(discList).find(
+        (k) => k === discKey || (discKey && discList[k]?.displayName?.toLowerCase() === discKey)
+      )
+      const selectedDisc = (actor.systemData?.selectedDiscipline ?? actor.system?.selectedDiscipline)?.toLowerCase()?.trim()
+      discKey ??= [targetDiscipline, selectedDisc].find((key) => key && discList[key]) ?? 'animalism'
 
       itemData.system.discipline = discKey
     }
@@ -205,18 +193,19 @@ export class ActorUX {
     // Auto-enable visibility and selection for disciplines on Vampire/Ghoul
     if (itemData.type === 'power' && actor && createdItem) {
       const discKey = itemData.system?.discipline
-      if (discKey && actor.system?.disciplines) {
+      const actorSystem = actor.systemData ?? actor.system
+      if (discKey && actorSystem?.disciplines) {
         const patches = [
           [['disciplines', discKey, 'visible'], true],
           [['disciplines', discKey, 'selected'], true],
           [['selectedDiscipline'], discKey],
           [['selectedDisciplinePower'], createdItem.id ?? createdItem._id]
         ]
-        const prevDisc = actor.system?.selectedDiscipline
-        if (prevDisc && prevDisc !== discKey && actor.system.disciplines[prevDisc]) {
+        const prevDisc = actorSystem.selectedDiscipline
+        if (prevDisc && prevDisc !== discKey && actorSystem.disciplines[prevDisc]) {
           patches.push([['disciplines', prevDisc, 'selected'], false])
         }
-        const prevPower = actor.system?.selectedDisciplinePower
+        const prevPower = actorSystem.selectedDisciplinePower
         if (prevPower) {
           const items = getActorItems(actor)
           const prevItem = items.find((i) => i.id === prevPower)
@@ -226,7 +215,7 @@ export class ActorUX {
         }
         await updateItemData(createdItem, { data: applySystemPatch(createdItem.data ?? createdItem.systemData, [[['selected'], true]]) })
 
-        const systemData = applySystemPatch(actor.systemData, patches)
+        const systemData = applySystemPatch(actorSystem, patches)
         await actor.update({ systemData })
       }
     }
