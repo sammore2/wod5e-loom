@@ -340,8 +340,10 @@ export class wod5eAPI {
         if (pathValue === undefined) break // Break the loop if property is not found
       }
 
-      // Add the value from the path to the total; if the value isn't a number, just default to 0
-      total += typeof pathValue === 'number' ? pathValue : 0
+      // Add the value from the path to the total. A missing attribute counts as 1, the same as the sheet
+      // shows for it (new sheets start attributes at 1); missing skills and anything else count as 0
+      const fallback = path.startsWith('attributes.') ? 1 : 0
+      total += typeof pathValue === 'number' ? pathValue : fallback
     }
 
     return total

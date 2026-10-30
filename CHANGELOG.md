@@ -3,6 +3,11 @@
 All notable changes to this project are documented here.
 Each release tag `vX.Y.Z` publishes the section headed `## [X.Y.Z]` as its release notes.
 
+## [2.0.3]
+
+### Fixed
+- Atributos que a ficha não tem salvos (fichas criadas antes do atributo existir) contam 1 na rolagem, como a ficha mostra, em vez de 0. Habilidades não mudam.
+
 ## [2.0.2]
 
 ### Added
