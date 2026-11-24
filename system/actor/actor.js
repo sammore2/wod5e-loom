@@ -1,5 +1,6 @@
 // Data preparation functions
 import { prepareSkills } from './scripts/prepare-skills.js'
+import { getActorItems } from '../scripts/embedded-items.js'
 import { prepareAttributes } from './scripts/prepare-attributes.js'
 import { getDerivedHealth } from './scripts/on-health-change.js'
 import { getDerivedWillpower } from './scripts/on-willpower-change.js'
@@ -264,8 +265,11 @@ export class WoDActor extends BaseActorClass {
     // which this port never carried over. Written to `derivedData` for the same reason
     // as `bonuses` above: `actor.system` is a throwaway snapshot, `actor.derivedData` is
     // what actually persists across calls (see `situational-modifiers.js`).
+    // `actorData.items` is often empty or raw rows (only `.data`/`.systemData`, no
+    // `.system`), so every Quality/Background bonus was silently dropped. getActorItems
+    // finds the real list and normalizes `.system` — same as prepareDisciplines does.
     const itemModifiers = [];
-    for (const item of actorData.items || []) {
+    for (const item of getActorItems(actorData)) {
       const itemBonuses = item?.system?.bonuses;
       if (Array.isArray(itemBonuses) && itemBonuses.length > 0 && !item?.system?.suppressed) {
         itemModifiers.push(...itemBonuses);

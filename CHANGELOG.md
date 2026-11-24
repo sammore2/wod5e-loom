@@ -3,6 +3,11 @@
 All notable changes to this project are documented here.
 Each release tag `vX.Y.Z` publishes the section headed `## [X.Y.Z]` as its release notes.
 
+## [2.0.4]
+
+### Fixed
+- Modificadores de itens (qualidades, defeitos, antecedentes e outros) voltam a entrar nas pools de dados. Antes eram ignorados porque os itens do ator não eram encontrados ao juntar os bônus.
+
 ## [2.0.3]
 
 ### Fixed
