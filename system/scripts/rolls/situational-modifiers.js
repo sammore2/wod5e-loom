@@ -1,3 +1,5 @@
+import { getActorItems, refreshActorItems } from '../embedded-items.js'
+
 /**
  * Function to help collect any situational modifiers
  *
@@ -12,14 +14,16 @@ export async function getSituationalModifiers({ actor, selectors }) {
   // Surge, etc.) and item-based bonuses that `prepareDerivedData` computes never actually
   // survive on it: they're written into `actor.derivedData`, a plain persistent property,
   // which is the only place they can reliably be read back from.
-  const hasDerivedItemModifiers = Array.isArray(actor.derivedData?.itemModifiers)
+  // Item bonuses are read fresh from the server at roll time: `derivedData.itemModifiers`
+  // is only rebuilt by prepareDerivedData, which an item edit does not re-run, so a new or
+  // edited Quality/Background modifier only applied after reloading the page.
+  await refreshActorItems(actor)
+  const itemModifiers = getActorItems(actor)
+    .filter((item) => !item?.system?.suppressed)
+    .flatMap((item) => (Array.isArray(item?.system?.bonuses) ? item.system.bonuses : []))
   const derivedBonuses = [
     ...(Array.isArray(actor.derivedData?.bonuses) ? actor.derivedData.bonuses : []),
-    ...(hasDerivedItemModifiers
-      ? actor.derivedData.itemModifiers
-      : Array.isArray(data?.itemModifiers)
-        ? data.itemModifiers
-        : [])
+    ...itemModifiers
   ]
 
   // Coleta especializações de perícias (skills) do ator.

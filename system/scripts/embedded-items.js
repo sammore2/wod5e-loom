@@ -77,6 +77,21 @@ export function getActorItems(actor) {
   })
 }
 
+/**
+ * Re-reads the actor's items from the server into `actor._embeddedItems` (what
+ * getActorItems reads first) — the same call the actor sheet makes on render.
+ * Keeps the cached list when the request fails.
+ */
+export async function refreshActorItems(actor) {
+  if (!actor?.id) return
+  try {
+    const fresh = await Loom.api.get(`/actors/${actor.id}?populate=true`)
+    if (Array.isArray(fresh?.items)) actor._embeddedItems = fresh.items
+  } catch (err) {
+    console.warn('World of Darkness 5e | Could not refresh actor items:', err)
+  }
+}
+
 // Update an item document, falling back to the REST API when the object
 // at hand isn't a live document instance (e.g. a raw row)
 export async function updateItemData(item, changes) {

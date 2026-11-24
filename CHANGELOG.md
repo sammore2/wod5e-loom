@@ -3,6 +3,11 @@
 All notable changes to this project are documented here.
 Each release tag `vX.Y.Z` publishes the section headed `## [X.Y.Z]` as its release notes.
 
+## [2.0.5]
+
+### Fixed
+- Modificadores de itens criados ou editados (inclusive os de uma habilidade específica, como Performance) já valem na próxima rolagem, sem precisar recarregar a página.
+
 ## [2.0.4]
 
 ### Fixed
